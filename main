@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		Player p = new Player();
+		System.out.println("  _    _          _____ _  __       _______ _____   ____  _   _ \r\n"
+				+ " | |  | |   /\\   / ____| |/ /    /\\|__   __|  __ \\ / __ \\| \\ | |\r\n"
+				+ " | |__| |  /  \\ | |    | ' /    /  \\  | |  | |__) | |  | |  \\| |\r\n"
+				+ " |  __  | / /\\ \\| |    |  <    / /\\ \\ | |  |  _  /| |  | | . ` |\r\n"
+				+ " | |  | |/ ____ \\ |____| . \\  / ____ \\| |  | | \\ \\| |__| | |\\  |\r\n"
+				+ " |_|  |_/_/    \\_\\_____|_|\\_\\/_/    \\_\\_|  |_|  \\_\\\\____/|_| \\_|");
+		System.out.println("Bienvenue sur Hackatron, le meilleur logiciel de piratage connu");
+		System.out.println("***********************************************************************");
+		System.out.println(
+				"Votre objectif est de télécharger Sudoku.java, vous savez que ce fichier est situé quelquepart sur le réseau ");
+		System.out.println("Utilisez les commandes données pour parcourir les serveurs et trouver le fichier");
+		System.out.println("Faites attention, certains serveurs sont protégés par des antivirus");
+		System.out.println("Tapez help pour obtenir des informations sur les commandes disponibles");
+		System.out.println("***********************************************************************");
+		System.out.println("Saisissez votre nom d'utilisateur: ");
+		p.setPseudo(sc.nextLine());
+
+		// CREATION DE SERVEURS
+		String[] h1 = { "contenu1 hub" };
+		Server hub = new Server("Hub server", h1);
+
+		String[] s1 = { "file1.txt", "file2.pdf", "file3.ocd" };
+		Server serv = new Server("serveur test", s1);
+
+		// DEFINITION DU SERVEUR DE DEPART
+		p.setCurrentServ(serv);
+
+		System.out.println("Votre nom d'utilisateur a été défini à: " + p.getPseudo());
+
+		Command c = new Command(p);
+		c.setWord(sc.nextLine());
+
+		while (!c.getWord().equals("quit")) {
+			// interactions
+			switch (c.getWord()) {
+			case "ls":
+				Command.ls(p.getCurrentServ(), p);
+				break;
+			case "help":
+				Command.help();
+				break;
+			case "backdoor":
+				Command.backdoor();
+				break;
+			case "ifconfig":
+				Command.ifconfig(p);
+				break;
+			default:
+				System.out.println("Commande Inconnue...");
+				break;
+			}
+			c = new Command(p);
+			c.setWord(sc.nextLine());
+		}
+		System.out.println("Fermeture de votre session Hackatron...");
+	}
+}
