@@ -1,0 +1,32 @@
+
+public class Server {
+
+	// Attributs
+	private String name;
+	private String[] content;
+	private boolean backdoored;
+
+	// Constructeur
+	public Server(String n, String[] c) {
+		this.name = n;
+		this.backdoored = false;
+		this.content = c;
+	}
+
+	//Getters & Setters
+	public void setVoisins(Server a, Server b, Server c, Server d) {
+	}
+
+	public String[] getContent() {
+		return content;
+	}
+
+	public void setContent(String[] content) {
+		this.content = content;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+}
