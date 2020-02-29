@@ -1,10 +1,10 @@
-
 public class Server {
 
 	// Attributs
 	private String name;
 	private String[] content;
 	private boolean backdoored;
+	private Server[] serveursVoisins;
 
 	// Constructeur
 	public Server(String n, String[] c) {
@@ -14,7 +14,12 @@ public class Server {
 	}
 
 	//Getters & Setters
-	public void setVoisins(Server a, Server b, Server c, Server d) {
+	public void setVoisins(Server[] voisins) {
+		this.serveursVoisins = voisins;
+	}
+	
+	public Server[] getVoisins() {
+		return this.serveursVoisins;
 	}
 
 	public String[] getContent() {
