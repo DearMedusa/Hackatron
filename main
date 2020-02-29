@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class main {
 
 	public static void main(String[] args) {
-
+		boolean running = true;
 		Scanner sc = new Scanner(System.in);
 		Player p = new Player();
 		System.out.println("  _    _          _____ _  __       _______ _____   ____  _   _ \r\n"
@@ -27,7 +27,7 @@ public class main {
 		String[] h1 = { "contenu1 hub" };
 		Server hub = new Server("Hub server", h1);
 
-		String[] s1 = { "file1.txt", "file2.pdf", "file3.ocd" };
+		String[] s1 = { "NePasOuvrirEnPublic.png", "file2.pdf", "file3.ocd" };
 		Server serv = new Server("serveur test", s1);
 
 		// DEFINITION DU SERVEUR DE DEPART
@@ -35,12 +35,21 @@ public class main {
 
 		System.out.println("Votre nom d'utilisateur a été défini à: " + p.getPseudo());
 
-		Command c = new Command(p);
-		c.setWord(sc.nextLine());
 
-		while (!c.getWord().equals("quit")) {
+		// Get Input
+		Scanner SC = new Scanner(System.in);
+		Command c = new Command();
+		
+
+		//
+
+		while (running) {
+			c.input(p, sc);
 			// interactions
-			switch (c.getWord()) {
+			switch (c.getWord1()) {
+			case "quit":
+				running = false;
+				break;
 			case "ls":
 				Command.ls(p.getCurrentServ(), p);
 				break;
@@ -53,12 +62,22 @@ public class main {
 			case "ifconfig":
 				Command.ifconfig(p);
 				break;
+			case "connect":
+				Command.connect(c.getWord2());
+				break;
+			case "map":
+				Command.map();
+				break;
+			case "bruteforce":
+				Command.bruteforce();
+				break;
+			case "download":
+				Command.download(54);
+				break;
 			default:
 				System.out.println("Commande Inconnue...");
 				break;
 			}
-			c = new Command(p);
-			c.setWord(sc.nextLine());
 		}
 		System.out.println("Fermeture de votre session Hackatron...");
 	}
