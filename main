@@ -6,6 +6,36 @@ public class main {
 		boolean running = true;
 		Scanner sc = new Scanner(System.in);
 		Player p = new Player();
+		Command c = new Command();
+
+		// CREATION DE SERVEURS
+		String[] h1 = { "" };
+		Server hub = new Server("Hub server", h1);
+
+		String[] s1 = { "NePasOuvrirEnPublic.png", "NotesDuDS.xl", "MoiQuiDanse.mp4" };
+		Server serv1 = new Server("serveur 1", s1);
+		
+		String[] s2 = { "Sudoku.java", "HistoiresDeJojo.html", "AvisDesHaters.trash" };
+		Server serv2 = new Server("serveur 2", s1);
+		
+		String[] s3 = { "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3" };
+		Server serv3 = new Server("serveur 3", s1);
+		
+		// CONNEXION DES SERVEURS ENTRE EUX
+		
+		Server[] voisinsHub = {serv1,serv2,serv3};
+		hub.setVoisins(voisinsHub);
+		Server[] voisinsserv1 = {hub,serv2};
+		serv1.setVoisins(voisinsHub);
+		Server[] voisinsserv2 = {hub,serv1};
+		serv2.setVoisins(voisinsHub);
+		Server[] voisinsserv3 = {hub};
+		serv3.setVoisins(voisinsHub);
+
+		// DEFINITION DU SERVEUR DE DEPART
+		p.setCurrentServ(hub);
+		
+		// INTRO
 		System.out.println("  _    _          _____ _  __       _______ _____   ____  _   _ \r\n"
 				+ " | |  | |   /\\   / ____| |/ /    /\\|__   __|  __ \\ / __ \\| \\ | |\r\n"
 				+ " | |__| |  /  \\ | |    | ' /    /  \\  | |  | |__) | |  | |  \\| |\r\n"
@@ -23,26 +53,10 @@ public class main {
 		System.out.print("Saisissez votre nom d'utilisateur: ");
 		p.setPseudo(sc.nextLine());
 
-		// CREATION DE SERVEURS
-		String[] h1 = { "contenu1 hub" };
-		Server hub = new Server("Hub server", h1);
-
-		String[] s1 = { "NePasOuvrirEnPublic.png", "file2.pdf", "file3.ocd" };
-		Server serv = new Server("serveur test", s1);
-
-		// DEFINITION DU SERVEUR DE DEPART
-		p.setCurrentServ(serv);
-
 		System.out.println("Votre nom d'utilisateur a été défini à: " + p.getPseudo());
-
-
-		// Get Input
-		Scanner SC = new Scanner(System.in);
-		Command c = new Command();
 		
-
-		//
-
+		// GAME LOOP
+		
 		while (running) {
 			c.input(p, sc);
 			// interactions
@@ -63,7 +77,7 @@ public class main {
 				Command.ifconfig(p);
 				break;
 			case "connect":
-				Command.connect(c.getWord2());
+				Command.connect(c.getWord2(),p);
 				break;
 			case "map":
 				Command.map();
