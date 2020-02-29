@@ -20,7 +20,7 @@ public class main {
 		System.out.println("Faites attention, certains serveurs sont protégés par des antivirus");
 		System.out.println("Tapez help pour obtenir des informations sur les commandes disponibles");
 		System.out.println("***********************************************************************");
-		System.out.println("Saisissez votre nom d'utilisateur: ");
+		System.out.print("Saisissez votre nom d'utilisateur: ");
 		p.setPseudo(sc.nextLine());
 
 		// CREATION DE SERVEURS
