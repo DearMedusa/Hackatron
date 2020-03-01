@@ -77,7 +77,7 @@ public class main {
 				Command.ifconfig(p);
 				break;
 			case "connect":
-				Command.connect(c.getWord2(),p);
+				Command.connect(p, c.getWord2());
 				break;
 			case "map":
 				Command.map();
@@ -86,7 +86,7 @@ public class main {
 				Command.bruteforce();
 				break;
 			case "download":
-				Command.download(54);
+				Command.download(p, Integer.valueOf(c.getWord2()));
 				break;
 			default:
 				System.out.println("Commande Inconnue...");
