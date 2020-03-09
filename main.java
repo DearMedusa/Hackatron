@@ -12,25 +12,28 @@ public class main {
 		String[] h1 = { "" };
 		Server hub = new Server("Hub server", h1);
 
-		String[] s1 = { "NePasOuvrirEnPublic.png", "NotesDuDS.xl", "MoiQuiDanse.mp4" };
+		String[] s1 = { "NePasOuvrirEnPublic.png", "NotesDuDS.xl", "MoiQuiDanse.mp4","ChienQuiDort.gif"};
 		Server serv1 = new Server("serveur 1", s1);
 		
-		String[] s2 = { "Sudoku.java", "HistoiresDeJojo.html", "AvisDesHaters.trash" };
-		Server serv2 = new Server("serveur 2", s1);
+		String[] s2 = { "Sudoku.java", "HistoiresDeJojo.html", "AvisDesHaters.trash"};
+		Server serv2 = new Server("serveur 2", s2);
 		
-		String[] s3 = { "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3" };
-		Server serv3 = new Server("serveur 3", s1);
+		String[] s3 = { "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3", "Fortnite.exe" };
+		Server serv3 = new Server("serveur 3", s3);
+		
+		String[] s4 = { "a","a","a","a","a","a","a"};
+		Server serv4 = new Server("serveur 4", s4);
 		
 		// CONNEXION DES SERVEURS ENTRE EUX
 		
 		Server[] voisinsHub = {serv1,serv2,serv3};
 		hub.setVoisins(voisinsHub);
-		Server[] voisinsserv1 = {hub,serv2};
-		serv1.setVoisins(voisinsHub);
-		Server[] voisinsserv2 = {hub,serv1};
-		serv2.setVoisins(voisinsHub);
-		Server[] voisinsserv3 = {hub};
-		serv3.setVoisins(voisinsHub);
+		Server[] voisinsserv1 = {hub,serv2,serv3};
+		serv1.setVoisins(voisinsserv1);
+		Server[] voisinsserv2 = {hub,serv1,serv3};
+		serv2.setVoisins(voisinsserv2);
+		Server[] voisinsserv3 = {hub,serv1,serv2};
+		serv3.setVoisins(voisinsserv3);
 
 		// DEFINITION DU SERVEUR DE DEPART
 		p.setCurrentServ(hub);
@@ -45,15 +48,15 @@ public class main {
 		System.out.println("Bienvenue sur Hackatron, le meilleur logiciel de piratage connu");
 		System.out.println("***********************************************************************");
 		System.out.println(
-				"Votre objectif est de télécharger Sudoku.java, vous savez que ce fichier est situé quelquepart sur le réseau ");
-		System.out.println("Utilisez les commandes données pour parcourir les serveurs et trouver le fichier");
-		System.out.println("Faites attention, certains serveurs sont protégés par des antivirus");
+				"Votre objectif est de telecharger Sudoku.java, vous savez que ce fichier est situe quelquepart sur le reseau ");
+		System.out.println("Utilisez les commandes donnees pour parcourir les serveurs et trouver le fichier");
+		System.out.println("Faites attention, certains serveurs sont proteges par des antivirus");
 		System.out.println("Tapez help pour obtenir des informations sur les commandes disponibles");
 		System.out.println("***********************************************************************");
 		System.out.print("Saisissez votre nom d'utilisateur: ");
 		p.setPseudo(sc.nextLine());
 
-		System.out.println("Votre nom d'utilisateur a été défini à: " + p.getPseudo());
+		System.out.println("Votre nom d'utilisateur a ete defini a: " + p.getPseudo());
 		
 		// GAME LOOP
 		
