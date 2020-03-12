@@ -4,11 +4,13 @@ public class Player {
 	// Attributs
 	private String pseudo;
 	private Server currentServ;
+	private int niveau;
 
 	// Constructeur
 	public Player() {
 		this.pseudo = null;
 		this.currentServ = null;
+		this.niveau = 1;
 	}
 
 	public Player(String ps) {
@@ -31,5 +33,19 @@ public class Player {
 	public Server getCurrentServ() {
 		return currentServ;
 	}
+
+//rajouté par Louise **********************************************************************
+	public void increaselvl()
+	{
+		this.niveau += 1;
+	}
+
+	public int getlvlplayer()
+	{
+		return this.niveau;
+	}
+
+
+
 
 }

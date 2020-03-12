@@ -1,4 +1,6 @@
 public class Text {
+
+//rajoutée par Louise ****************************************************
   private String S;
 
   public Text()

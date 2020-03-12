@@ -5,7 +5,6 @@ public class Command {
 	// Attributs
 	private String word1;
 	private String word2;
-	private static boolean backdoor;
 
 	// Constructeur
 	public Command() {
@@ -52,7 +51,7 @@ public class Command {
 
 	public static void backdoor(Server Serv) {
 		System.out.println("[================]100% Backdoor installée avec succès");
-		backdoor = true;
+		serv.setbackdoor();
 	}
 
 	public static void bruteforce() {
@@ -85,6 +84,18 @@ public class Command {
 	public static void download(Player p, int i) {
 		String[] contenu = p.getCurrentServ().getContent();
 		System.out.println("Telechargement de :" + contenu[i]);
+	}
+
+//Rajouté par Louise ***********************************************************************************************************************
+	public void kill(Serveur Serv, Player p)
+	{
+		Antivirus A = Serv.getAntivirus();
+		if(A.getlvl() <= p.getlvlplayer()){
+			A.killAvast();
+		}
+		else {
+			System.out.println("Vous ne pouvez pas desactiver cet antivirus");
+		}
 	}
 
 	// Getters & Setters
