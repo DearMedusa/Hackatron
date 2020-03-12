@@ -5,6 +5,7 @@ public class Command {
 	// Attributs
 	private String word1;
 	private String word2;
+	private static boolean backdoor;
 
 	// Constructeur
 	public Command() {
@@ -49,8 +50,9 @@ public class Command {
 		System.out.println("quit: ferme la session Hackatron");
 	}
 
-	public static void backdoor() {
+	public static void backdoor(Server Serv) {
 		System.out.println("[================]100% Backdoor installée avec succès");
+		backdoor = true;
 	}
 
 	public static void bruteforce() {
