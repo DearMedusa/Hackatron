@@ -26,8 +26,7 @@ public class Generateur {
     "incorrect",
     "motdepasse",
     "1234",
-    "azertyuiop",
-    "maman"
+    "azertyuiop"
   };
 
   private static String S;
@@ -43,7 +42,7 @@ public class Generateur {
     S = "bonjour je génère des trucs";
   }
 
-  public generemdp()
+  public String generemdp()
   {
     return motsdepasses[(int)Math.random() * ( motsdepasses.length - 0 )];
     /*

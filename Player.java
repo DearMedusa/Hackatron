@@ -4,7 +4,7 @@ public class Player {
 	// Attributs
 	private String pseudo;
 	private Server currentServ;
-	private int niveau;
+	private int niveau; //bonjour j'ai rajouté ça
 
 	// Constructeur
 	public Player() {

@@ -7,7 +7,7 @@ public class Server {
 	private String[] content;
 	private boolean backdoored;
 	private Server[] serveursVoisins;
-	private Antivirus Avast;
+	private Antivirus Avast; //bonjour j'ai rajouté ça aussi
 
 	/*
 	* Constructeurs
