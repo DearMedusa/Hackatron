@@ -51,7 +51,7 @@ public class Command {
 
 	public static void backdoor(Server Serv) {
 		System.out.println("[================]100% Backdoor installée avec succès");
-		serv.setbackdoor();
+		Serv.setbackdoor();
 	}
 
 	public static void bruteforce() {
@@ -87,7 +87,7 @@ public class Command {
 	}
 
 //Rajouté par Louise ***********************************************************************************************************************
-	public void kill(Serveur Serv, Player p)
+	public void kill(Server Serv, Player p)
 	{
 		Antivirus A = Serv.getAntivirus();
 		if(A.getlvl() <= p.getlvlplayer()){

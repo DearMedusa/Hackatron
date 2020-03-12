@@ -10,7 +10,7 @@ public class Antivirus {
   public Antivirus(String S, int lvl){
     this.name = S;
     this.niveau = lvl;
-    Alive = true;
+    Active = true;
   }
 
   public String getname()

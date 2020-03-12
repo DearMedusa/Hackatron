@@ -1,12 +1,8 @@
 public class Text {
 
 //rajoutée par Louise ****************************************************
-  private String S;
 
-  public Text()
-  {
-    S = "crame ta mère putain, j'ai pas réussi à l'utiliser autrement que comme ça cette classe je suis débile";
-  }
+  public Text(){}
 
   public void Logo()
   {

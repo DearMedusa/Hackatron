@@ -1,5 +1,8 @@
 
 public class Player {
+/*
+* Player est un singleton
+*/
 
 	// Attributs
 	private String pseudo;
@@ -7,14 +10,20 @@ public class Player {
 	private int niveau; //bonjour j'ai rajouté ça
 
 	// Constructeur
-	public Player() {
+	private Player() {
 		this.pseudo = null;
 		this.currentServ = null;
 		this.niveau = 1;
 	}
 
-	public Player(String ps) {
-		this.pseudo = ps;
+	private static class PlayerHolder
+	{
+		private final static Player Instance = new Player();
+	}
+
+	public static Player getInstance()
+	{
+		return PlayerHolder.Instance;
 	}
 
 	//Getters & Setters
