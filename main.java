@@ -5,7 +5,7 @@ public class main {
 	public static void main(String[] args) {
 		boolean running = true;
 		Scanner sc = new Scanner(System.in);
-		Player p = Player.getInstance(); //marche pas, met un cannot find symbol sur la methode je comprends pas pourquoi
+		Player p = Player.getInstance();
 		Command c = new Command();
 
 		// CREATION DE SERVEURS
