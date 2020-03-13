@@ -51,7 +51,7 @@ public class Command {
 
 	public static void backdoor(Server Serv) {
 		System.out.println("[================]100% Backdoor installée avec succès");
-		Serv.setbackdoor();
+		Serv.setbackdoor(true);
 	}
 
 	public static void bruteforce() {
