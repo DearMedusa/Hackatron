@@ -1,8 +1,8 @@
-public class Text {
+public class Initializer {
 
 //rajoutée par Louise ****************************************************
 
-  public Text(){}
+  public Initializer(){}
 
   public void Logo()
   {

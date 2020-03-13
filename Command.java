@@ -90,13 +90,17 @@ public class Command {
 //Rajouté par Louise ***********************************************************************************************************************
 	public void kill(Server Serv, Player p)
 	{
-		//ajouter un check pour savoir si on le serv a un antivirus ou pas
-		Antivirus A = Serv.getAntivirus();
-		if(A.getlvl() <= p.getlvlplayer()){
-			A.killAvast();
+		Antivirus A = Serv.getAntivirus(); //récupère l'antivirus
+		if (A != NULL){ //check si le serveur a effectivement un antivirus
+			if(A.getlvl() <= p.getlvlplayer()){
+				A.killAvast(); //désactive l'antivirus
+			}
+			else {
+				System.out.println("Vous ne pouvez pas desactiver cet antivirus");
+			}
 		}
 		else {
-			System.out.println("Vous ne pouvez pas desactiver cet antivirus");
+			System.out.println("FATAL ERROR : Ce serveur n'a pas d'antivirus");
 		}
 	}
 

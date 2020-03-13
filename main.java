@@ -23,7 +23,7 @@ public class main {
 
 		String[] s4 = { "a", "a", "a", "a", "a", "a", "a" };
 		Server serv4 = new Server("serveur 4", s4);
-		
+
 		//Pour avoir une commande map, il sera nécessaire de mettre tout les serveurs dans un tableau, accessible depuis la classe map
 
 		// CONNEXION DES SERVEURS ENTRE EUX
@@ -41,7 +41,7 @@ public class main {
 		p.setCurrentServ(hub);
 
 		// INTRO
-		Text T = new Text();
+		Initializer T = new Initializer();
 		T.Logo();
 		T.Introduction();
 

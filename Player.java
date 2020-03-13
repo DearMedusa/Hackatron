@@ -7,13 +7,13 @@ public class Player {
 	// Attributs
 	private String pseudo;
 	private Server currentServ;
-	private int niveau; //bonjour j'ai rajouté ça
+	private int botnet; //niveau du joueur
 
 	// Constructeur
 	private Player() {
 		this.pseudo = null;
 		this.currentServ = null;
-		this.niveau = 1;
+		this.botnet = 1;
 	}
 
 	private static class PlayerHolder
@@ -46,12 +46,12 @@ public class Player {
 //rajouté par Louise **********************************************************************
 	public void increaselvl()
 	{
-		this.niveau += 1;
+		this.botnet += 1;
 	}
 
 	public int getlvlplayer()
 	{
-		return this.niveau;
+		return this.botnet;
 	}
 
 

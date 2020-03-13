@@ -1,7 +1,5 @@
 public class Antivirus {
 
-//rajoutée par Louise **********************************************************
-
   private String name;
   private int niveau;
   private static boolean Active;
