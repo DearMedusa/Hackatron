@@ -1,23 +1,14 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Graphics;
 
-public class map{
+import javax.swing.JPanel;
+
+public class Map extends JPanel{
 	
-	public map() {
-		
-		JFrame frame = new JFrame("Reseau");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JLabel textLabel = new JLabel("CARTE DU RESEAU INFORMATIQUE DE L'IUT NANCY-CHARLEMAGNE",SwingConstants.CENTER);
-		textLabel.setPreferredSize(new Dimension(300,300));
-		frame.getContentPane().add(textLabel,BorderLayout.CENTER);
-		frame.pack();
-		frame.setVisible(true);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.black);
+		g.drawOval(50, 50, 50, 50);
 	}
-	
-	
 
 }
