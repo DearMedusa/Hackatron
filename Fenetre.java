@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -11,6 +12,7 @@ public class Fenetre{
 		
 		Map map = new Map();
 		map.setPreferredSize(new Dimension(600,480));
+		map.setBackground(Color.black);
 		
 		frame.setContentPane(map);;
 		frame.pack();
