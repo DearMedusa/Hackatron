@@ -79,7 +79,7 @@ public class Command {
 
 	public static void map() {
 		System.out.println("Placeholder map, creates new window w/ network map");
-		Map n = new Map();
+		Fenetre n = new Fenetre();
 	}
 
 	public static void download(Player p, int i) {
