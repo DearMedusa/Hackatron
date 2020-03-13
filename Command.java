@@ -89,6 +89,7 @@ public class Command {
 //Rajouté par Louise ***********************************************************************************************************************
 	public void kill(Server Serv, Player p)
 	{
+		//ajouter un check pour savoir si on le serv a un antivirus ou pas
 		Antivirus A = Serv.getAntivirus();
 		if(A.getlvl() <= p.getlvlplayer()){
 			A.killAvast();
