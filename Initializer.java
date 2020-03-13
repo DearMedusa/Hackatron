@@ -1,8 +1,22 @@
 public class Initializer {
 
-//rajoutée par Louise ****************************************************
+private Server[] tableaudeServ;
+private int difficulty;
 
   public Initializer(){}
+
+/*
+* 3 niveaux de difficulté, représentés par les entiers 1, 2 et 3
+*/
+  public Server[] GenerateServ(int lvl)
+  {
+    if (lvl == 1){
+      for (int i = 0; i < 5 ; i++) {
+        
+      }
+    }
+    return ;
+  }
 
   public void Logo()
   {
