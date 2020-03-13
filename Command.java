@@ -78,13 +78,16 @@ public class Command {
 	}
 
 	public static void map() {
-		System.out.println("Placeholder map, creates new window w/ network map");
+		System.out.println("Ouverture de la fenetre du reseau...");
 		Fenetre n = new Fenetre();
 	}
 
 	public static void download(Player p, int i) {
 		String[] contenu = p.getCurrentServ().getContent();
 		System.out.println("Telechargement de :" + contenu[i-1]);
+		if(contenu[i-1].equals("Sudoku.java")){
+			System.out.println("Vous avez trouve le fichier, vous avez gagne. Bravo" + p.getName() + "!");
+		}
 	}
 
 //Rajouté par Louise ***********************************************************************************************************************
