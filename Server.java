@@ -54,9 +54,9 @@ public class Server {
 
 
 //rajouté par Louise ************************************************************************************
-	public void setbackdoor()
+	public void setbackdoor(boolean b)
 	{
-		this.backdoored = true;
+		this.backdoored = b;
 	}
 
 	public Antivirus getAntivirus()
