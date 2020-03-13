@@ -45,7 +45,7 @@ public class Command {
 		System.out.println("download X: télécharge le fichier X sur du serveur courant");
 		System.out.println("connect X: se connecte au serveur voisin X");
 		System.out.println("bruteforce: affiche une partie du mot de passe d'un serveur");
-		System.out.println("botnet:");
+		System.out.println("kill:");
 		System.out.println("quit: ferme la session Hackatron");
 	}
 
@@ -79,11 +79,12 @@ public class Command {
 
 	public static void map() {
 		System.out.println("Placeholder map, creates new window w/ network map");
+		Map n = new Map();
 	}
 
 	public static void download(Player p, int i) {
 		String[] contenu = p.getCurrentServ().getContent();
-		System.out.println("Telechargement de :" + contenu[i]);
+		System.out.println("Telechargement de :" + contenu[i-1]);
 	}
 
 //Rajouté par Louise ***********************************************************************************************************************
