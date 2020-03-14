@@ -87,14 +87,14 @@ public class Generateur {
   public static String[] TabNomFichiers()
   {
     int Longueurdutableau = (int)Math.random() * ( 7 - 1 ); //minimum 1 fichier
-    String[] Tab; //Contient les noms de fichiers
+    String[] Tab = null; //Contient les noms de fichiers
 
     for (int i = 0 ; i <= Longueurdutableau; i++ ) {
       /*
       * Remplis le tableau avec des noms de fichiers aléatoires sélectionnés
       * dans l'attribut de la table Generateur
       */
-      Tab[i] = NomsDeFichiers[(int)Math.random() * ( NomsDeFichiers.length - 0 )]
+      Tab[i] = NomsDeFichiers[(int)Math.random() * ( NomsDeFichiers.length - 0 )];
     }
 
     return Tab;
