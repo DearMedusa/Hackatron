@@ -1,7 +1,8 @@
 public class Generateur {
 
-  /*
-  * est un singleton
+  /**
+  *Est appele au lancement du jeu
+  *creer des serveurs 
   */
 
   /** Génère des Strings de manière aléatoire */
@@ -21,17 +22,19 @@ public class Generateur {
   };
 */
 
-/*
-* Attributs static
+/**
+* Attributs
+@param MotsDePasses tableau de strings
+@param AdressesIp tableau de strings
 */
 
-/** Contient des mots de passes prédéfinis */
+/** Tableau de string contenant des mots de passes possibles pour une instance de serveur */
   private static String[] MotsDePasses = {
     "123456789", "felix", "15121998", "54000Nancy", "incorrect",
     "motdepasse", "1234", "azertyuiop"
   };
 
-/** Contient des adresses ip prédéfinies */
+/** Tableau de string contenant des adresses ip possibles pour une instance de serveur */
   private static String[] AdressesIp = {
     "71.118.230.239", "127.65.147", "154.117.86.28", "238.198.19.23",
     "234.51.105.44", "222.99.190.115", "132.149.99.134", "127.9.166.26",
@@ -41,23 +44,25 @@ public class Generateur {
     "11.7.30.109", "121.12.15.194", "156.120.65.21", "189.164.17.24"
   };
 
+  /** Tableau de string contenant des contenus possibles pour une instance de serveur */
   private static String[] NomsDeFichiers = {
     "NePasOuvrirEnPublic.png", "NotesDuDS.xl", "MoiQuiDanse.mp4",
     "ChienQuiDort.gif", "HistoiresDeJojo.html", "AvisDesHaters.trash",
     "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3",
     "Fortnite.exe", "PhotosVacancesArdeche.zip", "MamanOuvrePasStp.rar",
     "Skyrim.exe", "MyWaifu.html", "arg.php", "jedetesteledevweb.php",
-    "index.html", "style.css", "IMG_20160521_115949.jpg", "New.xl", "New.docx",
+    "index.html", "style.css", "IMG_20160521_115949.jpg", "New.docx",
     "IMG_24849821_1459872.png", "IMG_2521_15049.gimp", "SansTitre.jpg",
-    "Paint.exe", "Paint3D.exe", "NSFW.gif", "tousmesamis.doc", "monchien.jpg",
+    "Paint.exe", "NSFW.gif", "tousmesamis.doc", "monchien.jpg",
     "PhotosMaman.zip", "DiplômeduBac.png", "CV.pdf", "LettredeMotivation.pdf",
     "Annonce.pdf", "SCAN_CarteVitale.png", "SCAN_IBAN-CIC.png", "Terraria.exe",
-    "Steam.crack", "LeagueOfLegends.exe", "CheatsGTAV.txt", "New.pptx",
+    "Steam.crack", "LeagueOfLegends.exe", "CheatsGTAV.txt",
     "MinecraftLauncher.exe", "PhpStorm 2019.3.3 x64.exe", "Divers.dir",
     "jdk-13.0.2.dir", "Recovery.txt", "chat.gif", "main.java", "Magicien.java",
     "etudiant.o", "etudiant.h", "etudiant.c", "tab.php", "Magicien.class"
   };
 
+  /** Tableau de string contenant des noms possibles pour une une instance d'antivirus d'une instance de serveur */
   private static String[] NomsAntivirus = {
     "Avast", "McAffee",
     "Ad-Aware", "AVG Antivirus",
@@ -107,6 +112,7 @@ public class Generateur {
     return Tab;
   }
 
+  /** @return un nom d'antivirus aleatoire provenant de la liste NomAntivirus */
   public static String NomAntiV()
   {
     return NomsAntivirus[(int)Math.random() * ( NomsAntivirus.length - 0 )];
