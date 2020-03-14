@@ -1,13 +1,27 @@
 public class Initializer {
 
-private Server[] tableaudeServ;
-private int difficulty;
+  /*
+	* Description de la classe
+	*/
 
+  /*
+  * Attributs
+  */
+  private Server[] tableaudeServ;
+  private int difficulty;
+
+  /*
+  * Constructeur privé
+  */
   private Initializer(){}
 
-/*
-* 3 niveaux de difficulté, représentés par les entiers 1, 2 et 3
-*/
+  /*
+  * Méthodes
+  */
+  
+  /*
+  * 3 niveaux de difficulté, représentés par les entiers 1, 2 et 3
+  */
   public Server[] GenerateServ(int lvl)
   {
     if (lvl == 1){

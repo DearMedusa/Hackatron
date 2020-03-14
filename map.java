@@ -3,6 +3,10 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class Map extends JPanel {
+	
+	/*
+	* Description de la classe
+	*/
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

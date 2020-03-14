@@ -2,11 +2,19 @@ import java.util.Scanner;
 
 public class Command {
 
-	// Attributs
+	/*
+	* Description de la classe
+	*/
+
+	/*
+	* Attributs
+	*/
 	private String word1;
 	private String word2;
 
-	// Constructeur
+	/*
+	* Constructeurs
+	*/
 	public Command() {
 		this.word1 = null;
 		this.word2 = null;
@@ -28,7 +36,9 @@ public class Command {
 		}
 	}
 
-	// commandes
+	/*
+	* Méthodes
+	*/
 	public static void ls() {
 		System.out.println("***********************************************************************");
 		System.out.println("Contenu du serveur " + Player.getCurrentServ().getName() + ": ");
@@ -91,7 +101,6 @@ public class Command {
 		}
 	}
 
-//Rajouté par Louise ***********************************************************************************************************************
 	public void kill(Server Serv)
 	{
 		Antivirus A = Serv.getAntivirus(); //récupère l'antivirus
@@ -108,7 +117,9 @@ public class Command {
 		}
 	}
 
-	// Getters & Setters
+	/*
+	* Getters & Setters
+	*/
 	public String getWord1() {
 		return this.word1;
 	}

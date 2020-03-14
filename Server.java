@@ -1,6 +1,10 @@
 public class Server {
 
 	/*
+	* Description de la classe
+	*/
+
+	/*
 	* Attributs
 	*/
 	private String name;
@@ -8,7 +12,7 @@ public class Server {
 	private boolean backdoored;
 	private Server[] serveursVoisins;
 	private String IpAdress;
-	private Antivirus Avast; //bonjour j'ai rajouté ça aussi
+	private Antivirus Avast;
 
 	/*
 	* Constructeurs
@@ -22,7 +26,7 @@ public class Server {
 		this.IpAdress = Generateur.AdressesIp();
 	}
 
-	//Serveur avec antivirus, rajouté par Louise **********************************************************
+	//Serveur avec antivirus
 	public Server(String n, String[] c, String nA, int lvlA)
 	{
 		this.name = n;
@@ -59,8 +63,6 @@ public class Server {
 		return this.IpAdress;
 	}
 
-
-//rajouté par Louise ************************************************************************************
 	public void setbackdoor(boolean b)
 	{
 		this.backdoored = b;

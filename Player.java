@@ -43,7 +43,6 @@ public class Player {
 		return currentServ;
 	}
 
-//rajouté par Louise **********************************************************************
 	public static void increaselvl()
 	{
 		botnet += 1;
