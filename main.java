@@ -41,13 +41,12 @@ public class main {
 		Player.setCurrentServ(hub);
 
 		// INTRO
-		Initializer T = new Initializer();
-		T.Logo();
-		T.Introduction();
+		Initializer.Logo();
+		Initializer.Introduction();
 
 		Player.setPseudo(sc.nextLine());
 
-		T.NomUser();
+		Initializer.NomUser();
 
 		// GAME LOOP
 
@@ -87,6 +86,6 @@ public class main {
 				break;
 			}
 		}
-		T.QuitGame();
+		Initializer.QuitGame();
 	}
 }

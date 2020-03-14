@@ -3,7 +3,7 @@ public class Initializer {
 private Server[] tableaudeServ;
 private int difficulty;
 
-  public Initializer(){}
+  private Initializer(){}
 
 /*
 * 3 niveaux de difficulté, représentés par les entiers 1, 2 et 3
@@ -18,7 +18,7 @@ private int difficulty;
     return null; //temporaire.
   }
 
-  public void Logo()
+  public static void Logo()
   {
     System.out.println("  _    _          _____ _  __       _______ _____   ____  _   _ \r\n"
     + " | |  | |   /\\   / ____| |/ /    /\\|__   __|  __ \\ / __ \\| \\ | |\r\n"
@@ -28,7 +28,7 @@ private int difficulty;
     + " |_|  |_/_/    \\_\\_____|_|\\_\\/_/    \\_\\_|  |_|  \\_\\\\____/|_| \\_|");
   }
 
-  public void Introduction()
+  public static void Introduction()
   {
     System.out.println("Bienvenue sur Hackatron 3000, le meilleur logiciel de piratage connu");
 		System.out.println("***********************************************************************");
@@ -41,12 +41,12 @@ private int difficulty;
 		System.out.print("Saisissez votre nom d'utilisateur: ");
   }
 
-  public void NomUser()
+  public static void NomUser()
   {
     System.out.println("Votre nom d'utilisateur a ete defini a: " + Player.getPseudo());
   }
 
-  public void QuitGame()
+  public static void QuitGame()
   {
     System.out.println("Fermeture de votre session Hackatron...");
   }
