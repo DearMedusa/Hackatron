@@ -1,11 +1,17 @@
 public class Server {
 
 	/*
-	* Description de la classe
+	*Classe contenant le contenu et les methodes relatives aux serveurs du jeu
 	*/
 
 	/*
 	* Attributs
+	*@param name String nom du serveur
+	*@param content tableau de String contenant les fichiers contenu dans le serveur
+	*@param backdoored boolean
+	*@param serveursVoisins tableau de serveurs auxquels est relie le serveur
+	*@param IpAdress String ip du serveur
+	*@param avast Antivirus du serveur
 	*/
 	private String name;
 	private String[] content;
@@ -15,9 +21,10 @@ public class Server {
 	private Antivirus Avast;
 
 	/*
-	* Constructeurs
+	* Constructeur de serveur sans antivirus
+	*@param n String nom du serveur
+	*@param c tableau de string contenu du serveur
 	*/
-	//Serveur sans antivirus
 	public Server(String n, String[] c) {
 		this.name = n;
 		this.backdoored = false;
@@ -26,7 +33,13 @@ public class Server {
 		this.IpAdress = Generateur.AdressesIp();
 	}
 
-	//Serveur avec antivirus
+	/*
+	* Constructeur de serveur avec antivirus
+	*@param n String nom du serveur
+	*@param c tableau de string contenu du serveur
+	*@param nA String nom de l'antivirus
+	*@param lvlA int niveau de l'antivirus
+	*/
 	public Server(String n, String[] c, String nA, int lvlA)
 	{
 		this.name = n;
