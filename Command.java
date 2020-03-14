@@ -17,8 +17,8 @@ public class Command {
 		this.word2 = w2;
 	}
 
-	public void input(Player p, Scanner sc) {
-		System.out.print(p.getPseudo() + "@ :");
+	public void input(Scanner sc) {
+		System.out.print(Player.getPseudo() + "@ :");
 		String[] mots = sc.nextLine().split(" ");
 		if (mots.length > 1) {
 		    this.setWord1(mots[0]); // set first word
@@ -29,11 +29,11 @@ public class Command {
 	}
 
 	// commandes
-	public static void ls(Server s, Player p) {
+	public static void ls() {
 		System.out.println("***********************************************************************");
-		System.out.println("Contenu du serveur " + p.getCurrentServ().getName() + ": ");
-		for (int i = 0; i < s.getContent().length; i++) {
-			System.out.println(s.getContent()[i]);
+		System.out.println("Contenu du serveur " + Player.getCurrentServ().getName() + ": ");
+		for (int i = 0; i < Player.getCurrentServ().getContent().length; i++) {
+			System.out.println(Player.getCurrentServ().getContent()[i]);
 		}
 	}
 
@@ -49,32 +49,33 @@ public class Command {
 		System.out.println("quit: ferme la session Hackatron");
 	}
 
-	public static void backdoor(Server Serv) {
+	public static void backdoor() {
 		System.out.println("[================]100% Backdoor installée avec succès");
-		Serv.setbackdoor(true);
+		Player.getCurrentServ().setbackdoor(true);
 	}
 
 	public static void bruteforce() {
 		System.out.println("Placeholder bruteforce");
 	}
 
-	public static void ifconfig(Player p) {
+	public static void ifconfig() {
 		System.out.println("***********************************************************************");
-		System.out.println("Actuellement connecté à :" + p.getCurrentServ().getName());
-		System.out.println("IP adress: 127.65.147");
+		System.out.println("Actuellement connecté à :" + Player.getCurrentServ().getName());
+		System.out.println("IP adress: " + Player.getCurrentServ().getIp()); //Placeholder, à changer
 		System.out.println("Serveurs Connectés: ");
-		Server[] voisins = p.getCurrentServ().getVoisins();//affiche la liste des serveurs connectés au serveur courant
+		Server[] voisins = Player.getCurrentServ().getVoisins();//affiche la liste des serveurs connectés au serveur courant
 		for(int i = 0; i<voisins.length;i++) {
 			System.out.println("-"+ voisins[i].getName());
 		}
+		System.out.println("Niveau du botnet : "+Player.getlvlplayer());
 		System.out.println("***********************************************************************");
 	}
 
-	public static void connect(Player p, String word2) {
+	public static void connect(String word2) {
 		System.out.println("Placeholder connect");
 		System.out.println("Deuxieme mot: " + word2);
-		Server[] voisins = p.getCurrentServ().getVoisins();
-		p.setCurrentServ(voisins[Integer.valueOf(word2)-1]);
+		Server[] voisins = Player.getCurrentServ().getVoisins();
+		Player.setCurrentServ(voisins[Integer.valueOf(word2)-1]);
 	}
 
 	public static void map() {
@@ -82,20 +83,20 @@ public class Command {
 		Fenetre n = new Fenetre();
 	}
 
-	public static void download(Player p, int i) {
-		String[] contenu = p.getCurrentServ().getContent();
+	public static void download(int i) {
+		String[] contenu = Player.getCurrentServ().getContent();
 		System.out.println("Telechargement de :" + contenu[i-1]);
 		if(contenu[i-1].equals("Sudoku.java")){
-			System.out.println("Vous avez trouve le fichier, vous avez gagne. Bravo" + p.getName() + "!");
+			System.out.println("Vous avez trouve le fichier, vous avez gagne. Bravo" + Player.getPseudo() + "!");
 		}
 	}
 
 //Rajouté par Louise ***********************************************************************************************************************
-	public void kill(Server Serv, Player p)
+	public void kill(Server Serv)
 	{
 		Antivirus A = Serv.getAntivirus(); //récupère l'antivirus
-		if (A != NULL){ //check si le serveur a effectivement un antivirus
-			if(A.getlvl() <= p.getlvlplayer()){
+		if (A != null){ //check si le serveur a effectivement un antivirus
+			if(A.getlvl() <= Player.getlvlplayer()){
 				A.killAvast(); //désactive l'antivirus
 			}
 			else {

@@ -5,9 +5,9 @@ public class Player {
 */
 
 	// Attributs
-	private String pseudo;
-	private Server currentServ;
-	private int botnet; //niveau du joueur
+	private static String pseudo;
+	private static Server currentServ;
+	private static int botnet; //niveau du joueur
 
 	// Constructeur
 	private Player() {
@@ -27,31 +27,31 @@ public class Player {
 	}
 
 	//Getters & Setters
-	public void setPseudo(String p) {
-		this.pseudo = p;
+	public static void setPseudo(String p) {
+		pseudo = p;
 	}
 
-	public void setCurrentServ(Server p) {
-		this.currentServ = p;
+	public static void setCurrentServ(Server p) {
+		currentServ = p;
 	}
 
-	public String getPseudo() {
-		return this.pseudo;
+	public static String getPseudo() {
+		return pseudo;
 	}
 
-	public Server getCurrentServ() {
+	public static Server getCurrentServ() {
 		return currentServ;
 	}
 
 //rajouté par Louise **********************************************************************
-	public void increaselvl()
+	public static void increaselvl()
 	{
-		this.botnet += 1;
+		botnet += 1;
 	}
 
-	public int getlvlplayer()
+	public static int getlvlplayer()
 	{
-		return this.botnet;
+		return botnet;
 	}
 
 

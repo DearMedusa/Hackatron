@@ -5,7 +5,7 @@ public class main {
 	public static void main(String[] args) {
 		boolean running = true;
 		Scanner sc = new Scanner(System.in);
-		Player p = Player.getInstance();
+		Player.getInstance();
 		Command c = new Command();
 
 		// CREATION DE SERVEURS
@@ -38,40 +38,40 @@ public class main {
 		serv3.setVoisins(voisinsserv3);
 
 		// DEFINITION DU SERVEUR DE DEPART
-		p.setCurrentServ(hub);
+		Player.setCurrentServ(hub);
 
 		// INTRO
 		Initializer T = new Initializer();
 		T.Logo();
 		T.Introduction();
 
-		p.setPseudo(sc.nextLine());
+		Player.setPseudo(sc.nextLine());
 
-		T.NomUser(p);
+		T.NomUser();
 
 		// GAME LOOP
 
 		while (running) {
-			c.input(p, sc);
+			c.input(sc);
 			// interactions
 			switch (c.getWord1()) {
 			case "quit":
 				running = false;
 				break;
 			case "ls":
-				Command.ls(p.getCurrentServ(), p);
+				Command.ls();
 				break;
 			case "help":
 				Command.help();
 				break;
 			case "backdoor":
-				Command.backdoor(p.getCurrentServ());
+				Command.backdoor();
 				break;
 			case "ifconfig":
-				Command.ifconfig(p);
+				Command.ifconfig();
 				break;
 			case "connect":
-				Command.connect(p, c.getWord2());
+				Command.connect(c.getWord2());
 				break;
 			case "map":
 				Command.map();
@@ -80,7 +80,7 @@ public class main {
 				Command.bruteforce();
 				break;
 			case "download":
-				Command.download(p, Integer.valueOf(c.getWord2()));
+				Command.download(Integer.valueOf(c.getWord2()));
 				break;
 			default:
 				System.out.println("Commande Inconnue...");

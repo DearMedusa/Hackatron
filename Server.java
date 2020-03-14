@@ -7,6 +7,7 @@ public class Server {
 	private String[] content;
 	private boolean backdoored;
 	private Server[] serveursVoisins;
+	private String IpAdress;
 	private Antivirus Avast; //bonjour j'ai rajouté ça aussi
 
 	/*
@@ -18,6 +19,7 @@ public class Server {
 		this.backdoored = false;
 		this.content = c;
 		this.Avast = null;
+		this.IpAdress = Generateur.AdressesIp();
 	}
 
 	//Serveur avec antivirus, rajouté par Louise **********************************************************
@@ -27,6 +29,7 @@ public class Server {
 		this.backdoored = false;
 		this.content = c;
 		this.Avast = new Antivirus(nA, lvlA);
+		this.IpAdress = Generateur.AdressesIp();
 	}
 
 	/*
@@ -50,6 +53,10 @@ public class Server {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public String getIp() {
+		return this.IpAdress;
 	}
 
 

@@ -12,10 +12,10 @@ private int difficulty;
   {
     if (lvl == 1){
       for (int i = 0; i < 5 ; i++) {
-        
+
       }
     }
-    return ;
+    return null; //temporaire.
   }
 
   public void Logo()
@@ -41,9 +41,9 @@ private int difficulty;
 		System.out.print("Saisissez votre nom d'utilisateur: ");
   }
 
-  public void NomUser(Player p)
+  public void NomUser()
   {
-    System.out.println("Votre nom d'utilisateur a ete defini a: " + p.getPseudo());
+    System.out.println("Votre nom d'utilisateur a ete defini a: " + Player.getPseudo());
   }
 
   public void QuitGame()
