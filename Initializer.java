@@ -5,7 +5,8 @@ public class Initializer {
 	*/
 
   /*
-  * Attributs
+  * @param tableaudeServ Server est un tableau contenant tous les serveurs du jeu
+  * @param difficulty int est un entier qui determine la frequence de serveurs proteges
   */
   private Server[] tableaudeServ;
   private int difficulty;
@@ -20,9 +21,10 @@ public class Initializer {
   */
 
   /*
-  *
+  *deux boucles for generant chacune un nombre i de serveurs et fait appel aux methodes de choix de contenu aleatoir provenant de la classe Server
+  *@return l'attribut tableaudeserveur contenant tous les serveurs du jeu
   */
-  public Server[] Serveurs()
+  public Server[] GenerationServeurs()
   {
     Server[] Serv = null;
 
@@ -37,11 +39,10 @@ public class Initializer {
       String Nom = "Serveur" + i + 1;
       Serv[i] = new Server(Nom, Generateur.TabNomFichiers(), Generateur.NomAntiV(), (i+1));
     }
-
-    //retourne le tableau avec les serveurs créés
     return Serv;
   }
 
+  /**Affiche le logo du jeu*/	
   public static void Logo()
   {
     System.out.println("  _    _          _____ _  __       _______ _____   ____  _   _ \r\n"
@@ -52,6 +53,7 @@ public class Initializer {
     + " |_|  |_/_/    \\_\\_____|_|\\_\\/_/    \\_\\_|  |_|  \\_\\\\____/|_| \\_|");
   }
 
+  /**Affiche le texte d'introduction du jeu*/	
   public static void Introduction()
   {
     System.out.println("Bienvenue sur Hackatron 3000, le meilleur logiciel de piratage connu");
@@ -65,11 +67,13 @@ public class Initializer {
 		System.out.print("Saisissez votre nom d'utilisateur: ");
   }
 
+  /**Affiche le pseudo choisit par le joueur*/	
   public static void NomUser()
   {
     System.out.println("Votre nom d'utilisateur a ete defini a: " + Player.getPseudo());
   }
 
+  /**affiche le texte de sortie du jeu*/		
   public static void QuitGame()
   {
     System.out.println("Fermeture de votre session Hackatron...");
