@@ -3,28 +3,34 @@ import java.util.Scanner;
 public class Command {
 
 	/*
-	* Description de la classe
+	* Classe qui gere le traitement et l'execution des commandes que le joueur input
 	*/
 
 	/*
 	* Attributs
+	*@param word1 String, le premier mot de la commande
+	*@param word2 String, le deuxième mot de la commande
 	*/
 	private String word1;
 	private String word2;
 
 	/*
-	* Constructeurs
+	* Constructeur qui créer une commande avec ses paramètres null
 	*/
 	public Command() {
 		this.word1 = null;
 		this.word2 = null;
 	}
-
-	public Command(String w1, String w2) {
-		this.word1 = w1;
-		this.word2 = w2;
-	}
-
+	
+	/*
+	*Methode Input
+	*Affiche le pseudo du joueur
+	*Récupère l'input de l'utilisateur
+	*le stock dans un tableau "mots"
+	*Definit mots[0] comme étant l'attribut word1
+	*Definit mots[1] comme étant l'attribut word2 si l'input contient un espace
+	*/
+	
 	public void input(Scanner sc) {
 		System.out.print(Player.getPseudo() + "@ :");
 		String[] mots = sc.nextLine().split(" ");
@@ -37,8 +43,14 @@ public class Command {
 	}
 
 	/*
-	* Méthodes
+	* Fonctionnement des Commandes du Jeu
 	*/
+	
+	/*
+	*Récupère le serveur actuel du Joueur
+	*Affiche chaque element du tableau "contenu" grace à une boucle for
+	*/
+	
 	public static void ls() {
 		System.out.println("***********************************************************************");
 		System.out.println("Contenu du serveur " + Player.getCurrentServ().getName() + ": ");
@@ -46,27 +58,49 @@ public class Command {
 			System.out.println(Player.getCurrentServ().getContent()[i]);
 		}
 	}
+	
+	/*
+	*Affiche une liste  des commandes possibles et une breve explication à leur sujet
+	*/
 
 	public static void help() {
 		System.out.println("**COMMAND LIST*********************************************************");
-		System.out.println("ifconfig: affiche des informations sur l'état actuel du joueur");
+		System.out.println("ifconfig: affiche des informations sur l'etat actuel du joueur");
 		System.out.println("ls: affiche une liste des fichiers présents sur le serveur courant");
-		System.out.println("backdoor: installe une backdoor sur le serveur courant pour y contourner la sécurité");
-		System.out.println("download X: télécharge le fichier X sur du serveur courant");
+		System.out.println("backdoor: installe une backdoor sur le serveur courant pour y contourner la securite");
+		System.out.println("download X: telecharge le fichier X sur du serveur courant");
 		System.out.println("connect X: se connecte au serveur voisin X");
 		System.out.println("bruteforce: affiche une partie du mot de passe d'un serveur");
 		System.out.println("kill:");
 		System.out.println("quit: ferme la session Hackatron");
 	}
+	
+	/*
+	*Recupere le serveur actuel du Joueur
+	*Definit son attribut "backdoor" comme etant vrai
+	*/
 
 	public static void backdoor() {
-		System.out.println("[================]100% Backdoor installée avec succès");
+		System.out.println("[================]100% Backdoor installee avec succes");
 		Player.getCurrentServ().setbackdoor(true);
 	}
+
+	/*
+	*A FAIRE
+	*En fonction de la stat "bnet" du joueur, affiche un certain nombre des lettres du mdp du serveur actuel
+	*/
 
 	public static void bruteforce() {
 		System.out.println("Placeholder bruteforce");
 	}
+	
+	
+	/*
+	*Recupere le serveur actuel du Joueur
+	*Affiche l'attribut adresse ip du serveur
+	*affiche les serveurs connectes au serveur actuel
+	*affiche l'attribut bnet du Joueur
+	*/
 
 	public static void ifconfig() {
 		System.out.println("***********************************************************************");
@@ -77,21 +111,38 @@ public class Command {
 		for(int i = 0; i<voisins.length;i++) {
 			System.out.println("-"+ voisins[i].getName());
 		}
-		System.out.println("Niveau du botnet : "+Player.getlvlplayer());
+		System.out.println("Niveau du botnet : "+Player.getbnetplayer());
 		System.out.println("***********************************************************************");
 	}
 
+	
+	/*
+	*Recupere le serveur actuel du Joueur
+	*@param word2 de la Commande
+	*change l'attribut currentServ du joueur comme etant le serveur word2
+	*/
+	
 	public static void connect(String word2) {
 		System.out.println("Placeholder connect");
 		System.out.println("Deuxieme mot: " + word2);
 		Server[] voisins = Player.getCurrentServ().getVoisins();
 		Player.setCurrentServ(voisins[Integer.valueOf(word2)-1]);
 	}
+	
+	/*
+	*Creer un objet fenetre
+	*/
 
 	public static void map() {
 		System.out.println("Ouverture de la fenetre du reseau...");
 		Fenetre n = new Fenetre();
 	}
+	
+	/*
+	*@param i int
+	*affiche le contenu numero i du serveur actuel
+	*si le contenu i est egal au string "sudoku.java" la partie est gagnee
+	*/
 
 	public static void download(int i) {
 		String[] contenu = Player.getCurrentServ().getContent();
