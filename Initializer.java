@@ -18,18 +18,28 @@ public class Initializer {
   /*
   * Méthodes
   */
-  
-  /*
-  * 3 niveaux de difficulté, représentés par les entiers 1, 2 et 3
-  */
-  public Server[] GenerateServ(int lvl)
-  {
-    if (lvl == 1){
-      for (int i = 0; i < 5 ; i++) {
 
-      }
+  /*
+  *
+  */
+  public Server[] Serveurs()
+  {
+    Server[] Serv = null;
+
+    // génère des serveurs sans Antivirus
+    for (int i = 0 ; i < 15 ; i++ ) {
+      String Nom = "Serveur" + i + 1;
+      Serv[i] = new Server(Nom, Generateur.TabNomFichiers());
     }
-    return null; //temporaire.
+
+    //génère des serveurs avec Antivirus
+    for ( int i = 15; i < 21 ; i++ ) {
+      String Nom = "Serveur" + i + 1;
+      Serv[i] = new Server(Nom, Generateur.TabNomFichiers(), Generateur.NomAntiV(), (i+1));
+    }
+
+    //retourne le tableau avec les serveurs créés
+    return Serv;
   }
 
   public static void Logo()

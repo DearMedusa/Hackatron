@@ -1,4 +1,7 @@
 public class Antivirus {
+  /*
+  * Description de la classe
+  */
 
   private String name;
   private int niveau;

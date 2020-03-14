@@ -58,6 +58,13 @@ public class Generateur {
     "etudiant.o", "etudiant.h", "etudiant.c", "tab.php", "Magicien.class"
   };
 
+  private static String[] NomsAntivirus = {
+    "Avast", "McAffee",
+    "Ad-Aware", "AVG Antivirus",
+    "Bitdefender", "Kapersky",
+    "Norton", "Windows Defender"
+  };
+
 
 /*
 * Méthodes
@@ -98,6 +105,11 @@ public class Generateur {
     }
 
     return Tab;
+  }
+
+  public static String NomAntiV()
+  {
+    return NomsAntivirus[(int)Math.random() * ( NomsAntivirus.length - 0 )];
   }
 
 
