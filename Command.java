@@ -21,7 +21,7 @@ public class Command {
 		this.word1 = null;
 		this.word2 = null;
 	}
-	
+
 	/*
 	*Methode Input
 	*Affiche le pseudo du joueur
@@ -30,7 +30,7 @@ public class Command {
 	*Definit mots[0] comme étant l'attribut word1
 	*Definit mots[1] comme étant l'attribut word2 si l'input contient un espace
 	*/
-	
+
 	public void input(Scanner sc) {
 		System.out.print(Player.getPseudo() + "@ :");
 		String[] mots = sc.nextLine().split(" ");
@@ -45,12 +45,12 @@ public class Command {
 	/*
 	* Fonctionnement des Commandes du Jeu
 	*/
-	
+
 	/*
 	*Récupère le serveur actuel du Joueur
 	*Affiche chaque element du tableau "contenu" grace à une boucle for
 	*/
-	
+
 	public static void ls() {
 		System.out.println("***********************************************************************");
 		System.out.println("Contenu du serveur " + Player.getCurrentServ().getName() + ": ");
@@ -58,7 +58,7 @@ public class Command {
 			System.out.println(Player.getCurrentServ().getContent()[i]);
 		}
 	}
-	
+
 	/*
 	*Affiche une liste  des commandes possibles et une breve explication à leur sujet
 	*/
@@ -74,7 +74,7 @@ public class Command {
 		System.out.println("kill:");
 		System.out.println("quit: ferme la session Hackatron");
 	}
-	
+
 	/*
 	*Recupere le serveur actuel du Joueur
 	*Definit son attribut "backdoor" comme etant vrai
@@ -93,8 +93,8 @@ public class Command {
 	public static void bruteforce() {
 		System.out.println("Placeholder bruteforce");
 	}
-	
-	
+
+
 	/*
 	*Recupere le serveur actuel du Joueur
 	*Affiche l'attribut adresse ip du serveur
@@ -115,20 +115,20 @@ public class Command {
 		System.out.println("***********************************************************************");
 	}
 
-	
+
 	/*
 	*Recupere le serveur actuel du Joueur
 	*@param word2 de la Commande
 	*change l'attribut currentServ du joueur comme etant le serveur word2
 	*/
-	
+
 	public static void connect(String word2) {
 		System.out.println("Placeholder connect");
 		System.out.println("Deuxieme mot: " + word2);
 		Server[] voisins = Player.getCurrentServ().getVoisins();
 		Player.setCurrentServ(voisins[Integer.valueOf(word2)-1]);
 	}
-	
+
 	/*
 	*Creer un objet fenetre
 	*/
@@ -137,7 +137,7 @@ public class Command {
 		System.out.println("Ouverture de la fenetre du reseau...");
 		Fenetre n = new Fenetre();
 	}
-	
+
 	/*
 	*@param i int
 	*affiche le contenu numero i du serveur actuel
@@ -156,8 +156,8 @@ public class Command {
 	{
 		Antivirus A = Serv.getAntivirus(); //récupère l'antivirus
 		if (A != null){ //check si le serveur a effectivement un antivirus
-			if(A.getlvl() <= Player.getlvlplayer()){
-				A.killAvast(); //désactive l'antivirus
+			if(A.getlvl() <= Player.getbnetplayer()){
+				A.disable(); //désactive l'antivirus
 			}
 			else {
 				System.out.println("Vous ne pouvez pas desactiver cet antivirus");

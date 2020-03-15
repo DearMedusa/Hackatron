@@ -1,6 +1,6 @@
 
 public class Player {
-	
+
 /*
 * Player est un singleton
 *Classe contenant toutes les informations et methodes relatives au joueur
@@ -23,21 +23,21 @@ public class Player {
 		this.currentServ = null;
 		this.botnet = 1;
 	}
-	
+
 	/**Singleton*/
 	private static class PlayerHolder
 	{
 		private final static Player Instance = new Player();
 	}
-	
+
 	/**Ajoute un entier i a l'attribut botnet
-	*@param i entier 
+	*@param i entier
 	*/
 	public static void increaselvl(int i)
 	{
 		botnet += i;
 	}
-	
+
 	/**Getters & Setters*/
 	public static Player getInstance()
 	{
@@ -60,7 +60,7 @@ public class Player {
 		return currentServ;
 	}
 
-	public static int getlvlplayer()
+	public static int getbnetplayer()
 	{
 		return botnet;
 	}

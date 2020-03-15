@@ -1,10 +1,10 @@
 public class Server {
 
-	/*
-	*Classe contenant le contenu et les methodes relatives aux serveurs du jeu
+	/**
+	* Classe contenant le contenu et les methodes relatives aux serveurs du jeu
 	*/
 
-	/*
+	/**
 	* Attributs
 	*@param name String nom du serveur
 	*@param content tableau de String contenant les fichiers contenu dans le serveur
@@ -20,7 +20,7 @@ public class Server {
 	private String IpAdress;
 	private Antivirus Avast;
 
-	/*
+	/**
 	* Constructeur de serveur sans antivirus
 	*@param n String nom du serveur
 	*@param c tableau de string contenu du serveur
@@ -33,7 +33,7 @@ public class Server {
 		this.IpAdress = Generateur.AdressesIp();
 	}
 
-	/*
+	/**
 	* Constructeur de serveur avec antivirus
 	*@param n String nom du serveur
 	*@param c tableau de string contenu du serveur

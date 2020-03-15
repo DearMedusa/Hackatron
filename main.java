@@ -7,46 +7,30 @@ public class main {
 		Scanner sc = new Scanner(System.in);
 		Player.getInstance();
 		Command c = new Command();
-
-		// CREATION DE SERVEURS
-		String[] h1 = { "" };
-		Server hub = new Server("Hub server", h1);
-
-		String[] s1 = { "NePasOuvrirEnPublic.png", "NotesDuDS.xl", "MoiQuiDanse.mp4", "ChienQuiDort.gif" };
-		Server serv1 = new Server("serveur 1", s1);
-
-		String[] s2 = { "Sudoku.java", "HistoiresDeJojo.html", "AvisDesHaters.trash" };
-		Server serv2 = new Server("serveur 2", s2);
-
-		String[] s3 = { "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3", "Fortnite.exe" };
-		Server serv3 = new Server("serveur 3", s3);
-
-		String[] s4 = { "a", "a", "a", "a", "a", "a", "a" };
-		Server serv4 = new Server("serveur 4", s4);
+		Initializer I = new Initializer();
 
 		//Pour avoir une commande map, il sera nécessaire de mettre tout les serveurs dans un tableau, accessible depuis la classe map
 
-		// CONNEXION DES SERVEURS ENTRE EUX
-
-		Server[] voisinsHub = { serv1, serv2, serv3, serv4 };
-		hub.setVoisins(voisinsHub);
-		Server[] voisinsserv1 = { hub, serv2, serv3, serv4 };
-		serv1.setVoisins(voisinsserv1);
-		Server[] voisinsserv2 = { hub, serv1, serv3, serv4 };
-		serv2.setVoisins(voisinsserv2);
-		Server[] voisinsserv3 = { hub, serv1, serv2, serv4 };
-		serv3.setVoisins(voisinsserv3);
-
-		// DEFINITION DU SERVEUR DE DEPART
-		Player.setCurrentServ(hub);
-
 		// INTRO
-		Initializer.Logo();
-		Initializer.Introduction();
+		I.Logo();
+		I.Introduction();
 
 		Player.setPseudo(sc.nextLine());
 
-		Initializer.NomUser();
+		I.NomUser();
+
+		//DEFINITION DE LA DIFFICULTE
+		I.SetDifficulte();
+		int difficulty = sc.nextInt();
+
+		//TEXTE : PAS DEFINITIF
+		I.ConseilDebut();
+
+		//CREATION DES SERVEURS
+		Server[] TabServeurs = I.GenerationServeurs(difficulty);
+
+		// DEFINITION DU SERVEUR DE DEPART
+		Player.setCurrentServ(TabServeurs[0]);
 
 		// GAME LOOP
 
@@ -86,6 +70,6 @@ public class main {
 				break;
 			}
 		}
-		Initializer.QuitGame();
+		I.QuitGame();
 	}
 }
