@@ -5,7 +5,7 @@ public class Initializer {
 	*/
 
   /**
-  * Constructeur privé
+  * Constructeur
   */
   public Initializer(){}
 

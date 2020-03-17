@@ -39,9 +39,9 @@ public class Generateur {
     "motdepasse", "1234", "azertyuiop", "football", "iloveyou", "qwerty",
     "master", "sunshine", "shadow", "jesus", "admin", "flower", "starwars",
     "abc123", "login", "solo", "letmein", "passw0rd", "superman", "azerty",
-    "princess", "hello", "freedom", "00000", "ahsley", "11111", "photoshop",
+    "princess", "hello", "freedom", "00000", "ashley", "11111", "photoshop",
     "whatever", "batman", "trustno1", "qwerty123", "ninja"; "dragon", "access",
-    "66666", "bailey", "mustang", "charlie", "!@#$%^&*", "donald", "loulou",
+    "66666", "bailey", "mustang", "charlie", "donald", "loulou",
     "bonjour", "nicolas", "doudou", "marseille", "soleil", "welcome", "qazwsx"
   };
 
