@@ -74,17 +74,17 @@ public class Generateur {
     "NePasOuvrirEnPublic.png", "NotesDuDS.xl", "MoiQuiDanse.mp4",
     "ChienQuiDort.gif", "HistoiresDeJojo.html", "AvisDesHaters.trash",
     "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3",
-    "Fortnite.exe", "PhotosVacancesArdeche.zip", "MamanOuvrePasStp.rar",
-    "Skyrim.exe", "MyWaifu.html", "arg.php", "jedetesteledevweb.php",
+    "Fontrite.exe", "PhotosVacancesArdeche.zip", "MamanOuvrePasStp.rar",
+    "Skymir.exe", "MyWaifu.html", "arg.php", "jedetesteledevweb.php",
     "index.html", "style.css", "IMG_20160521_115949.jpg", "Coursdecom.docx",
     "IMG_24849821_1459872.png", "IMG_2521_15049.gimp", "heeeeeheheheeh.jpg",
     "Paint.exe", "NSFW.gif", "tousmesamis.doc", "monchien.jpg", "jajaja.gif",
     "PhotosMaman.zip", "DiplômeduBac.png", "CV.pdf", "LettredeMotivation.pdf",
     "Annonce.pdf", "SCAN_CarteVitale.png", "SCAN_IBAN-CIC.png", "Terraria.exe",
-    "Steam.crack", "LeagueOfLegends.exe", "CheatsGTAV.txt", "Antman.mkv",
-    "Discord.exe", "Mount&Blade.exe", "Fable.exe", "KingdomComeDeliverance.exe",
-    "GoatSimulator.exe", "user.settings.bak", "VLCMediaPlayer.exe",
-    "GithubDesktop.exe", "utorrent.exe", "Ampps-3.9-x86_64-setup", ".git",
+    "Steam.crack", "LeagueOfGelends.exe", "CheatsGTAV.txt", "Antman.mkv",
+    "Discrod.exe", "Fable.exe", "KingdomComeDeliverance.exe",
+    "GoatSilumator.exe", "user.settings.bak", "VLCMediaPlayer.exe",
+    "GithubDesktop.exe", "uRottent.exe", "Ampps-3.9-x86_64-setup", ".git",
     "MinecraftLauncher.exe", "PhpStorm 2019.3.3 x64.exe", "Divers.dir",
     "jdk-13.0.2.dir", "Recovery.txt", "chat.gif", "main.java", "Magicien.java",
     "etudiant.o", "etudiant.h", "etudiant.c", "tab.php", "Magicien.class",
@@ -97,9 +97,7 @@ public class Generateur {
     "input.settings", "CheckPoint_53db8_7e406800_538d23a.sav", "Random.java",
     "Rockstar-Games-Launcher", "eclipse-java-2019-12-R-win32-x86_64.rar",
     "blender-2.81a-windows64", "MSI_Kombustor4_Setup_v4.1.3.0_x64",
-    "php-7.4.3.tar.bz2", "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4",
-    "TomNook.png", "LoveIsGone_Guetta.mp3", "Playlist-Maroon5.zip",
-    "Sensualite_AxelleRed.mp3", "CarelessWhispers.avi", "TheSims3Launcher.exe"
+    "php-7.4.3.tar.bz2", "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4", "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi"
   };
 
   /** Tableau de string contenant des noms possibles pour une une instance d'antivirus d'une instance de serveur */
