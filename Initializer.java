@@ -45,20 +45,20 @@ public class Initializer {
     //**************************************************************************
     // génère des serveurs sans Antivirus
     for (int i = 0 ; i < nombredeserveurs ; i++ ) {
-      String Nom = "Serveur" + i; //genere le nom du serveur
+      String Nom = "serveur" + i; //genere le nom du serveur
       tableaudeserveur[i] = new Server(Nom, Generateur.TabNomFichiers());
     }
 
     //génère des serveurs avec Antivirus
     for ( int i = nombredeserveurs; i < nbrtotal ; i++ ) {
-      String Nom = "Serveur" + i; //genere le nom du serveur
+      String Nom = "serveur" + i; //genere le nom du serveur
       int niveauantivirus = (int)Random.getRandomInt(1, 10); //genere un niveau d'antivirus compris entre 1 et 10
       tableaudeserveur[i] = new Server(Nom, Generateur.TabNomFichiers(), Generateur.NomAntiV(), niveauantivirus);
     }
 
     //**************************************************************************
     //cree les connexions entre les Serveurs
-    for (int i = 0 ; i < tableaudeserveur.length ; i++ ) {
+    for (int i = 1 ; i < tableaudeserveur.length ; i++ ) {
       int nbr = Random.getRandomInt(1, 10); //genere un nombre au hasard dans un intervalle donne (a definir)
       //ce nombre sert a determiner le nombre de serveurs connectes au serveur i de la premiere boucle
 
@@ -71,13 +71,23 @@ public class Initializer {
       tableaudeserveur[i].setVoisins(tmp); //cree une connexion entre le premier serveur selectionne et le tableau de serveurs cree
     }
 
+    //cas particulier pour serveur0 :
+    //il est imperatif qu'il aie au moins 5 connexions (en esperant qu'aucun des 1ers serv n'a d'antivirus sinon impossible de jouer) mais pas trop non plus sinon c'est trop facile
+    int nombredeconnexions = Random.getRandomInt(5, 10); //l'intervalle [5;9] me semble un bon compromis, independamment de la difficulte
+    Server tmp2[] = new Server[nombredeconnexions + 1];//tableau de serveurs qui sera connecte au serveur0
+    for (int i = 0 ; i <= nombredeconnexions ; i++ ) {
+      int serv = Random.getRandomInt(0, tableaudeserveur.length);//selectionne un serveur au hasard
+      tmp2[i] = tableaudeserveur[serv]; //l'ajoute dans le tableau
+    }
+    tableaudeserveur[0].setVoisins(tmp2); //cree une connexion entre serveur0 et le tableau de serveurs cree
+
     //**************************************************************************
     //cree des serveurs avec mots de passes
     int nombredeservAvecmdp = Random.getRandomInt(10, tableaudeserveur.length); //retourne un nombre aleatoire de serveurs entre 10 et la longueur du tableau
 
     //boucle for qui va creer un mot de passe pour un nombre donne (defini par nombredeservAvecmdp) de serveurs (qui seront selectionne aleatoirement)
     for (int i = 0; i < nombredeservAvecmdp ; i++ ) {
-      int servAleatoire = Random.getRandomInt(1, tableaudeserveur.length); //selectionne un nombre entre 1 (le serveur 0 de base ne doit pas avoir de mdp) et la longueur du tableau
+      int servAleatoire = Random.getRandomInt(1, tableaudeserveur.length); //selectionne un nombre entre 1 (serveur0 ne doit pas avoir de mdp) et la longueur du tableau
       tableaudeserveur[servAleatoire].setmdp(); //cree un mot de passe pour le serveur donne
     }
 

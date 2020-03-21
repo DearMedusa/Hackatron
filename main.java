@@ -38,6 +38,10 @@ public class main {
 			c.input(sc);
 			// interactions
 			switch (c.getWord1()) {
+			/*DEBUG = beta test*/
+			case "DEBUG":
+				Command.DEBUG();
+				break;
 			case "quit":
 				running = false;
 				break;
@@ -63,7 +67,10 @@ public class main {
 				Command.bruteforce();
 				break;
 			case "download":
-				Command.download(Integer.valueOf(c.getWord2()));
+				Command.download();
+				break;
+			case "kill":
+				Command.kill(c.getWord2());
 				break;
 			default:
 				System.out.println("Commande Inconnue...");

@@ -2,6 +2,35 @@ import java.util.Scanner;
 
 public class Command {
 
+	/* COMMANDE POUR LA BETA TESTEUSE QUE JE SUIS */
+	public static void DEBUG(){
+		boolean running = true;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Que voulez vous faire ?");
+		System.out.println("1 : Augmenter le botnet du joueur");
+		System.out.println("2 : Quitter le menu debug");
+
+		while (running) {
+			int choix = sc.nextInt();
+			//affichage
+			System.out.println("Que voulez vous faire ?");
+			System.out.println("1 : Augmenter le botnet du joueur");
+			System.out.println("2 : Quitter le menu debug");
+
+			// interactions
+			switch (choix) {
+			case 1:
+				Player.increaselvl();
+				System.out.println("Le botnet a ete correctement augmente");
+				break;
+			case 2:
+				running = false;
+				break;
+			}
+		}
+	}
+
 	/*
 	* Classe qui gere le traitement et l'execution des commandes que le joueur input
 	*/
@@ -66,9 +95,9 @@ public class Command {
 	public static void help() {
 		System.out.println("**COMMAND LIST*********************************************************");
 		System.out.println("ifconfig: affiche des informations sur l'etat actuel du joueur");
-		System.out.println("ls: affiche une liste des fichiers présents sur le serveur courant");
+		System.out.println("ls: affiche ua liste des fichiers présents sur le serveur courant");
 		System.out.println("backdoor: installe une backdoor sur le serveur courant pour y contourner la securite");
-		System.out.println("download X: telecharge le fichier X sur du serveur courant");
+		System.out.println("download: liste les fichiers disponibles, l'user choisit ensuite celui qu'il veut dl (1 chance sur 6 d'augmenter son niveau de botnet)");
 		System.out.println("connect X: se connecte au serveur voisin X");
 		System.out.println("bruteforce: affiche une partie du mot de passe d'un serveur");
 		System.out.println("kill:");
@@ -92,6 +121,9 @@ public class Command {
 
 	public static void bruteforce() {
 		System.out.println("Placeholder bruteforce");
+		if(Player.getCurrentServ().hasmdp()){
+			System.out.println(Player.getCurrentServ().getmdp());
+		}
 	}
 
 
@@ -123,13 +155,11 @@ public class Command {
 	*/
 
 	public static void connect(String word2) {
-		System.out.println("Placeholder connect");
-		System.out.println("Deuxieme mot: " + word2);
 		Server[] voisins = Player.getCurrentServ().getVoisins();
 
 		//**************************************************************************
 		//Cette partie est chargee de recuperer le numero du serveur dans le tableau qui correspond au mot cle entre par l'user
-		int numServeur = -1; //si je definis pas cette variable il me met une erreur le compilateur alors pas le choix
+		int numServeur = -1;
 		boolean error = true;
 
 		for (int i = 0 ; i < voisins.length ; i++ ) {
@@ -145,10 +175,18 @@ public class Command {
 		if (error == true){
 			System.out.println("ERROR :");
 			System.out.println("Vous avez fait une faute de frappe ou entre un nom de serveur auquel vous n'avez pas acces");
-			System.out.println("Veuillez reessayer");
+			System.out.println("veuillez reessayer :");
 		}
-		else { //dans le cas contraire, on positionne le joueur au serveur adequat
-			Player.setCurrentServ(voisins[numServeur]);
+		else {
+			//postionnement du joueur
+			if (voisins[numServeur].hasAntivirus()){ //si le serveur a un antivirus, le joueur doit d'abord le desactiver pour pouvoir s'y connecter
+				System.out.println("ERROR : Vous ne pouvez pas vous connecter : ");
+				System.out.println("ce serveur dispose d'un antivirus : desactivez le puis essayez de vous reconnecter");
+			}
+			else { //dans le cas contraire, on positionne le joueur au serveur adequat
+				Player.setCurrentServ(voisins[numServeur]);
+				System.out.println("Vous etes desormais connecte au " + voisins[numServeur].getName());
+			}
 		}
 	}
 
@@ -162,33 +200,85 @@ public class Command {
 	}
 
 	/*
-	*@param i int
-	*affiche le contenu numero i du serveur actuel
-	*si le contenu i est egal au string "sudoku.java" la partie est gagnee
+	*affiche la liste des fichiers que le serveur sur lequel le joueur est positionne possede
+	*demande quel numero de fichier le joueur veut, et le telecharge
+	*si le fichier s'appelle "sudoku.java", affiche le message de victoire au joueur
 	*/
 
-	public static void download(int i) {
+	public static void download() {
+		Scanner sc = new Scanner(System.in);
+		//affiche la liste des fichiers
+		System.out.println("Quel fichier voulez vous telecharger ?");
 		String[] contenu = Player.getCurrentServ().getContent();
-		System.out.println("Telechargement de :" + contenu[i-1]);
-		if(contenu[i-1].equals("Sudoku.java")){
-			System.out.println("Vous avez trouve le fichier, vous avez gagne. Bravo" + Player.getPseudo() + "!");
+		for (int i = 0 ; i < contenu.length ; i++ ) { //parcours le tableau et affiche son contenu
+			int n = i +1;
+			System.out.println(n + " : " + contenu[i]);
+		}
+
+		int choix = sc.nextInt(); //recupere le choix de l'utilisateur
+
+		if (choix >= 0 && choix <= contenu.length) { //l'int doit être compris dans l'intervalle donne [0;contenu.length], sinon
+			System.out.println("Telechargement de :" + contenu[choix-1]);
+
+			if(contenu[choix-1].equals("Sudoku.java")){ //condition de victoire
+				System.out.println("Vous avez trouve le fichier, vous avez gagne. Bravo" + Player.getPseudo() + "!");
+			}
+			else { //en cas de fichier random osef
+				System.out.println("Le fichier a bien ete telecharge.");
+				int chance = Random.getRandomInt(0, 7); //0 est inclus et 7 exclu, donc intervalle [0;6]
+				if (chance == 3){ //augmente le niveau du joueur (1 chance sur 6)
+					System.out.println("Vous avez gagné 1 niveau de botnet suite a cette action");
+					Player.increaselvl();
+				}
+			}
+		}
+		else { //on affiche un message d'erreur a l'utilisateur
+			System.out.println("ERROR : ce fichier n'existe pas, veuillez reessayer");
 		}
 	}
 
-	public void kill(Server Serv)
+	public static void kill(String word2)
 	{
-		Antivirus A = Serv.getAntivirus(); //récupère l'antivirus
-		if (A != null){ //check si le serveur a effectivement un antivirus
-			if(A.getlvl() <= Player.getbnetplayer()){
-				A.disable(); //désactive l'antivirus
-			}
-			else {
-				System.out.println("Vous ne pouvez pas desactiver cet antivirus");
+		Server[] voisins = Player.getCurrentServ().getVoisins();
+		//**************************************************************************
+		//Cette partie est chargee de recuperer le numero du serveur dans le tableau qui correspond au mot cle entre par l'user
+		int numServeur = -1;
+		boolean error = true;
+
+		for (int i = 0 ; i < voisins.length ; i++ ) {
+			if (word2.equals(voisins[i].getName())) {
+				numServeur = i; //recupere la position du serveur dans le tableau
+				error = false; //il n'y a pas eu d'erreur, donc on positionne la boolean sur false
+				break;
 			}
 		}
+		//**************************************************************************
+		//si l'user a fait une faute de frappe, on arrete la et il doit retaper la commande
+		if(error == true){
+			System.out.println("ERROR : ce serveur n'existe pas, veuillez reessayer");
+		}
+		//sinon on passe a la partie desactivation
 		else {
-			System.out.println("FATAL ERROR : Ce serveur n'a pas d'antivirus");
+			Antivirus A = voisins[numServeur].getAntivirus(); //récupère l'antivirus
+
+			if (A != null){ //check si le serveur a effectivement un antivirus
+
+				if(A.getlvl() <= Player.getbnetplayer()){ //check si le lvl de l'antivirus n'est pas sup a celui du joueur
+					A.disable(); //désactive l'antivirus
+					System.out.println("Cet antivirus etait de force " + A.getlvl());
+					System.out.println("Vous avez gagné 1 niveau de botnet suite a cette action");
+					Player.increaselvl();
+				}
+				else { //si le lvl du joueur est trop faible, il ne peut pas desactiver l'antivirus
+					System.out.println("Vous ne pouvez pas desactiver cet antivirus, votre botnet est trop faible");
+				}
+			}
+
+			else { //si le serveur n'a pas d'antivirus, on affiche un msg d'erreur
+				System.out.println("FATAL ERROR : Ce serveur n'a pas d'antivirus");
+			}
 		}
+
 	}
 
 	/*

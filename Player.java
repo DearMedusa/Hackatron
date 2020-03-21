@@ -33,9 +33,14 @@ public class Player {
 	/**Ajoute un entier i a l'attribut botnet
 	*@param i entier
 	*/
-	public static void increaselvl(int i)
+	public static void increaselvl()
 	{
-		botnet += i;
+		if (botnet == 10) {
+			System.out.println("Vous avez atteint le niveau maximal (10)");
+		}
+		else {
+			botnet += 1;
+		}
 	}
 
 	/**Getters & Setters*/

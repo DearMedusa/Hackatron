@@ -35,14 +35,14 @@ public class Generateur {
 
 /** Tableau de string contenant des mots de passes possibles pour une instance de serveur */
   private static String MotsDePasses[] = {
-    "123456789", "felix", "15121998", "54000Nancy", "incorrect", "baseball",
+    "123456789", "felix", "incorrect", "baseball", "soleil", "welcome",
     "motdepasse", "1234", "azertyuiop", "football", "iloveyou", "qwerty",
     "master", "sunshine", "shadow", "jesus", "admin", "flower", "starwars",
     "abc123", "login", "solo", "letmein", "passw0rd", "superman", "azerty",
     "princess", "hello", "freedom", "00000", "ashley", "11111", "photoshop",
     "whatever", "batman", "trustno1", "qwerty123", "ninja", "dragon", "access",
-    "66666", "bailey", "mustang", "charlie", "donald", "loulou",
-    "bonjour", "nicolas", "doudou", "marseille", "soleil", "welcome", "qazwsx"
+    "66666", "bailey", "mustang", "charlie", "donald", "loulou", "bonjour",
+    "nicolas", "doudou", "marseille", "qazwsx"
   };
 
 /** Tableau de string contenant des adresses ip possibles pour une instance de serveur */
