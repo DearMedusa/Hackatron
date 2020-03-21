@@ -126,7 +126,30 @@ public class Command {
 		System.out.println("Placeholder connect");
 		System.out.println("Deuxieme mot: " + word2);
 		Server[] voisins = Player.getCurrentServ().getVoisins();
-		Player.setCurrentServ(voisins[Integer.valueOf(word2)-1]);
+
+		//**************************************************************************
+		//Cette partie est chargee de recuperer le numero du serveur dans le tableau qui correspond au mot cle entre par l'user
+		int numServeur = -1; //si je definis pas cette variable il me met une erreur le compilateur alors pas le choix
+		boolean error = true;
+
+		for (int i = 0 ; i < voisins.length ; i++ ) {
+			if (word2.equals(voisins[i].getName())) {
+				numServeur = i; //recupere la position du serveur dans le tableau
+				error = false; //il n'y a pas eu d'erreur, donc on positionne la boolean sur false
+				break;
+			}
+		}
+		//**************************************************************************
+		//retour utilisateur
+		//si le joueur a fait une faute de frappe par ex, un message d'errreur apparait
+		if (error == true){
+			System.out.println("ERROR :");
+			System.out.println("Vous avez fait une faute de frappe ou entre un nom de serveur auquel vous n'avez pas acces");
+			System.out.println("Veuillez reessayer");
+		}
+		else { //dans le cas contraire, on positionne le joueur au serveur adequat
+			Player.setCurrentServ(voisins[numServeur]);
+		}
 	}
 
 	/*

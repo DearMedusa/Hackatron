@@ -42,6 +42,7 @@ public class Initializer {
     int nbrtotal = nombredeserveurs + nbrservavecAntivirus;
     Server[] tableaudeserveur = new Server[nbrtotal]; //creation du tableau de serveurs a remplir
 
+    //**************************************************************************
     // génère des serveurs sans Antivirus
     for (int i = 0 ; i < nombredeserveurs ; i++ ) {
       String Nom = "Serveur" + i; //genere le nom du serveur
@@ -55,6 +56,7 @@ public class Initializer {
       tableaudeserveur[i] = new Server(Nom, Generateur.TabNomFichiers(), Generateur.NomAntiV(), niveauantivirus);
     }
 
+    //**************************************************************************
     //cree les connexions entre les Serveurs
     for (int i = 0 ; i < tableaudeserveur.length ; i++ ) {
       int nbr = Random.getRandomInt(1, 10); //genere un nombre au hasard dans un intervalle donne (a definir)
@@ -69,7 +71,18 @@ public class Initializer {
       tableaudeserveur[i].setVoisins(tmp); //cree une connexion entre le premier serveur selectionne et le tableau de serveurs cree
     }
 
-    //retourne le tableau de serveurs (avec et sans antivirus) final
+    //**************************************************************************
+    //cree des serveurs avec mots de passes
+    int nombredeservAvecmdp = Random.getRandomInt(10, tableaudeserveur.length); //retourne un nombre aleatoire de serveurs entre 10 et la longueur du tableau
+
+    //boucle for qui va creer un mot de passe pour un nombre donne (defini par nombredeservAvecmdp) de serveurs (qui seront selectionne aleatoirement)
+    for (int i = 0; i < nombredeservAvecmdp ; i++ ) {
+      int servAleatoire = Random.getRandomInt(1, tableaudeserveur.length); //selectionne un nombre entre 1 (le serveur 0 de base ne doit pas avoir de mdp) et la longueur du tableau
+      tableaudeserveur[servAleatoire].setmdp(); //cree un mot de passe pour le serveur donne
+    }
+
+    //**************************************************************************
+    //retourne le tableau de serveurs (avec et sans antivirus/mot de passe) final
     return tableaudeserveur;
   }
 

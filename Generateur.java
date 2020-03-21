@@ -40,7 +40,7 @@ public class Generateur {
     "master", "sunshine", "shadow", "jesus", "admin", "flower", "starwars",
     "abc123", "login", "solo", "letmein", "passw0rd", "superman", "azerty",
     "princess", "hello", "freedom", "00000", "ashley", "11111", "photoshop",
-    "whatever", "batman", "trustno1", "qwerty123", "ninja"; "dragon", "access",
+    "whatever", "batman", "trustno1", "qwerty123", "ninja", "dragon", "access",
     "66666", "bailey", "mustang", "charlie", "donald", "loulou",
     "bonjour", "nicolas", "doudou", "marseille", "soleil", "welcome", "qazwsx"
   };
@@ -97,7 +97,8 @@ public class Generateur {
     "input.settings", "CheckPoint_53db8_7e406800_538d23a.sav", "Random.java",
     "Rockstar-Games-Launcher", "eclipse-java-2019-12-R-win32-x86_64.rar",
     "blender-2.81a-windows64", "MSI_Kombustor4_Setup_v4.1.3.0_x64",
-    "php-7.4.3.tar.bz2", "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4", "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi"
+    "php-7.4.3.tar.bz2", "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4",
+    "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi", ".gitignore"
   };
 
   /** Tableau de string contenant des noms possibles pour une une instance d'antivirus d'une instance de serveur */
@@ -147,15 +148,6 @@ public class Generateur {
   {
     return NomsAntivirus[Random.getRandomInt(0, NomsAntivirus.length)];
   }
-
-public static void main(String[] args) {
-  String[] S = TabNomFichiers();
-
-  for (int i = 0 ; i < S.length ; i++ ) {
-    System.out.println(S[i]);
-  }
-}
-
 
 
 }

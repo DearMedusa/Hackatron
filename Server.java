@@ -12,6 +12,8 @@ public class Server {
 	*@param serveursVoisins tableau de serveurs auxquels est relie le serveur
 	*@param IpAdress String ip du serveur
 	*@param avast Antivirus du serveur
+	*@param mdp Mot de passe du serveur
+	*@param hasmdp boolean : défini si le serveur a ou non un mdp
 	*/
 	private String name;
 	private String[] content;
@@ -19,6 +21,8 @@ public class Server {
 	private Server[] serveursVoisins;
 	private String IpAdress;
 	private Antivirus Avast;
+	private String mdp;
+	private boolean hasmdp;
 
 	/**
 	* Constructeur de serveur sans antivirus
@@ -31,6 +35,7 @@ public class Server {
 		this.content = c;
 		this.Avast = null;
 		this.IpAdress = Generateur.AdressesIp();
+		this.hasmdp =  false;
 	}
 
 	/**
@@ -47,6 +52,7 @@ public class Server {
 		this.content = c;
 		this.Avast = new Antivirus(nA, lvlA);
 		this.IpAdress = Generateur.AdressesIp();
+		this.hasmdp =  false;
 	}
 
 	/*
@@ -84,6 +90,11 @@ public class Server {
 	public Antivirus getAntivirus()
 	{
 		return this.Avast;
+	}
+
+	public void setmdp(){
+		this.mdp = Generateur.mdp();
+		this.hasmdp = true;
 	}
 
 }
