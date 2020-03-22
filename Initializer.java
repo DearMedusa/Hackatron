@@ -155,11 +155,6 @@ public class Initializer {
     System.out.println("3 : difficile");
   }
 
-  public static void ConseilDebut()
-  {
-    System.out.println("Tout d'abord, tapez quelques commandes, comme ifconfig ou map pour connaitre votre position.");
-  }
-
   /**affiche le texte de sortie du jeu*/
   public static void QuitGame()
   {
