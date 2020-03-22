@@ -9,8 +9,6 @@ public class main {
 		Command c = new Command();
 		Initializer I = new Initializer();
 
-		//Pour avoir une commande map, il sera nécessaire de mettre tout les serveurs dans un tableau, accessible depuis la classe map
-
 		// INTRO
 		I.Logo();
 		I.Introduction();
