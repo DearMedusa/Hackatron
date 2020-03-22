@@ -259,8 +259,6 @@ public class Command {
 	public static void download() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Bonjour " + Player.getCurrentServ().getUsername() + " !");//affichage du nom de l'user du serveur
-
 		if (Player.getCurrentServ().hasmdp()){ //si le serveur a un mdp, le joueur doit le taper pour pouvoir telecharger les fichiers
 			System.out.println("Mot de passe ?");
 			String mdp = sc.nextLine();
