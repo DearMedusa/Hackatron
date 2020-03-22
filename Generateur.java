@@ -1,4 +1,5 @@
 import java.lang.*;
+import java.math.*;
 
 public class Generateur {
 
@@ -82,8 +83,8 @@ public class Generateur {
     "PhotosMaman.zip", "DiplômeduBac.png", "CV.pdf", "LettredeMotivation.pdf",
     "Annonce.pdf", "SCAN_CarteVitale.png", "SCAN_IBAN-CIC.png", "Terraria.exe",
     "Steam.crack", "LeagueOfGelends.exe", "CheatsGTAV.txt", "Antman.mkv",
-    "Discrod.exe", "Fable.exe", "KingdomComeDeliverance.exe",
-    "GoatSilumator.exe", "user.settings.bak", "VLCMediaPlayer.exe",
+    "Discrod.exe", "Fable.exe", "KingdomComeDeliverance.exe", "Fuirti-Loop.exe",
+    "GoatSilumator.exe", "user.settings.bak", "VLCMediaPlayer.exe", "enfer.php",
     "GithubDesktop.exe", "uRottent.exe", "Ampps-3.9-x86_64-setup", ".git",
     "MinecraftLauncher.exe", "PhpStorm 2019.3.3 x64.exe", "Divers.dir",
     "jdk-13.0.2.dir", "Recovery.txt", "chat.gif", "main.java", "Magicien.java",
@@ -101,12 +102,29 @@ public class Generateur {
     "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi", ".gitignore"
   };
 
-  /** Tableau de string contenant des noms possibles pour une une instance d'antivirus d'une instance de serveur */
+  /** Tableau de string contenant des noms possibles pour une instance d'antivirus d'une instance de serveur */
   private static String NomsAntivirus[] = {
     "Avast", "McAffee",
     "Ad-Aware", "AVG Antivirus",
     "Bitdefender", "Kapersky",
     "Norton", "Windows Defender"
+  };
+
+ /** Tableau de string contenant des noms possibles de users pour l'attribut nomuser d'une instance de serveur */
+  private static String NomsdUtilisateurs[] = { //note de l'auteur : j'ai pris des pseudos du 18-25 donc si c'est stupide c'est normal
+    "Bernard Mangeol", "User1854", "MAnyLowE", "batman", "Vive-MLP",
+    "XxX-Dark_Baudelaire-XxX", "HuileDecoude","AneantisseurAW3", "DandyIII",
+    "PhpHater", "C++Lover", "Tux", "GoToTheKitchen", "SaMereLipopette",
+    "[CORONED]", "Juliettedu06", "Globiche", "Cousined__", "Oboy",
+    "piano111", "GuerrierVegan1", "Saury", "FindJesus", "Kheyette", "Issou",
+    "FraiseCoco9", "Consolix4Ever", "Reguillon", "ACNH-4-Ever", "Slave7",
+    "X-tends-vers-0", "Marissou", "SocialClimb", "ElFamosoKheyDeter", "Sdred",
+    "Pastored78", "SuperGreenHornet", "TrifouilleTout", "bulg13", "Hiopal9",
+    "ALED", "ALERT", "ORIS19", "Jean-babtou", "Celestin", "Seraphin",
+    "Vanessa", "IDEProlix", "LifeafterMort", "SuperNalo", "RSAAH", "nevvy",
+    "Ottawabg", "Carla57-", "CityMapper", "grimalbide13", "TuchelenSlip",
+    "RoadtoYKK", "divaxdcd", "crocketts", "Breur", "florenov", "qds51",
+    "MadarAAh", "Naruto", "xxX-Sasuke-Xxx", "FruityLoopsQuelEnfer"
   };
 
 
@@ -147,6 +165,26 @@ public class Generateur {
   public static String NomAntiV()
   {
     return NomsAntivirus[Random.getRandomInt(0, NomsAntivirus.length)];
+  }
+
+  /** @return un double (bitcoin) : 3 chiffres apres la virgule */
+  public static double Bitcoin()
+  {
+    BigDecimal b1 = new BigDecimal(Math.random()); //cree un nombre decimal
+
+    MathContext m = new MathContext(3);
+
+    BigDecimal b2 = b1.round(m); //tronque et arrondi : precision 3
+
+    double bitcoin = b2.doubleValue(); //converti BigDecimal en double
+
+    return bitcoin;
+  }
+
+  /** Retourne un nom d'user de la liste de manière aléatoire */
+  public static String NomUser()
+  {
+    return NomsdUtilisateurs[Random.getRandomInt(0, NomsdUtilisateurs.length)];
   }
 
 

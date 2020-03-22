@@ -1,4 +1,3 @@
-
 public class Player {
 
 /*
@@ -9,19 +8,25 @@ public class Player {
 	/**
 	*@param pseudo String le pseudo du joueur
 	*@param currentServ Server le serveur sur lequel le joueur est actuellement
+	*@param botnet niveau du joueur
+	*@param bitcoin nombre de bitcoin que le joueur possède
 	*/
 	private static String pseudo;
 	private static Server currentServ;
-	private static int botnet; //niveau du joueur
+	private static int botnet;
+	private static double bitcoin;
+	private static Inventaire Inventory;
 
 	/**
 	*Constructeur d'un objet Player
-	*determine tous les attributs en null
+	*determine tous les attributs
 	*/
 	private Player() {
 		this.pseudo = null;
 		this.currentServ = null;
 		this.botnet = 1;
+		this.bitcoin = 0;
+		this.Inventory = Inventaire.getInstance();
 	}
 
 	/**Singleton*/
@@ -70,7 +75,88 @@ public class Player {
 		return botnet;
 	}
 
+	public static void steal(double nbr)
+	{
+		bitcoin += nbr;
+	}
 
+	public static double getbitcoin()
+	{
+		return bitcoin;
+	}
 
+	public static Inventaire getInventaire()
+	{
+		return Inventory;
+	}
+
+/**
+* Methode servant a acheter des objets au shop (methode appellee par la commande shop())
+*@param object nom de l'objet
+*@param price prix de l'objet
+*/
+	public static void buyObject(String object, double price)
+	{
+		switch (object) {
+			case "backdoor" : //si le joueur veut acheter backdoor
+				if (Inventory.getbackdoor()){ //cas ou il le possede deja
+					System.out.println("ERROR : Vous possedez deja ce materiel");
+				}
+				else {//cas ou il ne le possede pas encore
+					if (bitcoin >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+						Inventory.setbackdoor();
+						bitcoin -= price; //on deduit son achat de son portefeuille de bitcoins
+						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande backdoor.");
+					}
+					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+				}
+				break;
+			case "kill" : //si le joueur veut acheter kill
+				if (Inventory.getkill()){ //cas ou il le possede deja
+					System.out.println("ERROR : Vous possedez deja ce materiel");
+				}
+				else {//cas ou il ne le possede pas encore
+					if (bitcoin >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+						Inventory.setkill();
+						bitcoin -= price; //on deduit son achat de son portefeuille de bitcoins
+						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande kill.");
+					}
+					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+				}
+				break;
+				case "steal" : //si le joueur veut acheter kill
+					if (Inventory.getsteal()){ //cas ou il le possede deja
+						System.out.println("ERROR : Vous possedez deja ce materiel");
+					}
+					else {//cas ou il ne le possede pas encore
+						if (bitcoin >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+							Inventory.setsteal();
+							bitcoin -= price; //on deduit son achat de son portefeuille de bitcoins
+							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande steal.");
+						}
+						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+					}
+					break;
+				case "bruteforce" : //si le joueur veut acheter kill
+					if (Inventory.getbruteforce()){ //cas ou il le possede deja
+						System.out.println("ERROR : Vous possedez deja ce materiel");
+					}
+					else {//cas ou il ne le possede pas encore
+						if (bitcoin >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+							Inventory.setbruteforce();
+							bitcoin -= price; //on deduit son achat de son portefeuille de bitcoin
+							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande bruteforce.");
+						}
+						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+						}
+					break;
+		}
+	}
+
+/** COMMANDE DE DEBUG : NE RESTERA PAS */
+	public static void DEBUGincreasebotnet()
+	{
+		botnet = 10;
+	}
 
 }

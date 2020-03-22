@@ -21,7 +21,10 @@ public class main {
 
 		//DEFINITION DE LA DIFFICULTE
 		I.SetDifficulte();
-		int difficulty = sc.nextInt();
+		int difficulty = sc.nextInt(); //TODO : catch les erreurs potentielles (fautes de frappes ect)
+
+		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISI
+		Store store = new Store(difficulty);
 
 		//TEXTE : PAS DEFINITIF
 		I.ConseilDebut();
@@ -72,8 +75,14 @@ public class main {
 			case "kill":
 				Command.kill(c.getWord2());
 				break;
+			case "steal":
+				Command.steal();
+				break;
+			case "shop":
+				Command.shop();
+				break;
 			default:
-				System.out.println("Commande Inconnue...");
+				System.out.println("ERREUR : commande inconnue");
 				break;
 			}
 		}

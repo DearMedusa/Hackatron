@@ -15,8 +15,11 @@ public class Server {
 	*@param hasavast boolean : true si le serveur a un antivirus
 	*@param mdp Mot de passe du serveur
 	*@param hasmdp boolean : défini si le serveur a ou non un mdp
+	*@param bitcoin nombre de bitcoin que le serveur possede
+	*@param hasbitcoin boolean : defini si le serveur a des bitcoins
 	*/
 	private String name;
+	private String nameuser;
 	private String[] content;
 	private boolean backdoored;
 	private Server[] serveursVoisins;
@@ -25,38 +28,34 @@ public class Server {
 	private boolean hasAvast;
 	private String mdp;
 	private boolean hasmdp;
+	private double bitcoin;
 
 	/**
 	* Constructeur de serveur sans antivirus
 	*@param n String nom du serveur
 	*@param c tableau de string contenu du serveur
 	*/
-	public Server(String n, String[] c) {
+	public Server(String n, String nuser, String[] c) {
 		this.name = n;
+		this.nameuser = nuser;
 		this.backdoored = false;
 		this.content = c;
 		this.Avast = null;
 		this.hasAvast = false;
 		this.IpAdress = Generateur.AdressesIp();
 		this.hasmdp =  false;
+		this.bitcoin = 0;
 	}
 
 	/**
-	* Constructeur de serveur avec antivirus
-	*@param n String nom du serveur
-	*@param c tableau de string contenu du serveur
-	*@param nA String nom de l'antivirus
-	*@param lvlA int niveau de l'antivirus
+	* Methode qui cree un antivirus pour un serveur existant
+	*@param nom nom de l'antivirus
+	*@param niveau niveau de l'antivirus
 	*/
-	public Server(String n, String[] c, String nA, int lvlA)
+	public void creerAntivirus(String nom, int niveau)
 	{
-		this.name = n;
-		this.backdoored = false;
-		this.content = c;
-		this.Avast = new Antivirus(nA, lvlA);
+		this.Avast = new Antivirus(nom, niveau);
 		this.hasAvast = true;
-		this.IpAdress = Generateur.AdressesIp();
-		this.hasmdp =  false;
 	}
 
 	/*
@@ -80,6 +79,11 @@ public class Server {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public String getUsername()
+	{
+		return this.nameuser;
 	}
 
 	public String getIp() {
@@ -115,6 +119,21 @@ public class Server {
 	public String getmdp()
 	{
 		return this.mdp;
+	}
+
+	public double getbitcoin()
+	{
+		return this.bitcoin;
+	}
+
+	public void setbitcoin(double bitcoin)
+	{
+		this.bitcoin += bitcoin;
+	}
+
+	public void decreasebitcoin(double nbr)
+	{
+		this.bitcoin -= nbr;
 	}
 
 }
