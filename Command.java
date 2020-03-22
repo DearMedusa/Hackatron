@@ -7,9 +7,9 @@ public class Command {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Que voulez vous faire ?");
-		System.out.println("1 : Augmenter le botnet du joueur");
+		System.out.println("1 : Ameliorer le botnet");
 		System.out.println("2 : Voir les bitcoins du Serveur actuel");
-		System.out.println("3 : ajouter 10 bitcoins au joueur");
+		System.out.println("3 : ajouter 10 bitcoins");
 		System.out.println("4 : Voir le mot de passe du Serveur Actuel");
 		System.out.println("5 : Debloquer toutes les competences");
 		System.out.println("6 : Quitter le menu debug");
@@ -18,9 +18,9 @@ public class Command {
 			int choix = sc.nextInt();
 			//affichage
 			System.out.println("Que voulez vous faire ?");
-			System.out.println("1 : Augmenter le botnet du joueur");
+			System.out.println("1 : Augmenter le botnet");
 			System.out.println("2 : Voir les bitcoins du Serveur Actuel");
-			System.out.println("3 : ajouter 10 bitcoins au joueur");
+			System.out.println("3 : ajouter 10 bitcoins");
 			System.out.println("4 : Voir le mot de passe du Serveur Actuel");
 			System.out.println("5 : Debloquer toutes les competences");
 			System.out.println("6 : Quitter le menu debug");
