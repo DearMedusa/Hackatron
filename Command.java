@@ -2,16 +2,15 @@ import java.util.Scanner;
 
 public class Command {
 
-	/* DEBUG COMMANDE POUR LA BETA TESTEUSE QUE JE SUIS */
 	public static void DEBUG(){
 		boolean running = true;
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Que voulez vous faire ?");
 		System.out.println("1 : Augmenter le botnet du joueur");
-		System.out.println("2 : Voir les bitcoins du currentServ");
+		System.out.println("2 : Voir les bitcoins du Serveur actuel");
 		System.out.println("3 : ajouter 10 bitcoins au joueur");
-		System.out.println("4 : Voir le mot de passe du currentServ");
+		System.out.println("4 : Voir le mot de passe du Serveur Actuel");
 		System.out.println("5 : Debloquer toutes les competences");
 		System.out.println("6 : Quitter le menu debug");
 
@@ -20,9 +19,9 @@ public class Command {
 			//affichage
 			System.out.println("Que voulez vous faire ?");
 			System.out.println("1 : Augmenter le botnet du joueur");
-			System.out.println("2 : Voir les bitcoins du currentServ");
+			System.out.println("2 : Voir les bitcoins du Serveur Actuel");
 			System.out.println("3 : ajouter 10 bitcoins au joueur");
-			System.out.println("4 : Voir le mot de passe du currentServ");
+			System.out.println("4 : Voir le mot de passe du Serveur Actuel");
 			System.out.println("5 : Debloquer toutes les competences");
 			System.out.println("6 : Quitter le menu debug");
 
@@ -41,7 +40,7 @@ public class Command {
 				break;
 			case 4 :
 				if (Player.getCurrentServ().hasmdp()){
-					System.out.println("Le mot de passe du serveur est : " + Player.getCurrentServ().getmdp());
+					System.out.println("Mot de passe du Serveur : " + Player.getCurrentServ().getmdp());
 				} else { System.out.println("Ce serveur n'a pas de mot de passe"); };
 				break;
 			case 5 :
@@ -187,12 +186,12 @@ public class Command {
 			System.out.println("-"+ voisins[i].getName());
 		}
 		System.out.println("Niveau du botnet : "+Player.getbnetplayer());
-		System.out.println("Nombre de bitcoins possedes : "+Player.getbitcoin());
-		System.out.println("Vous possedez les competences suivantes : ");
-		System.out.println("(true = vous pouvez vous servir de cette commande / false : achetez le materiel necessaire (commande : shop) pour la debloquer)");
+		System.out.println("Bitcoins : "+Player.getbitcoin());
+		System.out.println("Competences : ");
+		//System.out.println("(true = vous pouvez vous servir de cette commande / false : achetez le materiel necessaire (commande : shop) pour la debloquer)");
 		System.out.println("backdoor : " + Player.getInventaire().getbackdoor());
 		System.out.println("kill : " + Player.getInventaire().getkill());
-		System.out.println("steal : " + Player.getInventaire().getsteal());
+		System.out.println("steal : " + Player.getInventaire().getsteal());//changer le nom de cette commande
 		System.out.println("bruteforce : " + Player.getInventaire().getbruteforce());
 		System.out.println("***********************************************************************");
 	}
@@ -229,16 +228,16 @@ public class Command {
 			if (voisins[numServeur].hasAntivirus()){ //si le serveur a un antivirus, le joueur doit d'abord le desactiver pour pouvoir s'y connecter
 				if(voisins[numServeur].getAntivirus().getStatut()){ //l'antivirus doit etre disable
 					System.out.println("ERROR : Vous ne pouvez pas vous connecter : ");
-					System.out.println("ce serveur dispose d'un antivirus : desactivez le puis essayez de vous reconnecter");
+					System.out.println("Serveur protege par un antivirus : desactivez le pour vous reconnecter");
 				}
 				else {//si l'antivirus est disable, on positionne le joueur au serveur demande
 					Player.setCurrentServ(voisins[numServeur]);
-					System.out.println("Vous etes desormais connecte au " + voisins[numServeur].getName());
+					System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
 				}
 			}
 			else { //dans le cas contraire, on positionne le joueur au serveur demande
 				Player.setCurrentServ(voisins[numServeur]);
-				System.out.println("Vous etes desormais connecte au " + voisins[numServeur].getName());
+				System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
 			}
 		}
 	}
@@ -269,7 +268,7 @@ public class Command {
 			if (Player.getCurrentServ().getmdp().equals(mdp)){ //si le joueur a entre le bon mot de passe
 				Initializer.download();
 			}
-			else { System.out.println("ERROR : le mot de passe est incorrect, veuillez reessayer"); }
+			else { System.out.println("ERROR : mot de passe incorrect, veuillez reessayer"); }
 		}
 		else { //si le serveur n'est pas protege par un mot de passe
 			Initializer.download();
@@ -299,7 +298,7 @@ public class Command {
 			//**************************************************************************
 			//si l'user a fait une faute de frappe, on arrete la et il doit retaper la commande
 			if(error == true){
-				System.out.println("ERROR : ce serveur n'existe pas, veuillez reessayer");
+				System.out.println("ERROR : serveur inconnu, veuillez reessayer");
 			}
 			//sinon on passe a la partie desactivation
 			else {
@@ -309,17 +308,17 @@ public class Command {
 
 					if(A.getlvl() <= Player.getbnetplayer()){ //check si le lvl de l'antivirus n'est pas sup a celui du joueur
 						A.disable(); //désactive l'antivirus
-						System.out.println("Cet antivirus etait de force " + A.getlvl());
-						System.out.println("Vous avez gagné 1 niveau de botnet suite a cette action");
+						System.out.println("Antivirus de niveau " + A.getlvl());
+						System.out.println("Vous avez gagné 1 niveau de botnet");
 						Player.increaselvl();
 					}
 					else { //si le lvl du joueur est trop faible, il ne peut pas desactiver l'antivirus
-						System.out.println("Vous ne pouvez pas desactiver cet antivirus, votre botnet est trop faible");
+						System.out.println("Vous ne pouvez pas desactiver cet antivirus, botnet trop faible");
 					}
 				}
 
 				else { //si le serveur n'a pas d'antivirus, on affiche un msg d'erreur
-					System.out.println("FATAL ERROR : Ce serveur n'a pas d'antivirus");
+					System.out.println("ERROR : Ce serveur n'a pas d'antivirus");
 		}
 
 			}
@@ -340,7 +339,7 @@ public class Command {
 				double nombredebitcoin = Player.getCurrentServ().getbitcoin(); //recupere le nbr de bitcoin que le serveur possede
 				Player.steal(nombredebitcoin); //augmente l'attribut bitcoin de player
 				Player.getCurrentServ().decreasebitcoin(nombredebitcoin); //diminue l'attribut bitcoin de serveur
-				System.out.println("Vous avez vole " + nombredebitcoin + " bitcoins");
+				System.out.println("Vous avez recupere " + nombredebitcoin + " bitcoins");
 				System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
 			}
 			else {
@@ -353,41 +352,41 @@ public class Command {
 	public static void shop()
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Bienvenue au shop online du H4cK3r ! Que puis-je pour vous ?");
+		System.out.println("Marche Noir");
 		boolean running = true;
 		int choix;
 
 			System.out.println("Veuillez taper le numero de la section qui vous interesse.");
-			System.out.println("1- Informations a propos de 'Backdoor'");
-			System.out.println("2- Informations a propos de 'Kill'");
-			System.out.println("3- Informations a propos de 'Steal'");
-			System.out.println("4- Informations a propos de 'Bruteforce'");
+			System.out.println("1- 'Backdoor'");
+			System.out.println("2- 'Kill'");
+			System.out.println("3- 'Steal'");
+			System.out.println("4- 'Bruteforce'");
 
 			choix = sc.nextInt();
 			String choix2;
 
 			if (choix == 1) {
-				System.out.println("Backdoor vous permettra de revenir a un serveur precis, meme si le serveur ou vous etes n'y est pas connecte.");
-				System.out.println("Backdoor ne vous coutera que la modique somme de " + Store.getbackdoorprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir la competence backdoor ? y/n");
-				choix2 = sc.nextLine(); //POURQUOI TU MARCHES PAS ??? HEIN ???? POURQUOI
+				System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
+				System.out.println("Backdoor vous coutera " + Store.getbackdoorprice() + " bitcoins.");
+				System.out.println("Voulez vous acquerir backdoor ? y/n");
+				choix2 = sc.nextLine();
 				if(choix2.equals("y")){
 					Player.buyObject("backdoor", Store.getbackdoorprice());
-					System.out.println("Je vous remercie pour votre achat. A la prochaine fois.");
+					System.out.println("Transaction effectuee.");
 				}
 				else {
-					System.out.println("Vous ne voulez rien ? A la prochaine alors.");
+					System.out.println("Vous quittez la boutique.");
 				}
 			}
 
 			if (choix == 2) {
 				System.out.println("Kill aneantira l'antivirus d'un serveur indique pour vous. Vous pourrez ensuite vous y connecter sans soucis.");
 				System.out.println("Kill ne vous coutera que la modique somme de " + Store.getkillprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir la competence Kill ? y/n");
-				choix2 = sc.nextLine(); //ca marche pas, je vais jouer a animal crossing j'en ai marre
+				System.out.println("Voulez vous acquerir Kill ? y/n");
+				choix2 = sc.nextLine();
 				if(choix2.equals("y")){
 					Player.buyObject("kill", Store.getkillprice());
-					System.out.println("Je vous remercie pour votre achat. A la prochaine fois.");
+					System.out.println("Transaction effectuee.");
 				}
 				else {
 					System.out.println("Vous ne voulez rien ? A la prochaine alors.");
@@ -397,11 +396,11 @@ public class Command {
 			if (choix == 3) {
 				System.out.println("Steal recuperera tous les bitcoins du serveur sur lequel vous etes et les transferera sur votre portefeuille.");
 				System.out.println("Steal ne vous coutera que la modique somme de " + Store.getstealprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir la competence Steal ? y/n");
+				System.out.println("Voulez vous acquerir Steal ? y/n");
 				choix2 = sc.nextLine();
 				if(choix2.equals("y")){
 					Player.buyObject("steal", Store.getstealprice());
-					System.out.println("Je vous remercie pour votre achat. A la prochaine fois.");
+					System.out.println("Transaction effectuee.");
 				}
 				else {
 					System.out.println("Vous ne voulez rien ? A la prochaine alors.");
@@ -411,14 +410,14 @@ public class Command {
 			if (choix == 4) {
 				System.out.println("Bruteforce recuperera le mot de passe de l'utilisateur du serveur sur lequel vous etes. Vous pourrez ensuite telecharger ce que vous voulez.");
 				System.out.println("Bruteforce ne vous coutera que la modique somme de " + Store.getbruteforceprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir la competence Bruteforce ? y/n");
+				System.out.println("Voulez vous acquerir Bruteforce ? y/n");
 				choix2 = sc.nextLine();
 				if(choix2.equals("y")){
 					Player.buyObject("bruteforce", Store.getbruteforceprice());
-					System.out.println("Je vous remercie pour votre achat. A la prochaine fois.");
+					System.out.println("Transaction effectuee.");
 				}
 				else {
-					System.out.println("Vous ne voulez rien ? A la prochaine alors.");
+					System.out.println("Vous ne voulez rien ? A une prochaine alors.");
 				}
 			}
 
