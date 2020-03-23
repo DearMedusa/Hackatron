@@ -228,7 +228,7 @@ public class Command {
 			if (voisins[numServeur].hasAntivirus()){ //si le serveur a un antivirus, le joueur doit d'abord le desactiver pour pouvoir s'y connecter
 				if(voisins[numServeur].getAntivirus().getStatut()){ //l'antivirus doit etre disable
 					System.out.println("ERROR : Vous ne pouvez pas vous connecter : ");
-					System.out.println("Serveur protege par un antivirus : desactivez le pour vous connecter");
+					System.out.println(word2 + "est protege par un antivirus" + voisins[numServeur].getAntivirus().getName + ": desactivez le pour vous connecter");
 				}
 				else {//si l'antivirus est disable, on positionne le joueur au serveur demande
 					Player.setCurrentServ(voisins[numServeur]);
