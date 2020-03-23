@@ -15,7 +15,7 @@ public class Command {
 		System.out.println("6 : Quitter le menu debug");
 
 		while (running) {
-			int choix = sc.nextInt();
+			String choix = sc.nextLine();
 			//affichage
 			System.out.println("Que voulez vous faire ?");
 			System.out.println("1 : Augmenter le botnet");
@@ -27,34 +27,34 @@ public class Command {
 
 			// interactions
 			switch (choix) {
-			case 1:
+			case "1":
 				Player.DEBUGincreasebotnet();
 				System.out.println("Le botnet est maintenant de " + Player.getbnetplayer());
 				break;
-			case 2:
+			case "2":
 				System.out.println("Le serveur courant possede : "	+ Player.getCurrentServ().getbitcoin() + " bitcoins");
 				break;
-			case 3 :
+			case "3" :
 				Player.steal(10);
 				System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
 				break;
-			case 4 :
+			case "4" :
 				if (Player.getCurrentServ().hasmdp()){
 					System.out.println("Mot de passe du Serveur : " + Player.getCurrentServ().getmdp());
 				} else { System.out.println("Ce serveur n'a pas de mot de passe"); };
 				break;
-			case 5 :
+			case "5" :
 				Player.getInventaire().setkill();
 				Player.getInventaire().setsteal();
 				Player.getInventaire().setbackdoor();
 				Player.getInventaire().setbruteforce();
 				System.out.println("Faire ifconfig pour verifier que tout a bien ete debloque");
 				break;
-			case 6:
+			case "6":
 				running = false;
 				break;
 			default:
-				System.out.println("ERREUR : commande inonnue");
+				System.out.println("ERREUR : commande inconnue");
 				break;
 			}
 		}
@@ -228,16 +228,18 @@ public class Command {
 			if (voisins[numServeur].hasAntivirus()){ //si le serveur a un antivirus, le joueur doit d'abord le desactiver pour pouvoir s'y connecter
 				if(voisins[numServeur].getAntivirus().getStatut()){ //l'antivirus doit etre disable
 					System.out.println("ERROR : Vous ne pouvez pas vous connecter : ");
-					System.out.println("Serveur protege par un antivirus : desactivez le pour vous reconnecter");
+					System.out.println("Serveur protege par un antivirus : desactivez le pour vous connecter");
 				}
 				else {//si l'antivirus est disable, on positionne le joueur au serveur demande
 					Player.setCurrentServ(voisins[numServeur]);
 					System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
+					System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel."); //a changer si ca convient pas
 				}
 			}
 			else { //dans le cas contraire, on positionne le joueur au serveur demande
 				Player.setCurrentServ(voisins[numServeur]);
 				System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
+				System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel.");
 			}
 		}
 	}
@@ -254,22 +256,22 @@ public class Command {
 	*affiche la liste des fichiers que le serveur sur lequel le joueur est positionne possede
 	*demande quel numero de fichier le joueur veut, et le telecharge
 	*si le fichier s'appelle "sudoku.java", affiche le message de victoire au joueur
-	* UTILISATION DE INITIALIZER : contient les lignes de codes necessaire a l'execution
+	* UTILISATION DE GenerationAffichage : contient les lignes de codes necessaire a l'execution
 	*/
 	public static void download() {
 		Scanner sc = new Scanner(System.in);
-
+		System.out.println("Bonjour " + Player.getCurrentServ().getUsername() + " !");//affichage du nom de l'user du serveur
 		if (Player.getCurrentServ().hasmdp()){ //si le serveur a un mdp, le joueur doit le taper pour pouvoir telecharger les fichiers
 			System.out.println("Mot de passe ?");
 			String mdp = sc.nextLine();
 
 			if (Player.getCurrentServ().getmdp().equals(mdp)){ //si le joueur a entre le bon mot de passe
-				Initializer.download();
+				GenerationAffichage.download();
 			}
 			else { System.out.println("ERROR : mot de passe incorrect, veuillez reessayer"); }
 		}
 		else { //si le serveur n'est pas protege par un mot de passe
-			Initializer.download();
+			GenerationAffichage.download();
 		}
 
 	}
@@ -346,82 +348,69 @@ public class Command {
 		}
 	}
 
-	/**Methode qui permet d'acceder au shop du jeu // TODO : trouver un moyen de catch les erreurs humaines type faute de frappe dans le nextInt() et nextLine()*/
+	/**Methode qui permet d'acceder au shop du jeu // TODO : trouver un moyen de catch les erreurs humaines type faute de frappe dans le nextInt() et nextLine() et resoudre erreurs*/
 	public static void shop()
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Marche Noir");
 		boolean running = true;
 		int choix;
 
-			System.out.println("Veuillez taper le numero de la section qui vous interesse.");
-			System.out.println("1- 'Backdoor'");
-			System.out.println("2- 'Kill'");
-			System.out.println("3- 'Steal'");
-			System.out.println("4- 'Bruteforce'");
+		Store.menu();
 
-			choix = sc.nextInt();
-			String choix2;
+		choix = sc.nextInt();
+		String choix2;
 
-			if (choix == 1) {
-				System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
-				System.out.println("Backdoor vous coutera " + Store.getbackdoorprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir backdoor ? y/n");
-				choix2 = sc.nextLine();
-				if(choix2.equals("y")){
-					Player.buyObject("backdoor", Store.getbackdoorprice());
-					System.out.println("Transaction effectuee.");
-				}
-				else {
-					System.out.println("Vous quittez la boutique.");
-				}
+		if (choix == 1) {
+			Store.descriptionBackdoor();
+			choix2 = sc.nextLine(); //ne marche pas
+			if(choix2.equals("y")){
+				Player.buyObject("backdoor", Store.getbackdoorprice());
+				Store.msg1();
 			}
-
-			if (choix == 2) {
-				System.out.println("Kill aneantira l'antivirus d'un serveur indique pour vous. Vous pourrez ensuite vous y connecter sans soucis.");
-				System.out.println("Kill ne vous coutera que la modique somme de " + Store.getkillprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir Kill ? y/n");
-				choix2 = sc.nextLine();
-				if(choix2.equals("y")){
-					Player.buyObject("kill", Store.getkillprice());
-					System.out.println("Transaction effectuee.");
-				}
-				else {
-					System.out.println("Vous ne voulez rien ? A la prochaine alors.");
-				}
-			}
-
-			if (choix == 3) {
-				System.out.println("Steal recuperera tous les bitcoins du serveur sur lequel vous etes et les transferera sur votre portefeuille.");
-				System.out.println("Steal ne vous coutera que la modique somme de " + Store.getstealprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir Steal ? y/n");
-				choix2 = sc.nextLine();
-				if(choix2.equals("y")){
-					Player.buyObject("steal", Store.getstealprice());
-					System.out.println("Transaction effectuee.");
-				}
-				else {
-					System.out.println("Vous ne voulez rien ? A la prochaine alors.");
-				}
-			}
-
-			if (choix == 4) {
-				System.out.println("Bruteforce recuperera le mot de passe de l'utilisateur du serveur sur lequel vous etes. Vous pourrez ensuite telecharger ce que vous voulez.");
-				System.out.println("Bruteforce ne vous coutera que la modique somme de " + Store.getbruteforceprice() + " bitcoins.");
-				System.out.println("Voulez vous acquerir Bruteforce ? y/n");
-				choix2 = sc.nextLine();
-				if(choix2.equals("y")){
-					Player.buyObject("bruteforce", Store.getbruteforceprice());
-					System.out.println("Transaction effectuee.");
-				}
-				else {
-					System.out.println("Vous ne voulez rien ? A une prochaine alors.");
-				}
-			}
-
 			else {
-				System.out.println("Vous ne voulez rien ? A la prochaine alors.");
+				Store.msg2();
 			}
+		}
+
+		if (choix == 2) {
+			Store.descriptionKill();
+			choix2 = sc.nextLine();
+			if(choix2.equals("y")){
+				Player.buyObject("kill", Store.getkillprice());
+				Store.msg1();
+			}
+			else {
+				Store.msg2();
+			}
+		}
+
+		if (choix == 3) {
+			Store.descriptionSteal();
+			choix2 = sc.nextLine();
+			if(choix2.equals("y")){
+				Player.buyObject("steal", Store.getstealprice());
+				Store.msg1();
+			}
+			else {
+				Store.msg2();
+			}
+		}
+
+		if (choix == 4) {
+			Store.descriptionBruteforce();
+			choix2 = sc.nextLine();
+			if(choix2.equals("y")){
+				Player.buyObject("bruteforce", Store.getbruteforceprice());
+				Store.msg1();
+			}
+			else {
+				Store.msg2();
+			}
+		}
+
+		else {
+			Store.msg2();
+		}
 	}
 
 

@@ -67,4 +67,54 @@ public class Store {
     return bruteforceprice;
   }
 
+  public static void menu()
+  {
+    System.out.println("Marche Noir");
+    System.out.println("Veuillez taper le numero de la section qui vous interesse.");
+    System.out.println("1- 'Backdoor'");
+    System.out.println("2- 'Kill'");
+    System.out.println("3- 'Steal'");
+    System.out.println("4- 'Bruteforce'");
+  }
+
+  public static void descriptionBackdoor()
+  {
+    System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
+    System.out.println("Backdoor vous coutera " + backdoorprice + " bitcoins.");
+    System.out.println("Voulez vous acquerir backdoor ? y/n");
+  }
+
+  public static void descriptionKill()
+  {
+    System.out.println("Kill aneantira l'antivirus d'un serveur indique pour vous. Vous pourrez ensuite vous y connecter.");
+    System.out.println("Kill ne vous coutera que la modique somme de " + killprice + " bitcoins.");
+    System.out.println("Voulez vous acquerir Kill ? y/n");
+  }
+
+  public static void descriptionSteal()
+  {
+    System.out.println("Steal recuperera tous les bitcoins du serveur sur lequel vous etes et les transferera sur votre portefeuille.");
+    System.out.println("Steal ne vous coutera que la modique somme de " + stealprice + " bitcoins.");
+    System.out.println("Voulez vous acquerir Steal ? y/n");
+  }
+
+  public static void descriptionBruteforce()
+  {
+    System.out.println("Bruteforce recuperera le mot de passe de l'utilisateur du serveur sur lequel vous etes. Vous pourrez ensuite telecharger ce que vous voulez.");
+    System.out.println("Bruteforce ne vous coutera que la modique somme de " + bruteforceprice + " bitcoins.");
+    System.out.println("Voulez vous acquerir Bruteforce ? y/n");
+  }
+
+  public static void msg1()
+  {
+    System.out.println("Merci de votre achat.");
+  }
+
+  public static void msg2()
+  {
+    System.out.println("Vous ne voulez rien ? A la prochaine alors.");
+  }
+
+
+
 }

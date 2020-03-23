@@ -42,7 +42,7 @@ public class Server {
 		this.content = c;
 		this.Avast = null;
 		this.hasAvast = false;
-		this.IpAdress = Generateur.AdressesIp();
+		this.IpAdress = GenerationArguments.AdressesIp();
 		this.hasmdp =  false;
 		this.bitcoin = 0;
 	}
@@ -107,7 +107,7 @@ public class Server {
 
 	public void setmdp()
 	{
-		this.mdp = Generateur.mdp();
+		this.mdp = GenerationArguments.mdp();
 		this.hasmdp = true;
 	}
 

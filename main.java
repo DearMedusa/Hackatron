@@ -7,7 +7,7 @@ public class main {
 		Scanner sc = new Scanner(System.in);
 		Player.getInstance();
 		Command c = new Command();
-		Initializer I = new Initializer();
+		GenerationAffichage I = new GenerationAffichage();
 
 		// INTRO
 		I.Logo();
@@ -19,16 +19,38 @@ public class main {
 
 		//DEFINITION DE LA DIFFICULTE
 		I.SetDifficulte();
-		int difficulty = sc.nextInt(); //TODO : catch les erreurs potentielles (fautes de frappes ect)
+		String choice = sc.nextLine();
+		int difficulty;
+		switch (choice) {
+			case "1":
+				System.out.println("Votre niveau de difficulte a ete defini sur :");
+				System.out.println("Facile");
+				difficulty = 1;
+				break;
+			case "2":
+				System.out.println("Votre niveau de difficulte a ete defini sur :");
+				System.out.println("Normal");
+				difficulty = 2;
+				break;
+			case "3":
+				System.out.println("Votre niveau de difficulte a ete defini sur :");
+				System.out.println("Difficile");
+				difficulty = 3;
+				break;
+			default:
+				System.out.println("Votre niveau de difficulte a ete defini sur :");
+				System.out.println("Normal");
+				difficulty = 2;
+				break;
+		}
 
 		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISI
 		Store store = new Store(difficulty);
 
-		//TEXTE : PAS DEFINITIF
-		I.ConseilDebut();
-
 		//CREATION DES SERVEURS
-		Server[] TabServeurs = I.GenerationServeurs(difficulty);
+		GenerationServeurs.getInstance();
+		GenerationServeurs.Create(difficulty);
+		Server[] TabServeurs = GenerationServeurs.getTabServer();
 
 		// DEFINITION DU SERVEUR DE DEPART
 		Player.setCurrentServ(TabServeurs[0]);

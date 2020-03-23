@@ -1,30 +1,15 @@
 import java.lang.*;
 import java.math.*;
 
-public class Generateur {
+public class GenerationArguments {
 
   /**
-  *Est appele au lancement du jeu
-  *cree des serveurs
-  *genere des strings pour la creation d'objets
+  *Classe qui permet de generer des arguments aleatoires, necessaire
+  *a la creation de serveurs
   */
 
   /** Génère des Strings de manière aléatoire */
-    private Generateur(){}
-
-/*
-* je pense qu'on pourra ptet s'en servir pour désactver les antivirus,
-* tu sais le coup des trucs à taper, histoire que ça donne des commandes randoms à taper
-
-  private static String[] hackerlife = {
-    "nbtstat -A",
-    "net view",
-    "net use",
-    "ls",
-    "kill",
-    "rm"
-  };
-*/
+    private GenerationArguments(){}
 
 /**
 * Attributs
@@ -32,6 +17,7 @@ public class Generateur {
 * @param AdressesIp tableau de strings
 * @param NomsDeFichiers tableau de strings
 * @param NomsAntivirus tableau de strings
+* @param NomsdUtilisateurs tableau de strings
 */
 
 /** Tableau de string contenant des mots de passes possibles pour une instance de serveur */
@@ -77,13 +63,13 @@ public class Generateur {
     "KaamelottIntegrale.zip", "ImagesDeCanard.png", "RickAstley.mp3",
     "Fontrite.exe", "PhotosVacancesArdeche.zip", "MamanOuvrePasStp.rar",
     "Skymir.exe", "MyWaifu.html", "arg.php", "jedetesteledevweb.php",
-    "index.html", "style.css", "IMG_20160521_115949.jpg", "Coursdecom.docx", "heeeeeheheheeh.jpg",
+    "index.html", "style.css", "IMG_20160521_115949.jpg", "Coursdecom.docx",
     "Paint.exe", "NSFW.gif", "tousmesamis.doc", "monchien.jpg", "jajaja.gif",
     "PhotosMaman.zip", "DiplômeduBac.png", "CV.pdf", "LettredeMotivation.pdf",
     "Annonce.pdf", "SCAN_CarteVitale.png", "SCAN_IBAN-CIC.png",
     "Steam.crack", "LeagueOfGelends.exe", "CheatsGTAV.txt", "Antman.mkv",
     "Discrod.exe", "Fable.exe", "KingdomComeDeliverance.exe", "Fuirti-Loop.exe",
-    "GoatSilumator.exe", "user.settings.bak", "MesVacancesEnArdeche.mp4", "enfer.php",
+    "GoatSilumator.exe", "user.settings.bak", "MesVacancesEnArdeche.mp4",
     "GithubDesktop.exe", "uRottent.exe", "Ampps-3.9-x86_64-setup", ".git",
     "MinecraftLauncher.exe", "PhpStorm 2019.3.3 x64.exe", "Divers.dir",
     "jdk-13.0.2.dir", "Recovery.txt", "chat.gif", "main.java", "Magicien.java",
@@ -93,9 +79,9 @@ public class Generateur {
     "mememario.gif", "Autosave.qs", "DONTKILLMEPLZ.plr.bak",
     "NOOB-LAND-2.wld.bak", "SkyrimPrefs", "ccmerged.package", "Resource.cfg",
     "JezaAnimations.package", "Sunset Valley_0x0859db3c.nhd", "Sheltered.exe",
-    "input.settings", "Random.java",
+    "input.settings", "Random.java", "heeeeeheheheeh.jpg",
     "Rockstar-Games-Launcher", "eclipse-java-2019-12-R-win32-x86_64.rar",
-    "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4",
+    "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4", "enfer.php",
     "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi", ".gitignore"
   };
 
@@ -108,7 +94,7 @@ public class Generateur {
   };
 
  /** Tableau de string contenant des noms possibles de users pour l'attribut nomuser d'une instance de serveur */
-  private static String NomsdUtilisateurs[] = { //note de l'auteur : j'ai pris des pseudos du 18-25 donc si c'est stupide c'est normal
+  private static String NomsdUtilisateurs[] = {
     "Bernard Mangeol", "User1854", "MAnyLowE", "batman", "Vive-MLP",
     "XxX-Dark_Baudelaire-XxX", "HuileDecoude","AneantisseurAW3", "DandyIII",
     "PhpHater", "C++Lover", "Tux", "GoToTheKitchen", "SaMereLipopette",
@@ -121,7 +107,8 @@ public class Generateur {
     "Vanessa", "IDEProlix", "LifeafterMort", "SuperNalo", "RSAAH", "nevvy",
     "Ottawabg", "Carla57-", "CityMapper", "grimalbide13", "TuchelenSlip",
     "RoadtoYKK", "divaxdcd", "crocketts", "Breur", "florenov", "qds51",
-    "MadarAAh", "Naruto", "xxX-Sasuke-Xxx", "FruityLoopsQuelEnfer"
+    "MadarAAh", "Naruto", "xxX-Sasuke-Xxx", "FruityLoopsQuelEnfer",
+    "MarinozeMemeur", "Marinozemystere"
   };
 
 
@@ -150,7 +137,7 @@ public class Generateur {
     for (int i = 0 ; i < Longueurdutableau; i++ ) {
       /*
       * Remplis le tableau avec des noms de fichiers aléatoires sélectionnés
-      * dans l'attribut de la table Generateur
+      * dans l'attribut de la table GenerationArguments
       */
       Tab[i] = NomsDeFichiers[Random.getRandomInt(0, NomsDeFichiers.length)];
     }
