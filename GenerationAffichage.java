@@ -94,4 +94,15 @@ public class GenerationAffichage {
     }
   }
 
+  public static void tempsdechargement()
+  {
+    System.out.println("Processing ...");
+    System.out.print("[");
+    for ( int i = 0 ; i < 15 ; i++ ) {
+      System.out.print("=");
+    }
+    System.out.print("]\n");
+    System.out.println("Done !");
+  }
+
 }

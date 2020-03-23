@@ -8,6 +8,7 @@ public class main {
 		Player.getInstance();
 		Command c = new Command();
 		GenerationAffichage I = new GenerationAffichage();
+		Rng.getInstance();
 
 		// INTRO
 		I.Logo();
@@ -46,6 +47,12 @@ public class main {
 
 		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISI
 		Store store = new Store(difficulty);
+
+		//GENERATION DE LA BARRE DE VIE DU JOUEUR EN FONCTION DE LA DIFFICULTE
+		Player.setlife(difficulty);
+
+		//GENERATION DE LA RNG EN FONCTION DE LA DIFFICULTE
+		Rng.SetDifficulty(difficulty);
 
 		//CREATION DES SERVEURS
 		GenerationServeurs.getInstance();
@@ -101,9 +108,20 @@ public class main {
 			case "shop":
 				Command.shop();
 				break;
+			case "mine":
+				Command.mine();
+				break;
 			default:
 				System.out.println("ERREUR : commande inconnue");
 				break;
+			}
+
+			Events.EventAleatoire(); //Appelle la methode EventAleatoire
+
+			//CONDITION DE LOSE
+			if(Player.getlife() == 0){
+				System.out.println("Perdu !");
+				running = false;
 			}
 		}
 		I.QuitGame();

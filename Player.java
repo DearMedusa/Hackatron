@@ -10,12 +10,15 @@ public class Player {
 	*@param currentServ Server le serveur sur lequel le joueur est actuellement
 	*@param botnet niveau du joueur
 	*@param bitcoin nombre de bitcoin que le joueur possède
+	*@param Inventory inventaire du Joueur
+	*@param life nombre de fois que le joueur peut se permettre de se faire prendre
 	*/
 	private static String pseudo;
 	private static Server currentServ;
 	private static int botnet;
 	private static double bitcoin;
 	private static Inventaire Inventory;
+	private static int life;
 
 	/**
 	*Constructeur d'un objet Player
@@ -33,19 +36,6 @@ public class Player {
 	private static class PlayerHolder
 	{
 		private final static Player Instance = new Player();
-	}
-
-	/**Ajoute un entier i a l'attribut botnet
-	*@param i entier
-	*/
-	public static void increaselvl()
-	{
-		if (botnet == 10) {
-			System.out.println("Vous avez atteint le niveau maximal (10)");
-		}
-		else {
-			botnet += 1;
-		}
 	}
 
 	/**Getters & Setters*/
@@ -75,7 +65,22 @@ public class Player {
 		return botnet;
 	}
 
-	public static void steal(double nbr)
+	public static void increaselvl()
+	{
+		if (botnet == 10) {
+			System.out.println("Vous avez atteint le niveau maximal (10)");
+		}
+		else {
+			botnet += 1;
+		}
+	}
+
+	public static void increasebitcoin(double nbr)
+	{
+		bitcoin += nbr;
+	}
+
+	public static void decreasebitcoin(double nbr)
 	{
 		bitcoin += nbr;
 	}
@@ -85,9 +90,40 @@ public class Player {
 		return bitcoin;
 	}
 
+	public static void deletebitcoin()
+	{
+		bitcoin = 0;
+	}
+
 	public static Inventaire getInventaire()
 	{
 		return Inventory;
+	}
+
+/** regle la vie en fonction de la difficulte */
+	public static void setlife(int difficulty)
+	{
+		switch (difficulty) {
+			case 1:
+				life = 20;
+				break;
+			case 2:
+				life = 10;
+				break;
+			case 3:
+				life = 5;
+				break;
+		}
+	}
+
+	public static void decreaselife()
+	{
+		life -= 1;
+	}
+
+	public static int getlife()
+	{
+		return life;
 	}
 
 /**

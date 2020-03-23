@@ -16,7 +16,8 @@ public class Server {
 	*@param mdp Mot de passe du serveur
 	*@param hasmdp boolean : défini si le serveur a ou non un mdp
 	*@param bitcoin nombre de bitcoin que le serveur possede
-	*@param hasbitcoin boolean : defini si le serveur a des bitcoins
+	*@param puissance : puissance du serveur, influe sur le nbr de bitcoins recoltes avec le minage
+	*@param hasbeenmined : boolean : true si le serveur a deja ete mine par le joueur
 	*/
 	private String name;
 	private String nameuser;
@@ -29,6 +30,8 @@ public class Server {
 	private String mdp;
 	private boolean hasmdp;
 	private double bitcoin;
+	private int puissance;
+	private boolean hasbeenmined;
 
 	/**
 	* Constructeur de serveur sans antivirus
@@ -45,6 +48,8 @@ public class Server {
 		this.IpAdress = GenerationArguments.AdressesIp();
 		this.hasmdp =  false;
 		this.bitcoin = 0;
+		this.puissance = Random.getRandomInt(1,11); //puissance entre 1 et 10
+		this.hasbeenmined = false;
 	}
 
 	/**
@@ -75,6 +80,11 @@ public class Server {
 
 	public void setContent(String[] content) {
 		this.content = content;
+	}
+
+	public void setSpecificContent(String content, int i)
+	{
+		this.content[i] = content;
 	}
 
 	public String getName() {
@@ -134,6 +144,21 @@ public class Server {
 	public void decreasebitcoin(double nbr)
 	{
 		this.bitcoin -= nbr;
+	}
+
+	public boolean getstatutmine()
+	{
+		return this.hasbeenmined;
+	}
+
+	public void setmine()
+	{
+		this.hasbeenmined = true;
+	}
+
+	public int getpuissance()
+	{
+		return this.puissance;
 	}
 
 }

@@ -35,7 +35,7 @@ public class Command {
 				System.out.println("Le serveur courant possede : "	+ Player.getCurrentServ().getbitcoin() + " bitcoins");
 				break;
 			case "3" :
-				Player.steal(10);
+				Player.increasebitcoin(10);
 				System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
 				break;
 			case "4" :
@@ -123,14 +123,15 @@ public class Command {
 	public static void help() {
 		System.out.println("**COMMAND LIST*********************************************************");
 		System.out.println("ifconfig: affiche des informations sur l'etat actuel du joueur");
-		System.out.println("ls: affiche ua liste des fichiers présents sur le serveur courant");
-		System.out.println("backdoor: installe une backdoor sur le serveur courant pour y contourner la securite");
-		System.out.println("download: liste les fichiers disponibles, l'user choisit ensuite celui qu'il veut dl (1 chance sur 6 d'augmenter son niveau de botnet)");
+		System.out.println("ls: affiche la liste des fichiers présents sur le serveur courant");
+		System.out.println("backdoor: installe une backdoor sur le serveur courant pour y contourner la securite a la prochaine connexion");
+		System.out.println("download: liste les fichiers disponibles");
 		System.out.println("connect X: se connecte au serveur voisin X");
 		System.out.println("bruteforce: affiche le mot de passe d'un serveur s'il en possede un");
 		System.out.println("kill: desactive l'antivirus si le niveau de botnet est suffisant");
-		System.out.println("steal: vole les bitcoins du serveur courant");
+		System.out.println("steal: vole les bitcoins du serveur courant (risque de se faire prendre par les autorites)");
 		System.out.println("shop : permet d'acheter des ameliorations");
+		System.out.println("mine : permet de miner des bitcoins (Plus le serveur est puissant, plus il vous rapporte)");
 		System.out.println("quit: ferme la session Hackatron");
 	}
 
@@ -140,7 +141,7 @@ public class Command {
 	*/
 	public static void backdoor() {
 		if (Player.getInventaire().getbackdoor()){
-			System.out.println("[================]100% Backdoor installee avec succes");
+			GenerationAffichage.tempsdechargement();
 			Player.getCurrentServ().setbackdoor(true);
 		}
 		else {
@@ -154,12 +155,7 @@ public class Command {
 	public static void bruteforce() {
 		if (Player.getInventaire().getbruteforce()){ //verifie si le joueur a bruteforce sur true dans on inventaire
 			if(Player.getCurrentServ().hasmdp()){ //verifie si le serveur a un mot de passe
-				System.out.println("Processing...");
-				int aleat = Random.getRandomInt(5, 30);
-				for (int i = 0; i < aleat ; i++){ //affichage pur et dur, pour l'immersion
-					System.out.print("*");
-				}
-				System.out.println(" Done");
+				GenerationAffichage.tempsdechargement();
 				System.out.println("Le mot de passe est : " + Player.getCurrentServ().getmdp()); //affiche le mot de passe du serveur
 			}
 			else { System.out.println("ERROR : ce serveur n'a pas de mot de passe"); } //message d'erreur
@@ -227,17 +223,20 @@ public class Command {
 			//postionnement du joueur
 			if (voisins[numServeur].hasAntivirus()){ //si le serveur a un antivirus, le joueur doit d'abord le desactiver pour pouvoir s'y connecter
 				if(voisins[numServeur].getAntivirus().getStatut()){ //l'antivirus doit etre disable
+					GenerationAffichage.tempsdechargement();
 					System.out.println("ERROR : Vous ne pouvez pas vous connecter : ");
-					System.out.println(word2 + "est protege par un antivirus" + voisins[numServeur].getAntivirus().getName + ": desactivez le pour vous connecter");
+					System.out.println(word2 + "est protege par un antivirus " + voisins[numServeur].getAntivirus().getname() + ": desactivez le pour vous connecter");
 				}
 				else {//si l'antivirus est disable, on positionne le joueur au serveur demande
 					Player.setCurrentServ(voisins[numServeur]);
+					GenerationAffichage.tempsdechargement();
 					System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
 					System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel."); //a changer si ca convient pas
 				}
 			}
 			else { //dans le cas contraire, on positionne le joueur au serveur demande
 				Player.setCurrentServ(voisins[numServeur]);
+				GenerationAffichage.tempsdechargement();
 				System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
 				System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel.");
 			}
@@ -248,6 +247,7 @@ public class Command {
 	*Creer un objet fenetre
 	*/
 	public static void map() {
+		GenerationAffichage.tempsdechargement();
 		System.out.println("Ouverture de la fenetre du reseau...");
 		Fenetre n = new Fenetre();
 	}
@@ -308,12 +308,19 @@ public class Command {
 
 					if(A.getlvl() <= Player.getbnetplayer()){ //check si le lvl de l'antivirus n'est pas sup a celui du joueur
 						A.disable(); //désactive l'antivirus
+						GenerationAffichage.tempsdechargement();
+						System.out.println("L'antivirus a ete desactive.");
 						System.out.println("Antivirus de niveau " + A.getlvl());
-						System.out.println("Vous avez gagné 1 niveau de botnet");
-						Player.increaselvl();
+						int chance = Random.getRandomInt(0,3); //1 chance sur 2 (3 est exclu de l'intervalle)
+						if (chance == 1) {
+							System.out.println("Vous avez gagné 1 niveau de botnet");
+							Player.increaselvl();
+						}
+						connect(word2);
 					}
 					else { //si le lvl du joueur est trop faible, il ne peut pas desactiver l'antivirus
-						System.out.println("Vous ne pouvez pas desactiver cet antivirus, botnet trop faible");
+						GenerationAffichage.tempsdechargement();
+						System.out.println("ERROR : desactivation impossible (botnet trop faible)");
 					}
 				}
 
@@ -336,17 +343,75 @@ public class Command {
 		}
 		else {
 			if (Player.getInventaire().getsteal()){
-				double nombredebitcoin = Player.getCurrentServ().getbitcoin(); //recupere le nbr de bitcoin que le serveur possede
-				Player.steal(nombredebitcoin); //augmente l'attribut bitcoin de player
-				Player.getCurrentServ().decreasebitcoin(nombredebitcoin); //diminue l'attribut bitcoin de serveur
-				System.out.println("Vous avez recupere " + nombredebitcoin + " bitcoins");
-				System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
+				if (Rng.getRng()) { //si le joueur est repere
+					Rng.msgRepere();
+				}
+				else { 
+					double nombredebitcoin = Player.getCurrentServ().getbitcoin(); //recupere le nbr de bitcoin que le serveur possede
+					Player.increasebitcoin(nombredebitcoin); //augmente l'attribut bitcoin de player
+					Player.getCurrentServ().decreasebitcoin(nombredebitcoin); //diminue l'attribut bitcoin de serveur
+					GenerationAffichage.tempsdechargement();
+					System.out.println("Vous avez recupere " + nombredebitcoin + " bitcoins");
+					System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
+				}
 			}
 			else {
 				System.out.println("ERROR : Vous n'avez pas le materiel necessaire pour pouvoir effectuer cette action");
 			}
 		}
 	}
+
+	/**Methode qui sert a miner des bitcoins sur le serveur courant*/
+	public static void mine()
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("La puissance de ce serveur est de " + Player.getCurrentServ().getpuissance());
+		System.out.println("Si vous minez, vous prenez le risque de vous faire reperer par le proprietaire du serveur");
+		System.out.println("Voulez vous miner ce serveur ? y/n");
+
+		String choix = sc.nextLine();
+
+		if (choix.equals("y")) {
+			double bitcoins = 0;
+			if (Player.getCurrentServ().getstatutmine() == false) {
+				int power = Player.getCurrentServ().getpuissance();
+				switch (power) {
+					case 1 :
+					case 2 :
+					case 3 :
+						bitcoins = GenerationArguments.Bitcoin();
+						break;
+					case 4 :
+					case 5 :
+					case 6 :
+						bitcoins = GenerationArguments.Bitcoin() * 2;
+						break;
+					case 7 :
+					case 8 :
+					case 9 :
+					case 10 :
+						bitcoins = GenerationArguments.Bitcoin() * 4;
+						break;
+				}
+				if(Rng.getRng()){
+					Rng.msgRepere();
+				}
+				else {
+					GenerationAffichage.tempsdechargement();
+					Player.increasebitcoin(bitcoins);
+					System.out.println("Vous avez mine " + bitcoins + " bitcoins");
+					Player.getCurrentServ().setmine();
+				}
+			}
+				else {
+					System.out.println("ERROR : vous avez deja mine ce serveur");
+					if (Rng.getRng()){
+						Rng.msgRepere();
+					}
+				}
+			}
+		}
 
 	/**Methode qui permet d'acceder au shop du jeu // TODO : trouver un moyen de catch les erreurs humaines type faute de frappe dans le nextInt() et nextLine() et resoudre erreurs*/
 	public static void shop()

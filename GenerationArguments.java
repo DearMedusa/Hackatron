@@ -82,7 +82,8 @@ public class GenerationArguments {
     "input.settings", "Random.java", "heeeeeheheheeh.jpg",
     "Rockstar-Games-Launcher", "eclipse-java-2019-12-R-win32-x86_64.rar",
     "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4", "enfer.php",
-    "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi", ".gitignore"
+    "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi", ".gitignore",
+    "It'sBritneyB*ch.mp"
   };
 
   /** Tableau de string contenant des noms possibles pour une instance d'antivirus d'une instance de serveur */
@@ -108,7 +109,7 @@ public class GenerationArguments {
     "Ottawabg", "Carla57-", "CityMapper", "grimalbide13", "TuchelenSlip",
     "RoadtoYKK", "divaxdcd", "crocketts", "Breur", "florenov", "qds51",
     "MadarAAh", "Naruto", "xxX-Sasuke-Xxx", "FruityLoopsQuelEnfer",
-    "MarinozeMemeur", "Marinozemystere"
+    "MarinozeMemeur", "Marinozemystere", "Britney"
   };
 
 
