@@ -10,7 +10,7 @@ public class Events {
   //Appelle un evenement aleatoire de la classe event
   public static void EventAleatoire()
   {
-    int rng = Random.getRandomInt(0, 50); // X (= nbr d'events) chances sur 50 qu'il y ai un event aleatoire
+    int rng = Rng.getRandomInt(0, 50); // X (= nbr d'events) chances sur 50 qu'il y ai un event aleatoire
     switch (rng) {
       case 1:
         VolDeBitcoins();

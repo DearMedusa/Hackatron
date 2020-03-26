@@ -55,10 +55,22 @@ public class Rng {
     }
   }
 
+
   /*Methodes*/
   public static void msgRepere(){
     System.out.println("Vous avez ete repere !"); //Affichage a revoir
     Player.decreaselife();
     System.out.println("Il vous reste " + Player.getlife() + "tentatives");
+  }
+
+    // On renvoie un nombre aléatoire entre 0 (inclus) et 1 (exclus)
+  public static double getRandom() {
+    return Math.random();
+  }
+
+  // On renvoie un entier aleatoire entre une valeur min (incluse)
+  // et une valeur max (exclue).
+  public static int getRandomInt(int min, int max) {
+    return ((int) (getRandom() * (max - min)) + min);
   }
 }

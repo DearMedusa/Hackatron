@@ -48,7 +48,7 @@ public class Server {
 		this.IpAdress = GenerationArguments.AdressesIp();
 		this.hasmdp =  false;
 		this.bitcoin = 0;
-		this.puissance = Random.getRandomInt(1,11); //puissance entre 1 et 10
+		this.puissance = Rng.getRandomInt(1,11); //puissance entre 1 et 10
 		this.hasbeenmined = false;
 	}
 

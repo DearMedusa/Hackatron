@@ -311,7 +311,7 @@ public class Command {
 						GenerationAffichage.tempsdechargement();
 						System.out.println("L'antivirus a ete desactive.");
 						System.out.println("Antivirus de niveau " + A.getlvl());
-						int chance = Random.getRandomInt(0,3); //1 chance sur 2 (3 est exclu de l'intervalle)
+						int chance = Rng.getRandomInt(0,3); //1 chance sur 2 (3 est exclu de l'intervalle)
 						if (chance == 1) {
 							System.out.println("Vous avez gagné 1 niveau de botnet");
 							Player.increaselvl();

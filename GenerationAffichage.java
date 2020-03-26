@@ -82,7 +82,7 @@ public class GenerationAffichage {
       }
       else { //en cas de fichier random osef
         System.out.println("Le fichier a bien ete telecharge.");
-        int chance = Random.getRandomInt(0, 11); //0 est inclus et 11 exclu, donc intervalle [0;10]
+        int chance = Rng.getRandomInt(0, 11); //0 est inclus et 11 exclu, donc intervalle [0;10]
         if (chance == 3){ //augmente le niveau du joueur (1 chance sur 10)
           System.out.println("Vous avez gagné 1 niveau de botnet suite a cette action");
           Player.increaselvl();
