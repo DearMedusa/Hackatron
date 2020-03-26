@@ -82,15 +82,9 @@ public class Store {
 
   private static void descriptionbacktrack()
   {
-<<<<<<< HEAD
     System.out.println("backtrack vous permettra de retourner sur le dernier serveur visite.");
     System.out.println("backtrack vous coutera " + backtrackprice + " bitcoins.");
     System.out.println("Voulez vous acquerir backtrack ? y/n");
-=======
-    System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
-    System.out.println("Prix: " + backdoorprice + " bitcoins.");
-    System.out.println("Voulez vous acquerir backdoor ? y/n");
->>>>>>> 9262cf6e3a63691d34d0a4a0ede8153c67b70b3e
   }
 
   private static void descriptionKill()
