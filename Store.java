@@ -25,19 +25,19 @@ public class Store {
       case 1:
         backdoorprice = 0; //backdoor est gratuit si le jeu est en facile
         killprice = 1.456;
-        stealprice = 0; //steal est gratuit pour l'instant, a voir si on trouve d'autres moyens pour obtenir des bitcoins dans le jeu que juste les voler (minage ?)
+        stealprice = 1;
         bruteforceprice = 1.6262;
         break;
       case 2 :
         backdoorprice = 1.2315;
-        killprice = 10.26154; //les valeur sont completements arbitraires pour l'instant
-        stealprice = 0;
+        killprice = 10.26154;
+        stealprice = 2.354;
         bruteforceprice = 5.85215;
         break;
       case 3:
         backdoorprice = 3.68915;
-        killprice = 20.5158; //valeurs a revoir apres avoir teste le jeu pour voir si c'est jouable ou non
-        stealprice = 0;
+        killprice = 20.5158;
+        stealprice = 5.1664;
         bruteforceprice = 10.792156;
         break;
     }
@@ -67,6 +67,8 @@ public class Store {
     return bruteforceprice;
   }
 
+
+  /** Methodes pour la commande shop() */
   public static void menu()
   {
     System.out.println("Marche Noir");
@@ -75,45 +77,166 @@ public class Store {
     System.out.println("2- 'Kill'");
     System.out.println("3- 'Steal'");
     System.out.println("4- 'Bruteforce'");
+    System.out.println("5- Quitter le Marche Noir");
   }
 
-  public static void descriptionBackdoor()
+  private static void descriptionBackdoor()
   {
     System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
     System.out.println("Backdoor vous coutera " + backdoorprice + " bitcoins.");
     System.out.println("Voulez vous acquerir backdoor ? y/n");
   }
 
-  public static void descriptionKill()
+  private static void descriptionKill()
   {
     System.out.println("Kill aneantira l'antivirus d'un serveur indique pour vous. Vous pourrez ensuite vous y connecter.");
     System.out.println("Kill ne vous coutera que la modique somme de " + killprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Kill ? y/n");
   }
 
-  public static void descriptionSteal()
+  private static void descriptionSteal()
   {
     System.out.println("Steal recuperera tous les bitcoins du serveur sur lequel vous etes et les transferera sur votre portefeuille.");
     System.out.println("Steal ne vous coutera que la modique somme de " + stealprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Steal ? y/n");
   }
 
-  public static void descriptionBruteforce()
+  private static void descriptionBruteforce()
   {
     System.out.println("Bruteforce recuperera le mot de passe de l'utilisateur du serveur sur lequel vous etes. Vous pourrez ensuite telecharger ce que vous voulez.");
     System.out.println("Bruteforce ne vous coutera que la modique somme de " + bruteforceprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Bruteforce ? y/n");
   }
 
-  public static void msg1()
+  private static void msg1()
   {
     System.out.println("Merci de votre achat.");
   }
 
-  public static void msg2()
+  private static void msg2()
   {
     System.out.println("Vous ne voulez rien ? A la prochaine alors.");
   }
+
+  /**
+  * Methode private servant a acheter des objets au shop
+  *@param object nom de l'objet
+  *@param price prix de l'objet
+  */
+  	private static void buyObject(String object, double price)
+  	{
+  		switch (object) {
+  			case "backdoor" : //si le joueur veut acheter backdoor
+  				if (Player.getInventaire().getbackdoor()){ //cas ou il le possede deja
+  					System.out.println("ERROR : Vous possedez deja ce materiel");
+  				}
+  				else {//cas ou il ne le possede pas encore
+  					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+  						Player.getInventaire().setbackdoor();
+  						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
+  						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande backdoor.");
+  					}
+  					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  				}
+  				break;
+  			case "kill" : //si le joueur veut acheter kill
+  				if (Player.getInventaire().getkill()){ //cas ou il le possede deja
+  					System.out.println("ERROR : Vous possedez deja ce materiel");
+  				}
+  				else {//cas ou il ne le possede pas encore
+  					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+  						Player.getInventaire().setkill();
+  						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
+  						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande kill.");
+  					}
+  					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  				}
+  				break;
+  				case "steal" : //si le joueur veut acheter kill
+  					if (Player.getInventaire().getsteal()){ //cas ou il le possede deja
+  						System.out.println("ERROR : Vous possedez deja ce materiel");
+  					}
+  					else {//cas ou il ne le possede pas encore
+  						if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+  							Player.getInventaire().setsteal();
+  							Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
+  							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande steal.");
+  						}
+  						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  					}
+  					break;
+  				case "bruteforce" : //si le joueur veut acheter kill
+  					if (Player.getInventaire().getbruteforce()){ //cas ou il le possede deja
+  						System.out.println("ERROR : Vous possedez deja ce materiel");
+  					}
+  					else {//cas ou il ne le possede pas encore
+  						if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
+  							Player.getInventaire().setbruteforce();
+  							Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoin
+  							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande bruteforce.");
+  						}
+  						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  						}
+  					break;
+  		}
+  	}
+
+
+      public static void choicesDESC(String S){
+        switch (S) {
+          case "1":
+            descriptionBackdoor();
+            break;
+          case "2":
+            descriptionKill();
+            break;
+          case "3":
+            descriptionSteal();
+            break;
+          case "4":
+            descriptionBruteforce();
+            break;
+          default:
+            System.out.println("ERROR : veuillez reessayer");
+            break;
+        }
+      }
+
+      public static void choicesBUY(String choix1, String choix2){
+
+        switch(choix2){
+
+          case "y":
+            switch (choix1) {
+              case "1":
+                buyObject("backdoor", backdoorprice);
+                msg1();
+                break;
+              case "2":
+                buyObject("kill", killprice);
+                msg1();
+                break;
+              case "3":
+                buyObject("steal", stealprice);
+                msg1();
+                break;
+              case "4":
+                buyObject("bruteforce", bruteforceprice);
+                msg1();
+                break;
+              default:
+                msg2();
+                break;
+            }
+            break;
+
+          default:
+            msg2();
+            break;
+        }
+
+      }
+
 
 
 

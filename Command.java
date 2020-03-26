@@ -346,7 +346,7 @@ public class Command {
 				if (Rng.getRng()) { //si le joueur est repere
 					Rng.msgRepere();
 				}
-				else { 
+				else {
 					double nombredebitcoin = Player.getCurrentServ().getbitcoin(); //recupere le nbr de bitcoin que le serveur possede
 					Player.increasebitcoin(nombredebitcoin); //augmente l'attribut bitcoin de player
 					Player.getCurrentServ().decreasebitcoin(nombredebitcoin); //diminue l'attribut bitcoin de serveur
@@ -417,64 +417,22 @@ public class Command {
 	public static void shop()
 	{
 		Scanner sc = new Scanner(System.in);
+		String choix;
 		boolean running = true;
-		int choix;
 
-		Store.menu();
+		while (running) {
+			Store.menu();
+			choix = sc.nextLine();
 
-		choix = sc.nextInt();
-		String choix2;
+			if(choix.equals("5")){
+				running = false;
+			}
 
-		if (choix == 1) {
-			Store.descriptionBackdoor();
-			choix2 = sc.nextLine(); //ne marche pas
-			if(choix2.equals("y")){
-				Player.buyObject("backdoor", Store.getbackdoorprice());
-				Store.msg1();
-			}
-			else {
-				Store.msg2();
-			}
-		}
+			Store.choicesDESC(choix);
+			String memorychoice = choix;
 
-		if (choix == 2) {
-			Store.descriptionKill();
-			choix2 = sc.nextLine();
-			if(choix2.equals("y")){
-				Player.buyObject("kill", Store.getkillprice());
-				Store.msg1();
-			}
-			else {
-				Store.msg2();
-			}
-		}
-
-		if (choix == 3) {
-			Store.descriptionSteal();
-			choix2 = sc.nextLine();
-			if(choix2.equals("y")){
-				Player.buyObject("steal", Store.getstealprice());
-				Store.msg1();
-			}
-			else {
-				Store.msg2();
-			}
-		}
-
-		if (choix == 4) {
-			Store.descriptionBruteforce();
-			choix2 = sc.nextLine();
-			if(choix2.equals("y")){
-				Player.buyObject("bruteforce", Store.getbruteforceprice());
-				Store.msg1();
-			}
-			else {
-				Store.msg2();
-			}
-		}
-
-		else {
-			Store.msg2();
+			choix = sc.nextLine();
+			Store.choicesBUY(memorychoice, choix);
 		}
 	}
 
