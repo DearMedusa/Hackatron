@@ -2,63 +2,7 @@ import java.util.Scanner;
 
 public class Command {
 
-	public static void DEBUG(){
-		boolean running = true;
-		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Que voulez vous faire ?");
-		System.out.println("1 : Ameliorer le botnet");
-		System.out.println("2 : Voir les bitcoins du Serveur actuel");
-		System.out.println("3 : ajouter 10 bitcoins");
-		System.out.println("4 : Voir le mot de passe du Serveur Actuel");
-		System.out.println("5 : Debloquer toutes les competences");
-		System.out.println("6 : Quitter le menu debug");
-
-		while (running) {
-			String choix = sc.nextLine();
-			//affichage
-			System.out.println("Que voulez vous faire ?");
-			System.out.println("1 : Augmenter le botnet");
-			System.out.println("2 : Voir les bitcoins du Serveur Actuel");
-			System.out.println("3 : ajouter 10 bitcoins");
-			System.out.println("4 : Voir le mot de passe du Serveur Actuel");
-			System.out.println("5 : Debloquer toutes les competences");
-			System.out.println("6 : Quitter le menu debug");
-
-			// interactions
-			switch (choix) {
-			case "1":
-				Player.DEBUGincreasebotnet();
-				System.out.println("Le botnet est maintenant de " + Player.getbnetplayer());
-				break;
-			case "2":
-				System.out.println("Le serveur courant possede : "	+ Player.getCurrentServ().getbitcoin() + " bitcoins");
-				break;
-			case "3" :
-				Player.increasebitcoin(10);
-				System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
-				break;
-			case "4" :
-				if (Player.getCurrentServ().hasmdp()){
-					System.out.println("Mot de passe du Serveur : " + Player.getCurrentServ().getmdp());
-				} else { System.out.println("Ce serveur n'a pas de mot de passe"); };
-				break;
-			case "5" :
-				Player.getInventaire().setkill();
-				Player.getInventaire().setsteal();
-				Player.getInventaire().setbackdoor();
-				Player.getInventaire().setbruteforce();
-				System.out.println("Faire ifconfig pour verifier que tout a bien ete debloque");
-				break;
-			case "6":
-				running = false;
-				break;
-			default:
-				System.out.println("ERREUR : commande inconnue");
-				break;
-			}
-		}
-	}
+	
 
 	/******************************DEBUT DE LA CLASSE******************************************************************************/
 
