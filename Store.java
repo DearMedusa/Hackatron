@@ -83,7 +83,7 @@ public class Store {
   private static void descriptionbacktrack()
   {
     System.out.println("backtrack vous permettra de retourner sur le dernier serveur visite.");
-    System.out.println("backtrack vous coutera " + backtrackprice + " bitcoins.");
+    System.out.println("Prix : " + backtrackprice + " bitcoins.");
     System.out.println("Voulez vous acquerir backtrack ? y/n");
   }
 
