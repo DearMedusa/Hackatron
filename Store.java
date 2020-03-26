@@ -24,20 +24,20 @@ public class Store {
     switch (difficulty) {
       case 1:
         backtrackprice = 0; //backtrack est gratuit si le jeu est en facile
-        killprice = 1.456;
+        killprice = 3.456;
         stealprice = 1;
-        bruteforceprice = 1.6262;
+        bruteforceprice = 2.6262;
         break;
       case 2 :
         backtrackprice = 1.2315;
         killprice = 10.26154;
-        stealprice = 2.354;
-        bruteforceprice = 5.85215;
+        stealprice = 5.354;
+        bruteforceprice = 7.85215;
         break;
       case 3:
         backtrackprice = 3.68915;
         killprice = 20.5158;
-        stealprice = 5.1664;
+        stealprice = 7.1664;
         bruteforceprice = 10.792156;
         break;
     }
@@ -83,7 +83,7 @@ public class Store {
   private static void descriptionbacktrack()
   {
     System.out.println("backtrack vous permettra de retourner sur le dernier serveur visite.");
-    System.out.println("backtrack vous coutera " + backtrackprice + " bitcoins.");
+    System.out.println("Prix : " + backtrackprice + " bitcoins.");
     System.out.println("Voulez vous acquerir backtrack ? y/n");
   }
 
