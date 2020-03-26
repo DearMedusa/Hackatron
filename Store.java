@@ -83,28 +83,28 @@ public class Store {
   private static void descriptionBackdoor()
   {
     System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
-    System.out.println("Backdoor vous coutera " + backdoorprice + " bitcoins.");
+    System.out.println("Prix: " + backdoorprice + " bitcoins.");
     System.out.println("Voulez vous acquerir backdoor ? y/n");
   }
 
   private static void descriptionKill()
   {
     System.out.println("Kill aneantira l'antivirus d'un serveur indique pour vous. Vous pourrez ensuite vous y connecter.");
-    System.out.println("Kill ne vous coutera que la modique somme de " + killprice + " bitcoins.");
+    System.out.println("Prix: " + killprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Kill ? y/n");
   }
 
   private static void descriptionSteal()
   {
     System.out.println("Steal recuperera tous les bitcoins du serveur sur lequel vous etes et les transferera sur votre portefeuille.");
-    System.out.println("Steal ne vous coutera que la modique somme de " + stealprice + " bitcoins.");
+    System.out.println("Prix: " + stealprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Steal ? y/n");
   }
 
   private static void descriptionBruteforce()
   {
     System.out.println("Bruteforce recuperera le mot de passe de l'utilisateur du serveur sur lequel vous etes. Vous pourrez ensuite telecharger ce que vous voulez.");
-    System.out.println("Bruteforce ne vous coutera que la modique somme de " + bruteforceprice + " bitcoins.");
+    System.out.println("Prix: " + bruteforceprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Bruteforce ? y/n");
   }
 
