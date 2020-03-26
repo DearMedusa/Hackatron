@@ -68,10 +68,6 @@ public class main {
 			c.input(sc);
 			// interactions
 			switch (c.getWord1()) {
-			/*DEBUG = beta test*/
-			case "DEBUG":
-				Command.DEBUG();
-				break;
 			case "quit":
 				running = false;
 				break;
@@ -81,8 +77,8 @@ public class main {
 			case "help":
 				Command.help();
 				break;
-			case "backdoor":
-				Command.backdoor();
+			case "backtrack":
+				Command.backtrack();
 				break;
 			case "ifconfig":
 				Command.ifconfig();

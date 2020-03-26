@@ -57,7 +57,7 @@ public class Events {
   {
     if(Player.getbitcoin() > 0){ //si le joueur possede des Bitcoins
       double bitcoin = GenerationArguments.Bitcoin();
-      System.out.println("Le prix du bitcoin s'effrondre, vous perdez " + bitcoin + " bitcoins");
+      System.out.println("Le prix du bitcoin s'effondre, vous perdez " + bitcoin + " bitcoins");
       if (bitcoin > Player.getbitcoin()){ //si le nbr de bitcoins perdus est sup au nbr de bitcoins possedes
         Player.deletebitcoin();
       }

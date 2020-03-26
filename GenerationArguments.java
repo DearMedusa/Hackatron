@@ -120,19 +120,19 @@ public class GenerationArguments {
 /** Retourne un mot de passe de la liste de manière aléatoire */
   public static String mdp()
   {
-    return MotsDePasses[Random.getRandomInt(0, MotsDePasses.length)];
+    return MotsDePasses[Rng.getRandomInt(0, MotsDePasses.length)];
   }
 
   /** Retourne une adresse ip de la liste de manière aléatoire */
   public static String AdressesIp()
   {
-    return AdressesIp[Random.getRandomInt(0, AdressesIp.length)];
+    return AdressesIp[Rng.getRandomInt(0, AdressesIp.length)];
   }
 
   /** Retourne un tableau (de longueur aléatoire défnie dans un intervalle) de noms de fichier de la liste de manière aléatoire */
   public static String[] TabNomFichiers()
   {
-    int Longueurdutableau = Random.getRandomInt(1, 7); //minimum 1 fichier
+    int Longueurdutableau = Rng.getRandomInt(1, 7); //minimum 1 fichier
     String Tab[] = new String[Longueurdutableau]; //Contient les noms de fichiers
 
     for (int i = 0 ; i < Longueurdutableau; i++ ) {
@@ -140,7 +140,7 @@ public class GenerationArguments {
       * Remplis le tableau avec des noms de fichiers aléatoires sélectionnés
       * dans l'attribut de la table GenerationArguments
       */
-      Tab[i] = NomsDeFichiers[Random.getRandomInt(0, NomsDeFichiers.length)];
+      Tab[i] = NomsDeFichiers[Rng.getRandomInt(0, NomsDeFichiers.length)];
     }
 
     return Tab;
@@ -149,7 +149,7 @@ public class GenerationArguments {
   /** @return un nom d'antivirus aleatoire provenant de la liste NomAntivirus */
   public static String NomAntiV()
   {
-    return NomsAntivirus[Random.getRandomInt(0, NomsAntivirus.length)];
+    return NomsAntivirus[Rng.getRandomInt(0, NomsAntivirus.length)];
   }
 
   /** @return un double (bitcoin) : 3 chiffres apres la virgule */
@@ -169,7 +169,7 @@ public class GenerationArguments {
   /** Retourne un nom d'user de la liste de manière aléatoire */
   public static String NomUser()
   {
-    return NomsdUtilisateurs[Random.getRandomInt(0, NomsdUtilisateurs.length)];
+    return NomsdUtilisateurs[Rng.getRandomInt(0, NomsdUtilisateurs.length)];
   }
 
 

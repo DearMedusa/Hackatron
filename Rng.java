@@ -46,7 +46,7 @@ public class Rng {
   /*Getter*/
   public static boolean getRng() //return true si le joueur est repere
   {
-    int random = Random.getRandomInt(min, max);
+    int random = getRandomInt(min, max);
     if (random == 1) {
       return true;
     }

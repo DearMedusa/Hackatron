@@ -6,11 +6,11 @@ public class Store {
 
   /**
   * Attributs
-  *@param backdoorprice prix que backdoor va couter au Joueur
+  *@param backtrackprice prix que backtrack va couter au Joueur
   *@param killprice prix que kill va couter au joueur
   *@param stealprice prix que steal va couter au joueur
   */
-  private static double backdoorprice;
+  private static double backtrackprice;
   private static double killprice;
   private static double stealprice;
   private static double bruteforceprice;
@@ -23,19 +23,19 @@ public class Store {
   {
     switch (difficulty) {
       case 1:
-        backdoorprice = 0; //backdoor est gratuit si le jeu est en facile
+        backtrackprice = 0; //backtrack est gratuit si le jeu est en facile
         killprice = 1.456;
         stealprice = 1;
         bruteforceprice = 1.6262;
         break;
       case 2 :
-        backdoorprice = 1.2315;
+        backtrackprice = 1.2315;
         killprice = 10.26154;
         stealprice = 2.354;
         bruteforceprice = 5.85215;
         break;
       case 3:
-        backdoorprice = 3.68915;
+        backtrackprice = 3.68915;
         killprice = 20.5158;
         stealprice = 5.1664;
         bruteforceprice = 10.792156;
@@ -47,9 +47,9 @@ public class Store {
   * Getters
   */
 
-  public static double getbackdoorprice()
+  public static double getbacktrackprice()
   {
-    return backdoorprice;
+    return backtrackprice;
   }
 
   public static double getkillprice()
@@ -73,18 +73,18 @@ public class Store {
   {
     System.out.println("Marche Noir");
     System.out.println("Veuillez taper le numero de la section qui vous interesse.");
-    System.out.println("1- 'Backdoor'");
+    System.out.println("1- 'backtrack'");
     System.out.println("2- 'Kill'");
     System.out.println("3- 'Steal'");
     System.out.println("4- 'Bruteforce'");
     System.out.println("5- Quitter le Marche Noir");
   }
 
-  private static void descriptionBackdoor()
+  private static void descriptionbacktrack()
   {
-    System.out.println("Backdoor vous permettra de FJAIEOGJAEIGEAJGOAIEJGEO.");
-    System.out.println("Backdoor vous coutera " + backdoorprice + " bitcoins.");
-    System.out.println("Voulez vous acquerir backdoor ? y/n");
+    System.out.println("backtrack vous permettra de retourner sur le dernier serveur visite.");
+    System.out.println("backtrack vous coutera " + backtrackprice + " bitcoins.");
+    System.out.println("Voulez vous acquerir backtrack ? y/n");
   }
 
   private static void descriptionKill()
@@ -126,15 +126,15 @@ public class Store {
   	private static void buyObject(String object, double price)
   	{
   		switch (object) {
-  			case "backdoor" : //si le joueur veut acheter backdoor
-  				if (Player.getInventaire().getbackdoor()){ //cas ou il le possede deja
+  			case "backtrack" : //si le joueur veut acheter backtrack
+  				if (Player.getInventaire().getbacktrack()){ //cas ou il le possede deja
   					System.out.println("ERROR : Vous possedez deja ce materiel");
   				}
   				else {//cas ou il ne le possede pas encore
   					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
-  						Player.getInventaire().setbackdoor();
+  						Player.getInventaire().setbacktrack();
   						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
-  						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande backdoor.");
+  						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande backtrack.");
   					}
   					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
   				}
@@ -185,7 +185,7 @@ public class Store {
       public static void choicesDESC(String S){
         switch (S) {
           case "1":
-            descriptionBackdoor();
+            descriptionbacktrack();
             break;
           case "2":
             descriptionKill();
@@ -209,7 +209,7 @@ public class Store {
           case "y":
             switch (choix1) {
               case "1":
-                buyObject("backdoor", backdoorprice);
+                buyObject("backtrack", backtrackprice);
                 msg1();
                 break;
               case "2":

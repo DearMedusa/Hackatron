@@ -8,7 +8,6 @@ public class Server {
 	* Attributs
 	*@param name String nom du serveur
 	*@param content tableau de String contenant les fichiers contenu dans le serveur
-	*@param backdoored boolean
 	*@param serveursVoisins tableau de serveurs auxquels est relie le serveur
 	*@param IpAdress String ip du serveur
 	*@param avast Antivirus du serveur
@@ -22,7 +21,6 @@ public class Server {
 	private String name;
 	private String nameuser;
 	private String[] content;
-	private boolean backdoored;
 	private Server[] serveursVoisins;
 	private String IpAdress;
 	private Antivirus Avast;
@@ -41,7 +39,6 @@ public class Server {
 	public Server(String n, String nuser, String[] c) {
 		this.name = n;
 		this.nameuser = nuser;
-		this.backdoored = false;
 		this.content = c;
 		this.Avast = null;
 		this.hasAvast = false;
@@ -98,11 +95,6 @@ public class Server {
 
 	public String getIp() {
 		return this.IpAdress;
-	}
-
-	public void setbackdoor(boolean b)
-	{
-		this.backdoored = b;
 	}
 
 	public Antivirus getAntivirus()

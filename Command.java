@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Command {
 
-	
+
 
 	/******************************DEBUT DE LA CLASSE******************************************************************************/
 
@@ -67,8 +67,8 @@ public class Command {
 	public static void help() {
 		System.out.println("**COMMAND LIST*********************************************************");
 		System.out.println("ifconfig: affiche des informations sur l'etat actuel du joueur");
-		System.out.println("ls: affiche la liste des fichiers présents sur le serveur courant");
-		System.out.println("backdoor: installe une backdoor sur le serveur courant pour y contourner la securite a la prochaine connexion");
+		System.out.println("ls: affiche la liste des fichiers presents sur le serveur courant");
+		System.out.println("backtrack: permet de retourner au dernier serveur visite");
 		System.out.println("download: liste les fichiers disponibles");
 		System.out.println("connect X: se connecte au serveur voisin X");
 		System.out.println("bruteforce: affiche le mot de passe d'un serveur s'il en possede un");
@@ -81,12 +81,13 @@ public class Command {
 
 	/*
 	*Recupere le serveur actuel du Joueur
-	*Definit son attribut "backdoor" comme etant vrai
+	*Definit son attribut "backtrack" comme etant vrai
 	*/
-	public static void backdoor() {
-		if (Player.getInventaire().getbackdoor()){
+	public static void backtrack() {
+		if (Player.getInventaire().getbacktrack()){
 			GenerationAffichage.tempsdechargement();
-			Player.getCurrentServ().setbackdoor(true);
+			Player.setCurrentServ(Player.getLastServer());
+			System.out.println("Vous avez ete rapatrie au dernier serveur visite.");
 		}
 		else {
 			System.out.println("ERROR : Vous n'avez pas le materiel necessaire pour pouvoir effectuer cette action");
@@ -129,7 +130,7 @@ public class Command {
 		System.out.println("Bitcoins : "+Player.getbitcoin());
 		System.out.println("Competences : ");
 		//System.out.println("(true = vous pouvez vous servir de cette commande / false : achetez le materiel necessaire (commande : shop) pour la debloquer)");
-		System.out.println("backdoor : " + Player.getInventaire().getbackdoor());
+		System.out.println("backtrack : " + Player.getInventaire().getbacktrack());
 		System.out.println("kill : " + Player.getInventaire().getkill());
 		System.out.println("steal : " + Player.getInventaire().getsteal());//changer le nom de cette commande
 		System.out.println("bruteforce : " + Player.getInventaire().getbruteforce());
@@ -172,6 +173,7 @@ public class Command {
 					System.out.println(word2 + "est protege par un antivirus " + voisins[numServeur].getAntivirus().getname() + ": desactivez le pour vous connecter");
 				}
 				else {//si l'antivirus est disable, on positionne le joueur au serveur demande
+					Player.setLastServer(Player.getCurrentServ());//sauvegarde du dernier serveur que le joueur a visite
 					Player.setCurrentServ(voisins[numServeur]);
 					GenerationAffichage.tempsdechargement();
 					System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
@@ -179,6 +181,7 @@ public class Command {
 				}
 			}
 			else { //dans le cas contraire, on positionne le joueur au serveur demande
+				Player.setLastServer(Player.getCurrentServ());//sauvegarde du dernier serveur que le joueur a visite
 				Player.setCurrentServ(voisins[numServeur]);
 				GenerationAffichage.tempsdechargement();
 				System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
@@ -357,7 +360,7 @@ public class Command {
 			}
 		}
 
-	/**Methode qui permet d'acceder au shop du jeu // TODO : trouver un moyen de catch les erreurs humaines type faute de frappe dans le nextInt() et nextLine() et resoudre erreurs*/
+	/** Methode qui permet d'acceder au shop du jeu */
 	public static void shop()
 	{
 		Scanner sc = new Scanner(System.in);
@@ -370,6 +373,7 @@ public class Command {
 
 			if(choix.equals("5")){
 				running = false;
+				break;
 			}
 
 			Store.choicesDESC(choix);

@@ -5,7 +5,7 @@ public class Inventaire {
   * contient les informations sur les objets que le joueur possede
   */
 
-  private static boolean backdoor; //false si le joueur n'a pas achete cette competence (shop)
+  private static boolean backtrack; //false si le joueur n'a pas achete cette competence (shop)
   private static boolean kill; //false si le joueur n'a pas achete cette competence (shop)
   private static boolean steal; //false si le joueur n'a pas achete cette competence (shop)
   private static boolean bruteforce; //false si le joueur n'a pas achete cette competence (shop)
@@ -14,7 +14,7 @@ public class Inventaire {
 * Constructeur
 */
   private Inventaire() {
-    this.backdoor = false;
+    this.backtrack = false;
     this.kill = false;
     this.steal = false;
     this.bruteforce = false;
@@ -35,14 +35,14 @@ public class Inventaire {
     return InventaireHolder.Instance;
   }
 
-  public static void setbackdoor()
+  public static void setbacktrack()
   {
-    backdoor = true;
+    backtrack = true;
   }
 
-  public static boolean getbackdoor()
+  public static boolean getbacktrack()
   {
-    return backdoor;
+    return backtrack;
   }
 
   public static void setkill()

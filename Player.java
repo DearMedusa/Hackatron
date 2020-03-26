@@ -12,6 +12,7 @@ public class Player {
 	*@param bitcoin nombre de bitcoin que le joueur possède
 	*@param Inventory inventaire du Joueur
 	*@param life nombre de fois que le joueur peut se permettre de se faire prendre
+	*@param lasServer Server le serveur sur lequel le joueur etait avant
 	*/
 	private static String pseudo;
 	private static Server currentServ;
@@ -19,6 +20,7 @@ public class Player {
 	private static double bitcoin;
 	private static Inventaire Inventory;
 	private static int life;
+	private static Server lastServer;
 
 	/**
 	*Constructeur d'un objet Player
@@ -30,6 +32,7 @@ public class Player {
 		this.botnet = 1;
 		this.bitcoin = 0;
 		this.Inventory = Inventaire.getInstance();
+		this.lastServer = null;
 	}
 
 	/**Singleton*/
@@ -126,11 +129,15 @@ public class Player {
 		return life;
 	}
 
-
-/** COMMANDE DE DEBUG : NE RESTERA PAS */
-	public static void DEBUGincreasebotnet()
+	public static Server getLastServer()
 	{
-		botnet = 10;
+		return lastServer;
 	}
+
+	public static void setLastServer(Server serv)
+	{
+		lastServer = serv;
+	}
+
 
 }
