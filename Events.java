@@ -35,7 +35,7 @@ public class Events {
   /**Supprime tous les bitcoins du joueur*/
   private static void VolDeBitcoins()
   {
-    System.out.println("Vous n'avez pas suffisamment ete prudent :");
+    System.out.println("Vous n'avez pas ete suffisamment prudent :");
     System.out.println("Un autre hacker vous a vole tous vos Bitcoin");
     Player.deletebitcoin();
     System.out.println("Vous possedez : " + Player.getbitcoin() + " bitcoins");
@@ -55,7 +55,7 @@ public class Events {
   /**Fait perdre un nombre aleatoire (entre 0 et 1) de bitcoin au joueur*/
   private static void PerteBitcoin()
   {
-    if(Player.getbitcoin() < 0){ //si le joueur possede des Bitcoins
+    if(Player.getbitcoin() > 0){ //si le joueur possede des Bitcoins
       double bitcoin = GenerationArguments.Bitcoin();
       System.out.println("Le prix du bitcoin s'effrondre, vous perdez " + bitcoin + " bitcoins");
       if (bitcoin > Player.getbitcoin()){ //si le nbr de bitcoins perdus est sup au nbr de bitcoins possedes
