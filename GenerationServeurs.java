@@ -100,7 +100,7 @@ public class GenerationServeurs {
     //**************************************************************************
     //cree les connexions entre les Serveurs
     for (int i = 1 ; i < tab.length ; i++ ) {
-      int nbr = Random.getRandomInt(1, 10); //genere un nombre au hasard dans un intervalle donne (a definir)
+      int nbr = Random.getRandomInt(3, 10); //genere un nombre au hasard dans un intervalle donne (a definir)
       //ce nombre sert a determiner le nombre de serveurs connectes au serveur i de la premiere boucle
 
       Server tmp[] = new Server[nbr]; //tableau de serveurs qui seront connectes au premier serveur i selectionne
