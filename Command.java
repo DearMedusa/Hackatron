@@ -371,7 +371,7 @@ public class Command {
 			Store.menu();
 			choix = sc.nextLine();
 
-			if(choix.equals("5")){
+			if(choix.equals("6")){
 				running = false;
 				break;
 			}

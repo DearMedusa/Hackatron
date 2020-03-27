@@ -9,11 +9,14 @@ public class Store {
   *@param backtrackprice prix que backtrack va couter au Joueur
   *@param killprice prix que kill va couter au joueur
   *@param stealprice prix que steal va couter au joueur
+  *@param bruteforceprice prix que bruteforce va couter au joueur
+  *@param botnetprice cout de l'augmentation du niveau de botnet
   */
   private static double backtrackprice;
   private static double killprice;
   private static double stealprice;
   private static double bruteforceprice;
+  private static double botnetprice;
 
   /**
   *Constructeur du Store
@@ -24,21 +27,24 @@ public class Store {
     switch (difficulty) {
       case 1:
         backtrackprice = 0; //backtrack est gratuit si le jeu est en facile
-        killprice = 3.456;
+        killprice = 4.456;
         stealprice = 1;
         bruteforceprice = 2.6262;
+        botnetprice = 3.2569;
         break;
       case 2 :
         backtrackprice = 1.2315;
         killprice = 10.26154;
         stealprice = 5.354;
         bruteforceprice = 7.85215;
+        botnetprice = 12.5488;
         break;
       case 3:
         backtrackprice = 3.68915;
         killprice = 20.5158;
         stealprice = 7.1664;
         bruteforceprice = 10.792156;
+        botnetprice = 25.4892;
         break;
     }
   }
@@ -77,14 +83,22 @@ public class Store {
     System.out.println("2- 'Kill'");
     System.out.println("3- 'Steal'");
     System.out.println("4- 'Bruteforce'");
-    System.out.println("5- Quitter le Marche Noir");
+    System.out.println("5- 'Botnet'");
+    System.out.println("6- Quitter le Marche Noir");
+  }
+
+  private static void descriptionBotnet()
+  {
+    System.out.println("Le botnet vous permet de desactiver les antivirus.");
+    System.out.println("Prix : " + botnetprice + " bitcoins.");
+    System.out.println("Voulez vous augmenter votre niveau de botnet ? y/n");
   }
 
   private static void descriptionbacktrack()
   {
     System.out.println("backtrack vous permettra de retourner sur le dernier serveur visite.");
     System.out.println("Prix : " + backtrackprice + " bitcoins.");
-    System.out.println("Voulez vous acquerir backtrack ? y/n");
+    System.out.println("Voulez vous acquerir Backtrack ? y/n");
   }
 
   private static void descriptionKill()
@@ -126,6 +140,21 @@ public class Store {
   	private static void buyObject(String object, double price)
   	{
   		switch (object) {
+        case "botnet" : //si le joueur veut acquerir un niv de botnet
+          if (Player.getbnetplayer() == 10) {
+            System.out.println("ERROR : Vous etes deja au niveau maximal");
+          }
+          else {
+            if (Player.getbitcoin() >= price) {
+              Player.increaselvl();
+              Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
+              System.out.println("SUCCES : Votre niveau de botnet a ete augmente.");
+            }
+            else {
+              System.out.println("ERROR : Vous n'avez pas assez de bitcoin");
+            }
+          }
+          break;
   			case "backtrack" : //si le joueur veut acheter backtrack
   				if (Player.getInventaire().getbacktrack()){ //cas ou il le possede deja
   					System.out.println("ERROR : Vous possedez deja ce materiel");
@@ -196,6 +225,9 @@ public class Store {
           case "4":
             descriptionBruteforce();
             break;
+          case "5":
+            descriptionBotnet();
+            break;
           default:
             System.out.println("ERROR : veuillez reessayer");
             break;
@@ -222,6 +254,10 @@ public class Store {
                 break;
               case "4":
                 buyObject("bruteforce", bruteforceprice);
+                msg1();
+                break;
+              case "5":
+                buyObject("botnet", botnetprice);
                 msg1();
                 break;
               default:
