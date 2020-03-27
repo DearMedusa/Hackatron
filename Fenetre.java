@@ -14,7 +14,7 @@ public class Fenetre{
 
 	public Fenetre() {
 
-		JFrame frame = new JFrame("Carte du Réseau");
+		JFrame frame = new JFrame("Carte du Reseau");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Map map = new Map();
