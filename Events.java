@@ -55,16 +55,16 @@ public class Events {
   /**Fait perdre un nombre aleatoire (entre 0 et 1) de bitcoin au joueur*/
   private static void PerteBitcoin()
   {
-    if(Player.getbitcoin() > 0){ //si le joueur possede des Bitcoins
-      double bitcoin = GenerationArguments.Bitcoin();
+    double bitcoin = GenerationArguments.Bitcoin();
+    if(Player.getbitcoin() > bitcoin){ //si le joueur possede plus de bitcoins qu'il ne va en perdre
       System.out.println("Le prix du bitcoin s'effondre, vous perdez " + bitcoin + " bitcoins");
-      if (bitcoin > Player.getbitcoin()){ //si le nbr de bitcoins perdus est sup au nbr de bitcoins possedes
+      Player.decreasebitcoin(bitcoin);
+    }
+    else {
+        System.out.println("Le prix du bitcoin s'effondre, vous perdez tous vos bitcoins");
         Player.deletebitcoin();
-      }
-      else {
-        Player.decreasebitcoin(bitcoin);
-      }
-      System.out.println("Vous possedez : " + Player.getbitcoin() + " bitcoins");
+    }
+    System.out.println("Vous possedez : " + Player.getbitcoin() + " bitcoins");
     }
   }
 
