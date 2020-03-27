@@ -17,8 +17,8 @@ public class Map extends JPanel {
 		
 		//créer un cercle par serveur et affiche son nom
 		for (int i = 0; i < GenerationServeurs.getTabServer().length; i++) {
-			int coordXCercle = random.nextInt(w);
-			int coordYCercle = random.nextInt(h);
+			int coordXCercle = random.nextInt(w-30);
+			int coordYCercle = random.nextInt(h-30);
 			if (GenerationServeurs.getTabServer()[i].hasAntivirus()) {
 				g.setColor(Color.red);
 			}else if(GenerationServeurs.getTabServer()[i] ==Player.getCurrentServ()){
