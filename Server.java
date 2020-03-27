@@ -94,6 +94,11 @@ public class Server {
 		return this.nameuser;
 	}
 
+	public void setUsername(String name)
+	{
+		this.username = name;
+	}
+
 	public String getIp() {
 		return this.IpAdress;
 	}
@@ -111,6 +116,12 @@ public class Server {
 	public void setmdp()
 	{
 		this.mdp = GenerationArguments.mdp();
+		this.hasmdp = true;
+	}
+
+	public void setmdp(String mdp)
+	{
+		this.mdp = mdp;
 		this.hasmdp = true;
 	}
 

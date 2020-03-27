@@ -136,7 +136,8 @@ public class GenerationServeurs {
     //CREATION DU SERVEUR GAGNANT
     int serveurgagnant = Rng.getRandomInt(1, tab.length); //selectionne un des serveurs du tableau sauf serveur0
     tab[serveurgagnant].creerAntivirus(GenerationArguments.NomAntiV(), 10); //lui cree un antivirus de niveau 10
-    tab[serveurgagnant].setmdp(); //lui cree un mot de passe
+    tab[serveurgagnant].setUsername("Roegel");//Defini le nom de l'user sur "Roegel"
+    tab[serveurgagnant].setmdp("OnCodeEnFrancaisIci"); //lui cree un mot de passe personnalise
     tab[serveurgagnant].setSpecificContent("Sudoku.java", 0); //Cree le fichier gagnant a la position 0 de son Content[]
   }
 
