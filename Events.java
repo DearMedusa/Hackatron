@@ -61,8 +61,8 @@ public class Events {
       Player.decreasebitcoin(bitcoin);
     }
     else {
-        System.out.println("Le prix du bitcoin s'effondre, vous perdez tous vos bitcoins");
-        Player.deletebitcoin();
+      System.out.println("Le prix du bitcoin s'effondre, vous perdez tous vos bitcoins");
+      Player.deletebitcoin();
     }
     System.out.println("Vous possedez : " + Player.getbitcoin() + " bitcoins");
     }
