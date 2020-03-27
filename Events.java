@@ -65,7 +65,6 @@ public class Events {
       Player.deletebitcoin();
     }
     System.out.println("Vous possedez : " + Player.getbitcoin() + " bitcoins");
-    }
   }
 
   /**Fait gagner 1 niveau de botnet au joueur*/
