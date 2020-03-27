@@ -8,6 +8,57 @@ public class Antivirus {
   *@param name String, le nom de l'objet
   *@param niveau int, le niveau de l'objet
   *@param Active boolean, si l'objet est actif ou non
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   */
 
   private String name;
