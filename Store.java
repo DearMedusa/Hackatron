@@ -69,7 +69,7 @@ public class Store {
 
   private static void descriptionKill()
   {
-    System.out.println("Kill aneantira l'antivirus d'un serveur indique pour vous. Vous pourrez ensuite vous y connecter.");
+    System.out.println("Kill aneantira l'antivirus d'un serveur specifique. Vous pourrez ensuite vous y connecter.");
     System.out.println("Prix: " + killprice + " bitcoins.");
     System.out.println("Voulez vous acquerir Kill ? y/n");
   }
@@ -92,7 +92,7 @@ public class Store {
   /*achat qui s'est bien deroule*/
   private static void msg1()
   {
-    System.out.println("Merci de votre achat.");
+    System.out.println("Merci de votre visite.");
   }
 
   /*le joueur ne veut rien*/
@@ -126,7 +126,7 @@ public class Store {
           break;
   			case "backtrack" : //si le joueur veut acheter backtrack
   				if (Player.getInventaire().getbacktrack()){ //cas ou il le possede deja
-  					System.out.println("ERROR : Vous possedez deja ce materiel");
+  					System.out.println("ERROR : Vous possedez deja ce programme");
   				}
   				else {//cas ou il ne le possede pas encore
   					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
@@ -134,12 +134,12 @@ public class Store {
   						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
   						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande backtrack.");
   					}
-  					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce programme"); } //sinon on display ce msg
   				}
   				break;
   			case "kill" : //si le joueur veut acheter kill
   				if (Player.getInventaire().getkill()){ //cas ou il le possede deja
-  					System.out.println("ERROR : Vous possedez deja ce materiel");
+  					System.out.println("ERROR : Vous possedez deja ce programme");
   				}
   				else {//cas ou il ne le possede pas encore
   					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
@@ -147,12 +147,12 @@ public class Store {
   						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
   						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande kill.");
   					}
-  					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  					else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce programme"); } //sinon on display ce msg
   				}
   				break;
   				case "steal" : //si le joueur veut acheter kill
   					if (Player.getInventaire().getsteal()){ //cas ou il le possede deja
-  						System.out.println("ERROR : Vous possedez deja ce materiel");
+  						System.out.println("ERROR : Vous possedez deja ce programme");
   					}
   					else {//cas ou il ne le possede pas encore
   						if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
@@ -160,12 +160,12 @@ public class Store {
   							Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
   							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande steal.");
   						}
-  						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce programme"); } //sinon on display ce msg
   					}
   					break;
   				case "bruteforce" : //si le joueur veut acheter kill
   					if (Player.getInventaire().getbruteforce()){ //cas ou il le possede deja
-  						System.out.println("ERROR : Vous possedez deja ce materiel");
+  						System.out.println("ERROR : Vous possedez deja ce programme");
   					}
   					else {//cas ou il ne le possede pas encore
   						if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
@@ -173,7 +173,7 @@ public class Store {
   							Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoin
   							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande bruteforce.");
   						}
-  						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce materiel"); } //sinon on display ce msg
+  						else { System.out.println("ERROR : Vous n'avez pas assez de bitcoin pour acheter ce programme"); } //sinon on display ce msg
   						}
   					break;
   		}
@@ -183,7 +183,7 @@ public class Store {
       /*Affiche le menu du shop*/
       public static void menu()
       {
-        System.out.println("Marche Noir");
+        System.out.println("---------------Marche Noir:---------------");
         System.out.println("Veuillez taper le numero de la section qui vous interesse.");
         System.out.println("1- 'backtrack'");
         System.out.println("2- 'Kill'");
