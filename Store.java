@@ -49,44 +49,10 @@ public class Store {
     }
   }
 
-  /*
-  * Getters
-  */
 
-  public static double getbacktrackprice()
-  {
-    return backtrackprice;
-  }
+/*Methodes privees appellees par les methodes publiques de Store pour l'affichage*/
 
-  public static double getkillprice()
-  {
-    return killprice;
-  }
-
-  public static double getstealprice()
-  {
-    return stealprice;
-  }
-
-  public static double getbruteforceprice()
-  {
-    return bruteforceprice;
-  }
-
-
-  /** Methodes pour la commande shop() */
-  public static void menu()
-  {
-    System.out.println("Marche Noir");
-    System.out.println("Veuillez taper le numero de la section qui vous interesse.");
-    System.out.println("1- 'backtrack'");
-    System.out.println("2- 'Kill'");
-    System.out.println("3- 'Steal'");
-    System.out.println("4- 'Bruteforce'");
-    System.out.println("5- 'Botnet'");
-    System.out.println("6- Quitter le Marche Noir");
-  }
-
+  /*Description des competences que le joueur peut acquerir*/
   private static void descriptionBotnet()
   {
     System.out.println("Le botnet vous permet de desactiver les antivirus.");
@@ -122,18 +88,21 @@ public class Store {
     System.out.println("Voulez vous acquerir Bruteforce ? y/n");
   }
 
+  /*Messages par defaut*/
+  /*achat qui s'est bien deroule*/
   private static void msg1()
   {
     System.out.println("Merci de votre achat.");
   }
 
+  /*le joueur ne veut rien*/
   private static void msg2()
   {
     System.out.println("Vous ne voulez rien ? A la prochaine alors.");
   }
 
   /**
-  * Methode private servant a acheter des objets au shop
+  * Methode servant a acheter des objets au shop
   *@param object nom de l'objet
   *@param price prix de l'objet
   */
@@ -141,17 +110,17 @@ public class Store {
   	{
   		switch (object) {
         case "botnet" : //si le joueur veut acquerir un niv de botnet
-          if (Player.getbnetplayer() == 10) {
+          if (Player.getbnetplayer() == 10) { //s'il a deja atteint le niveau max
             System.out.println("ERROR : Vous etes deja au niveau maximal");
           }
-          else {
-            if (Player.getbitcoin() >= price) {
+          else { //sinon
+            if (Player.getbitcoin() >= price) { //verification si le joueur a assez de bitcoins
               Player.increaselvl();
               Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
               System.out.println("SUCCES : Votre niveau de botnet a ete augmente.");
             }
             else {
-              System.out.println("ERROR : Vous n'avez pas assez de bitcoin");
+              System.out.println("ERROR : Vous n'avez pas assez de bitcoin"); //sinon on display ce msg
             }
           }
           break;
@@ -210,9 +179,26 @@ public class Store {
   		}
   	}
 
+/*Methodes publiques utilisees par la classe Command et la methode shop()*/
+      /*Affiche le menu du shop*/
+      public static void menu()
+      {
+        System.out.println("Marche Noir");
+        System.out.println("Veuillez taper le numero de la section qui vous interesse.");
+        System.out.println("1- 'backtrack'");
+        System.out.println("2- 'Kill'");
+        System.out.println("3- 'Steal'");
+        System.out.println("4- 'Bruteforce'");
+        System.out.println("5- 'Botnet'");
+        System.out.println("6- Quitter le Marche Noir");
+      }
 
-      public static void choicesDESC(String S){
-        switch (S) {
+      /**
+      * Methode qui permet de choisir quel objet le joueur veut acheter
+      * @param choix son choix
+      */
+      public static void choicesDESC(String choix){
+        switch (choix) {
           case "1":
             descriptionbacktrack();
             break;
@@ -228,18 +214,23 @@ public class Store {
           case "5":
             descriptionBotnet();
             break;
-          default:
+          default: //en cas d'erreur d'input
             System.out.println("ERROR : veuillez reessayer");
             break;
         }
       }
 
+      /**
+      * Methode qui permet au joueur d'acheter
+      * @param choix1 choix qu'il a fait precedemment (quel objet il desire acquerir)
+      * @param choix2 choix d'achat (y ou n)
+      */
       public static void choicesBUY(String choix1, String choix2){
 
         switch(choix2){
 
-          case "y":
-            switch (choix1) {
+          case "y"://si le joueur veut acheter
+            switch (choix1) { //en fonction de son choix precedent
               case "1":
                 buyObject("backtrack", backtrackprice);
                 msg1();
@@ -260,20 +251,16 @@ public class Store {
                 buyObject("botnet", botnetprice);
                 msg1();
                 break;
-              default:
+              default: //si il y a eu une erreur d'input
                 msg2();
                 break;
             }
             break;
 
           default:
-            msg2();
+            msg2(); //si le joueur ne veut rien acheter
             break;
         }
-
       }
-
-
-
 
 }

@@ -7,6 +7,7 @@ public class Server {
 	/**
 	* Attributs
 	*@param name String nom du serveur
+	*@param nameuser String nom de l'utilisateur du serveur
 	*@param content tableau de String contenant les fichiers contenu dans le serveur
 	*@param serveursVoisins tableau de serveurs auxquels est relie le serveur
 	*@param IpAdress String ip du serveur
@@ -32,7 +33,7 @@ public class Server {
 	private boolean hasbeenmined;
 
 	/**
-	* Constructeur de serveur sans antivirus
+	* Constructeur de serveur (sans antivirus)
 	*@param n String nom du serveur
 	*@param c tableau de string contenu du serveur
 	*/

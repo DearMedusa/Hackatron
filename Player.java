@@ -12,7 +12,7 @@ public class Player {
 	*@param bitcoin nombre de bitcoin que le joueur possède
 	*@param Inventory inventaire du Joueur
 	*@param life nombre de fois que le joueur peut se permettre de se faire prendre
-	*@param lasServer Server le serveur sur lequel le joueur etait avant
+	*@param lastServer Server le serveur sur lequel le joueur etait avant
 	*/
 	private static String pseudo;
 	private static Server currentServ;
@@ -45,6 +45,22 @@ public class Player {
 	public static Player getInstance()
 	{
 		return PlayerHolder.Instance;
+	}
+
+	/** regle la vie en fonction de la difficulte (appellee par main)*/
+	public static void setlife(int difficulty)
+	{
+		switch (difficulty) {
+			case 1:
+				life = 20;
+				break;
+			case 2:
+				life = 10;
+				break;
+			case 3:
+				life = 5;
+				break;
+		}
 	}
 
 	public static void setPseudo(String p) {
@@ -101,22 +117,6 @@ public class Player {
 	public static Inventaire getInventaire()
 	{
 		return Inventory;
-	}
-
-/** regle la vie en fonction de la difficulte */
-	public static void setlife(int difficulty)
-	{
-		switch (difficulty) {
-			case 1:
-				life = 20;
-				break;
-			case 2:
-				life = 10;
-				break;
-			case 3:
-				life = 5;
-				break;
-		}
 	}
 
 	public static void decreaselife()

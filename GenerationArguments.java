@@ -53,7 +53,12 @@ public class GenerationArguments {
     "179.154.43.116", "34.138.195.204", "237.86.60.0", "255.30.117.162",
     "83.225.253.188", "221.245.166.13", "14.19.8.122", "21.218.48.56",
     "215.161.212.114", "69.175.87.44", "15.2.126.206", "0.134.46.37",
-    "69.148.79.92", "88.163.6.247", "198.182.33.246", "93.187.83.172"
+    "69.148.79.92", "88.163.6.247", "198.182.33.246", "93.187.83.172",
+    "60.182.104.158", "60.114.227.22", "146.240.203.34", "87.64.66.255",
+    "49.191.120.105", "68.174.233.199", "190.165.111.136", "50.84.45.22",
+    "3.147.131.236", "124.174.57.216", "249.172.127.10", "97.198.15.51",
+    "160.146.183.191", "177.203.241.204", "166.85.226.14", "96.156.88.128",
+    "205.11.155.5", "125.87.99.221", "168.97.129.141", "110.226.8.28"
   };
 
   /** Tableau de string contenant des contenus possibles pour une instance de serveur */
@@ -66,7 +71,7 @@ public class GenerationArguments {
     "index.html", "style.css", "IMG_20160521_115949.jpg", "Coursdecom.docx",
     "Paint.exe", "NSFW.gif", "tousmesamis.doc", "monchien.jpg", "jajaja.gif",
     "PhotosMaman.zip", "DiplômeduBac.png", "CV.pdf", "LettredeMotivation.pdf",
-    "Annonce.pdf", "SCAN_CarteVitale.png", "SCAN_IBAN-CIC.png",
+    "Annonce.pdf", "SCAN_CarteVitale.png", "SCAN_IBAN-CIC.png", "refus.stage",
     "Steam.crack", "LeagueOfGelends.exe", "CheatsGTAV.txt", "Antman.mkv",
     "Discrod.exe", "Fable.exe", "KingdomComeDeliverance.exe", "Fuirti-Loop.exe",
     "GoatSilumator.exe", "user.settings.bak", "MesVacancesEnArdeche.mp4",
@@ -76,14 +81,14 @@ public class GenerationArguments {
     "etudiant.o", "etudiant.h", "etudiant.c", "tab.php", "Magicien.class",
     "BatmanVSuperman.avi", "LeChateauAmbulant.avi", "GOT_EP6_S3.mkv",
     "factureecranpc.pdf", "factureanimalcrossing.pdf", "factureEDF.pdf",
-    "mememario.gif", "Autosave.qs", "DONTKILLMEPLZ.plr.bak",
+    "mememario.gif", "Autosave.qs", "DONTKILLMEPLZ.plr.bak", "exo1.js",
     "NOOB-LAND-2.wld.bak", "SkyrimPrefs", "ccmerged.package", "Resource.cfg",
     "JezaAnimations.package", "Sunset Valley_0x0859db3c.nhd", "Sheltered.exe",
-    "input.settings", "Random.java", "heeeeeheheheeh.jpg",
+    "input.settings", "Random.java", "heeeeeheheheeh.jpg", "oscour.js",
     "Rockstar-Games-Launcher", "eclipse-java-2019-12-R-win32-x86_64.rar",
-    "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4", "enfer.php",
+    "NeverGonnaGiveYouUp.mp3", "Womanizer.mp4", "enfer.php", "marshpa.js",
     "LoveIsGone_Guetta.mp3", "CarelessWhispers.avi", ".gitignore",
-    "It'sBritneyB*ch.mp"
+    "It'sBritneyB*ch.mp", "TdCadreRouge.java", "Meme/MarinozeMemeur.jpg"
   };
 
   /** Tableau de string contenant des noms possibles pour une instance d'antivirus d'une instance de serveur */
@@ -109,7 +114,10 @@ public class GenerationArguments {
     "Ottawabg", "Carla57-", "CityMapper", "grimalbide13", "TuchelenSlip",
     "RoadtoYKK", "divaxdcd", "crocketts", "Breur", "florenov", "qds51",
     "MadarAAh", "Naruto", "xxX-Sasuke-Xxx", "FruityLoopsQuelEnfer",
-    "MarinozeMemeur", "Marinozemystere", "Britney"
+    "MarinozeMemeur", "Marinozemystere", "Britney", "CoronaVirusSurvivor",
+    "beehJavaScript", "GalacticFiot", "Yorarien", "Yakekchoz",
+    "LaKheyRepression", "Menchov-Giro", "UnBriquetRouge", "MegaSupraBoY",
+    "CutieBoy", "Zerudo", "Bulbizarre", "Sombre_Sasuke", "JaJaJaJaJa"
   };
 
 
@@ -171,6 +179,5 @@ public class GenerationArguments {
   {
     return NomsdUtilisateurs[Rng.getRandomInt(0, NomsdUtilisateurs.length)];
   }
-
 
 }

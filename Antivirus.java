@@ -1,9 +1,9 @@
 public class Antivirus {
-  
+
   /*
   * Certains serveurs ont un antivirus
   */
-  
+
   /*
   *@param name String, le nom de l'objet
   *@param niveau int, le niveau de l'objet
@@ -28,12 +28,12 @@ public class Antivirus {
   /*
   *Setter qui désactive l'attribut Active
   */
-  
+
   public void disable()
   {
     this.Active = false;
   }
-  
+
   /*
   *Getters & Setters
   */

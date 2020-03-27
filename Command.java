@@ -2,10 +2,6 @@ import java.util.Scanner;
 
 public class Command {
 
-
-
-	/******************************DEBUT DE LA CLASSE******************************************************************************/
-
 	/*
 	* Classe qui gere le traitement et l'execution des commandes que le joueur input
 	*/
@@ -291,7 +287,7 @@ public class Command {
 		else {
 			if (Player.getInventaire().getsteal()){
 				if (Rng.getRng()) { //si le joueur est repere
-					Rng.msgRepere();
+					GenerationAffichage.msgRepere();
 				}
 				else {
 					double nombredebitcoin = Player.getCurrentServ().getbitcoin(); //recupere le nbr de bitcoin que le serveur possede
@@ -342,7 +338,7 @@ public class Command {
 						break;
 				}
 				if(Rng.getRng()){
-					Rng.msgRepere();
+					GenerationAffichage.msgRepere();
 				}
 				else {
 					GenerationAffichage.tempsdechargement();
@@ -354,7 +350,7 @@ public class Command {
 				else {
 					System.out.println("ERROR : vous avez deja mine ce serveur");
 					if (Rng.getRng()){
-						Rng.msgRepere();
+						GenerationAffichage.msgRepere();
 					}
 				}
 			}

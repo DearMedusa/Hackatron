@@ -94,6 +94,7 @@ public class GenerationAffichage {
     }
   }
 
+  /*Affiche un semblant de temps de chargement*/
   public static void tempsdechargement()
   {
     System.out.println("Processing ...");
@@ -103,6 +104,13 @@ public class GenerationAffichage {
     }
     System.out.print("]\n");
     System.out.println("Done !");
+  }
+
+  /*Previent le joueur s'il est repere et lui donne son compteur de pv*/
+  public static void msgRepere(){
+    System.out.println("Vous avez ete repere !"); //Affichage a revoir
+    Player.decreaselife();
+    System.out.println("Il vous reste " + Player.getlife() + " tentatives");
   }
 
 }

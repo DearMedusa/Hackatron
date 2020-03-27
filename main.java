@@ -14,6 +14,7 @@ public class main {
 		I.Logo();
 		I.Introduction();
 
+		//DEFINITION DU PSEUDO
 		Player.setPseudo(sc.nextLine());
 
 		I.NomUser();
@@ -45,7 +46,7 @@ public class main {
 				break;
 		}
 
-		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISI
+		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISIE
 		Store store = new Store(difficulty);
 
 		//GENERATION DE LA BARRE DE VIE DU JOUEUR EN FONCTION DE LA DIFFICULTE
@@ -54,15 +55,15 @@ public class main {
 		//GENERATION DE LA RNG EN FONCTION DE LA DIFFICULTE
 		Rng.SetDifficulty(difficulty);
 
-		//CREATION DES SERVEURS
+		//CREATION DES SERVEURS EN FONCTION DE LA DIFFICULTE
 		GenerationServeurs.getInstance();
 		GenerationServeurs.Create(difficulty);
 		Server[] TabServeurs = GenerationServeurs.getTabServer();
 
-		// DEFINITION DU SERVEUR DE DEPART
+		//DEFINITION DU SERVEUR DE DEPART
 		Player.setCurrentServ(TabServeurs[0]);
 
-		// GAME LOOP
+		//GAME LOOP
 
 		while (running) {
 			c.input(sc);
@@ -112,7 +113,8 @@ public class main {
 				break;
 			}
 
-			Events.EventAleatoire(); //Appelle la methode EventAleatoire
+			//EVENEMENTS ALEATOIRES
+			Events.EventAleatoire();
 
 			//CONDITION DE LOSE
 			if(Player.getlife() == 0){

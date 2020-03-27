@@ -7,7 +7,7 @@ public class GenerationServeurs {
   /**
   * Attributs
   *@param tab : tableau de serveur
-  *@param multiplier : multiplier de serveurs
+  *@param multiplier : multiplier de serveurs (avec et sans antivirus)
   *@param multiplier2 : multiplier de serveurs avec bitcoin
   *@param multiplier3 : multiplier de serveurs avec mots de passes
   */
@@ -68,8 +68,8 @@ public class GenerationServeurs {
         break;
     }
 
-    int nombredeserveurs = (int)(Rng.getRandomInt(5, 45) * multiplier); //Genere un nombre de serveurs compris entre 5 et 45(inclus) multiplie par le double de la difficulte
-    int nbrservavecAntivirus = (int)(Rng.getRandomInt(5, 15) * multiplier); //Genere des serveurs avec antivirus dans un intervalle compris entre 5 et 15(inclus) multiplie par le double de la difficulte
+    int nombredeserveurs = (int)(Rng.getRandomInt(15, 50) * multiplier); //Genere un nombre de serveurs compris entre 15 et 50(exclu) multiplie par le double de la difficulte
+    int nbrservavecAntivirus = (int)(Rng.getRandomInt(5, 20) * multiplier); //Genere des serveurs avec antivirus dans un intervalle compris entre 5 et 20(exclu) multiplie par le double de la difficulte
 
     int nbrtotal = nombredeserveurs + nbrservavecAntivirus;
     tab = new Server[nbrtotal]; //creation du tableau de serveurs a remplir
@@ -78,7 +78,7 @@ public class GenerationServeurs {
     // génère des serveurs sans Antivirus
     for (int i = 0 ; i < nbrtotal ; i++ ) {
       String Nom = "serveur" + i; //genere le nom du serveur
-      tab[i] = new Server(Nom, GenerationArguments.NomUser() ,GenerationArguments.TabNomFichiers());
+      tab[i] = new Server(Nom, GenerationArguments.NomUser(), GenerationArguments.TabNomFichiers());
     }
 
     //selectionne des serveurs au hasard et leur cree un antivirus de nom et niveau aleatoire
@@ -134,13 +134,10 @@ public class GenerationServeurs {
 
     //**************************************************************************
     //CREATION DU SERVEUR GAGNANT
-    int serveurgagnant = Rng.getRandomInt(1, tab.length); //selectionne un des serveurs du tableau
+    int serveurgagnant = Rng.getRandomInt(1, tab.length); //selectionne un des serveurs du tableau sauf serveur0
     tab[serveurgagnant].creerAntivirus(GenerationArguments.NomAntiV(), 10); //lui cree un antivirus de niveau 10
     tab[serveurgagnant].setmdp(); //lui cree un mot de passe
     tab[serveurgagnant].setSpecificContent("Sudoku.java", 0); //Cree le fichier gagnant a la position 0 de son Content[]
-
-    //**************************************************************************
-    //retourne le tableau de serveurs (avec et sans antivirus/mot de passe) final
   }
 
   /** Permet d'acceder au tableau de serveur depuis n'importe quelle classe et de creer un objet Server[] si besoin*/

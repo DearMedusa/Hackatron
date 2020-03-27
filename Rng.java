@@ -1,7 +1,7 @@
 public class Rng {
   /*
-  * Definit tous les elements aleatoires (ou presque) du Jeu
-  * en fonction de la difficulte
+  * Definit tous les elements aleatoires du Jeu en
+  * renvoyant des nombres aleatoires en fonction de la difficulte
   * est un singleton
   */
 
@@ -27,7 +27,7 @@ public class Rng {
 
   /*Setter*/
   public static void SetDifficulty(int difficulty){
-    switch (difficulty) { // ATTENTION : VALEURS ARBITRAIRES
+    switch (difficulty) { // ATTENTION : VALEURS ARBITRAIRES, a modifier si besoin (gameplay)
       case 1: //1 chance sur 30
         min = 0;
         max = 30;
@@ -57,13 +57,7 @@ public class Rng {
 
 
   /*Methodes*/
-  public static void msgRepere(){
-    System.out.println("Vous avez ete repere !"); //Affichage a revoir
-    Player.decreaselife();
-    System.out.println("Il vous reste " + Player.getlife() + "tentatives");
-  }
-
-    // On renvoie un nombre aléatoire entre 0 (inclus) et 1 (exclus)
+  // On renvoie un nombre aléatoire entre 0 (inclus) et 1 (exclus)
   public static double getRandom() {
     return Math.random();
   }
