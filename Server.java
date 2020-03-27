@@ -96,7 +96,7 @@ public class Server {
 
 	public void setUsername(String name)
 	{
-		this.username = name;
+		this.nameuser = name;
 	}
 
 	public String getIp() {
