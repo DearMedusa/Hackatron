@@ -83,10 +83,10 @@ public class Command {
 		if (Player.getInventaire().getbacktrack()){
 			GenerationAffichage.tempsdechargement();
 			Player.setCurrentServ(Player.getLastServer());
-			System.out.println("Vous avez ete rapatrie au dernier serveur visite.");
+			System.out.println("Vous revenez au dernier serveur visite");
 		}
 		else {
-			System.out.println("ERROR : Vous n'avez pas le materiel necessaire pour pouvoir effectuer cette action");
+			System.out.println("ERROR : Vous n'avez pas le programme necessaire pour pouvoir effectuer cette action");
 		}
 	}
 
@@ -101,7 +101,7 @@ public class Command {
 			}
 			else { System.out.println("ERROR : ce serveur n'a pas de mot de passe"); } //message d'erreur
 		}
-		else { System.out.println("ERROR : Vous n'avez pas le materiel necessaire pour pouvoir effectuer cette action"); } //message d'erreur
+		else { System.out.println("ERROR : Vous n'avez pas le programme necessaire pour pouvoir effectuer cette action"); } //message d'erreur
 
 	}
 
@@ -115,9 +115,9 @@ public class Command {
 	*/
 	public static void ifconfig() {
 		System.out.println("***********************************************************************");
-		System.out.println("Actuellement connecté à :" + Player.getCurrentServ().getName());
+		System.out.println("Actuellement connecte à :" + Player.getCurrentServ().getName());
 		System.out.println("IP adress: " + Player.getCurrentServ().getIp()); //Placeholder, à changer
-		System.out.println("Serveurs Connectés: ");
+		System.out.println("Serveurs Connectes: ");
 		Server[] voisins = Player.getCurrentServ().getVoisins();//affiche la liste des serveurs connectés au serveur courant
 		for(int i = 0; i<voisins.length;i++) {
 			System.out.println("-"+ voisins[i].getName());
@@ -173,7 +173,7 @@ public class Command {
 					Player.setCurrentServ(voisins[numServeur]);
 					GenerationAffichage.tempsdechargement();
 					System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
-					System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel."); //a changer si ca convient pas
+					System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel: " + player.getCurrentServ.getUsername); //a changer si ca convient pas
 				}
 			}
 			else { //dans le cas contraire, on positionne le joueur au serveur demande
@@ -181,7 +181,7 @@ public class Command {
 				Player.setCurrentServ(voisins[numServeur]);
 				GenerationAffichage.tempsdechargement();
 				System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
-				System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel.");
+				System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel: " + player.getCurrentServ.getUsername);
 			}
 		}
 	}
@@ -256,7 +256,7 @@ public class Command {
 						System.out.println("Antivirus de niveau " + A.getlvl());
 						int chance = Rng.getRandomInt(0,3); //1 chance sur 2 (3 est exclu de l'intervalle)
 						if (chance == 1) {
-							System.out.println("Vous avez gagné 1 niveau de botnet");
+							System.out.println("Vous avez gagne 1 niveau de botnet");
 							Player.increaselvl();
 						}
 						connect(word2);
@@ -274,7 +274,7 @@ public class Command {
 			}
 		}
 		else { //message d'erreur
-			System.out.println("ERROR : Vous n'avez pas le materiel necessaire pour pouvoir effectuer cette action");
+			System.out.println("ERROR : Vous n'avez pas le programme necessaire pour pouvoir effectuer cette action");
 		}
 	}
 
@@ -299,7 +299,7 @@ public class Command {
 				}
 			}
 			else {
-				System.out.println("ERROR : Vous n'avez pas le materiel necessaire pour pouvoir effectuer cette action");
+				System.out.println("ERROR : Vous n'avez pas le programme necessaire pour pouvoir effectuer cette action");
 			}
 		}
 	}
@@ -309,7 +309,7 @@ public class Command {
 	{
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("La puissance de ce serveur est de " + Player.getCurrentServ().getpuissance());
+		System.out.println("La puissance de ce serveur est de " + Player.getCurrentServ().getpuissance() + " teraFlops");
 		System.out.println("Si vous minez, vous prenez le risque de vous faire reperer par le proprietaire du serveur");
 		System.out.println("Voulez vous miner ce serveur ? y/n");
 
