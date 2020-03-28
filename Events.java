@@ -38,7 +38,6 @@ public class Events {
     System.out.println("Vous n'avez pas ete suffisamment prudent :");
     System.out.println("Un autre hacker vous a vole tous vos Bitcoin");
     Player.deletebitcoin();
-    System.out.println("Vous possedez : " + Player.getbitcoin() + " bitcoins");
   }
 
   /**Fait gagner un nombre aleatoire (entre 0 et 1) de bitcoin au joueur*/
