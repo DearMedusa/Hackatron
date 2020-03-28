@@ -71,7 +71,7 @@ public class Events {
   private static void GainBotnet()
   {
     System.out.println("En allant sur YuToube, vous tombez sur une video explicative.");
-    System.out.println("Grace a elle, vous gagnez 1 niveau de botnet");
+    System.out.println("Grace a elle, vous renforcez votre botnet");
     Player.increaselvl();
   }
 
