@@ -1,7 +1,7 @@
 public class Antivirus {
 
   /*
-  * Certains serveurs ont un antivirus
+  * Certains serveurs ont un antivirus, cette classe gere leur fonctionnement
   */
 
   /*
