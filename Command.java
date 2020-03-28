@@ -122,7 +122,7 @@ public class Command {
 		for(int i = 0; i<voisins.length;i++) {
 			System.out.println("-"+ voisins[i].getName());
 		}
-		System.out.println("Niveau du botnet : "+Player.getbnetplayer());
+		System.out.println("Puissance du botnet : "+Player.getbnetplayer());
 		System.out.println("Bitcoins : "+Player.getbitcoin());
 		System.out.println("Competences : ");
 		//System.out.println("(true = vous pouvez vous servir de cette commande / false : achetez le materiel necessaire (commande : shop) pour la debloquer)");
