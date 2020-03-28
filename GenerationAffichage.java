@@ -35,7 +35,6 @@ public class GenerationAffichage {
 						"Votre objectif est de telecharger Sudoku.java, vous savez que ce fichier est situe quelque part sur le reseau ");
 		System.out.println("Utilisez les commandes donnees pour parcourir les serveurs et trouver le fichier");
 		System.out.println("Faites attention, certains serveurs sont proteges par des antivirus");
-		System.out.println("Tapez help pour obtenir des informations sur les commandes disponibles");
 		System.out.println("***********************************************************************");
 		System.out.print("Saisissez votre nom d'utilisateur: ");
   }
@@ -65,6 +64,7 @@ public class GenerationAffichage {
   public static void download()
   {
     Scanner sc = new Scanner(System.in);
+    System.out.println("---------------Telechargements:---------------");  
     System.out.println("Quel fichier voulez vous telecharger ?");
     String[] contenu = Player.getCurrentServ().getContent();
     for (int i = 0 ; i < contenu.length ; i++ ) { //parcours le tableau et affiche son contenu
@@ -83,7 +83,7 @@ public class GenerationAffichage {
       else { //en cas de fichier random osef
         System.out.println("Le fichier a bien ete telecharge.");
         if (Rng.getRng()){ //augmente le niveau du joueur en fonction de la rng
-          System.out.println("Vous avez gagné 1 niveau de botnet suite a cette action");
+          System.out.println("Vous ameliorez votre botnet de 1 niveau suite a cette action");
           Player.increaselvl();
         }
       }
