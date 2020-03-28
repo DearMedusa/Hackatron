@@ -77,7 +77,7 @@ public class GenerationArguments {
     "GoatSilumator.exe", "CoursdePHP.ptsd", "MesVacancesEnArdeche.mp4",
     "PHP.osef", "VuzeTorrent.exe", "Xampp.ptsd", ".gitignore",
     "MinecraftLauncher.exe", "ParcourSup.ptsd", "Linux<Windows.elit",
-    "jdk-13.0.2.dir", "Comm>All.elit", "chat.gif", "jeu.java", "Magicien.java",
+    "JaimepalaComm.barre", "Comm>All.elit", "chat.gif", "jeu.java", "Magicien.java",
     "NyanCat.gif", "etudiant.h", "etudiant.c", "tab.php", "Magicien.class",
     "BatmanVSuperman.avi", "ALPACA.4eva", "MrRobot.mp4",
     "factureecranpc.pdf", "factureanimalcrossing.pdf", "factureEDF.pdf",
