@@ -45,7 +45,7 @@ public class main {
 				difficulty = 2;
 				break;
 		}
-		
+
 		System.out.println("Tapez HELP pour obtenir des informations sur les commandes disponibles");
 
 		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISIE

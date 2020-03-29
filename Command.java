@@ -173,7 +173,7 @@ public class Command {
 					Player.setCurrentServ(voisins[numServeur]);
 					GenerationAffichage.tempsdechargement();
 					System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
-					System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel: " + player.getCurrentServ.getUsername); //a changer si ca convient pas
+					System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel: " + Player.getCurrentServ().getUsername()); //a changer si ca convient pas
 				}
 			}
 			else { //dans le cas contraire, on positionne le joueur au serveur demande
@@ -181,7 +181,7 @@ public class Command {
 				Player.setCurrentServ(voisins[numServeur]);
 				GenerationAffichage.tempsdechargement();
 				System.out.println("Vous etes connecte au " + voisins[numServeur].getName());
-				System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel: " + player.getCurrentServ.getUsername);
+				System.out.println("Le serveur vous prendra desormais pour son utilisateur habituel: " + Player.getCurrentServ().getUsername());
 			}
 		}
 	}
