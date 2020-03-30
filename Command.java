@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -84,20 +86,25 @@ public class Command {
 
 	public static void load() {
 		System.out.println("Chargement de la partie en sauvegarde");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
+    		Player.setPseudo();
+		}catch(IOException ex) {
+			System.out.println (ex.toString());
+		}
 	}
 
 	public static void save(){
 	
 		System.out.println("Sauvegarde du jeu en cours...");
-		System.out.println("COMMANDE PAS ENCORE IMPLEMANTEE");
 		try{
-			String fileContent = "String a sauvegarder";
-    			BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
-    			writer.write(fileContent);
-    			writer.close();
+			String fileContent = Player.getPseudo()+"/"+Player.getbitcoin()+"/"+Player.getbnetplayer()+"/"+Player.getInventaire();
+    		BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
+    		writer.write(fileContent);
+    		writer.close();
 		}catch(IOException ex){
-        		System.out.println (ex.toString());
-        		System.out.println("Erreur lors de la sauvegarde du jeu ! ");
+        	System.out.println (ex.toString());
+        	System.out.println("Erreur lors de la sauvegarde du jeu ! ");
   		  }
 		
 	}
