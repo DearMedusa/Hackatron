@@ -113,6 +113,9 @@ public class main {
 			case "save":
 				Command.save();
 				break;
+			case "load":
+				Command.load();
+				break;
 			default:
 				System.out.println("ERREUR : commande inconnue");
 				break;
