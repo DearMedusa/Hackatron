@@ -80,6 +80,14 @@ public class Command {
 	
 		System.out.println("Sauvegarde du jeu en cours...");
 		System.out.println("COMMANDE PAS ENCORE IMPLEMANTEE"):
+		try(){
+			String fileContent = "Hello Learner !! Welcome to howtodoinjava.com.";
+    			BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
+    			writer.write(fileContent);
+    			writer.close();
+		}catch(){
+			System.out.println("Erreur lors de la sauvegarde du jeu !");
+		}
 		
 	}
 
