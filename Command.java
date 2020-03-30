@@ -87,7 +87,7 @@ public class Command {
     			writer.close();
 		catch(IOException ex){
         		System.out.println (ex.toString());
-        		System.out.println("Could not find file " + sFileName);
+        		System.out.println("Erreur lors de la sauvegarde du jeu ! ");
   		  }
 		
 	}
