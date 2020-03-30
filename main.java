@@ -110,6 +110,9 @@ public class main {
 			case "mine":
 				Command.mine();
 				break;
+			case "save":
+				Command.save();
+				break;
 			default:
 				System.out.println("ERREUR : commande inconnue");
 				break;
