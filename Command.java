@@ -88,25 +88,41 @@ public class Command {
 		System.out.println("Chargement de la partie en sauvegarde");
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
-    		Player.setPseudo(reader.readLine());
-		}catch(IOException ex) {
-			System.out.println (ex.toString());
+
+			String content = reader.readLine();
+			
+		      String[] temp;
+		      String delimeter = "/";
+		      temp = content.split(delimeter);
+		      System.out.println("argument 1 : " + temp[0]);
+		      Player.setPseudo(temp[0]);
+		      Player.setBitcoin(Double.parseDouble(temp[1]));
+			
+
+		} catch (IOException ex) {
+			System.out.println(ex.toString());
+			System.out.println("Le fichier de sauvegarde : 'save.txt'  n'as pas ete trouve");
 		}
 	}
 
-	public static void save(){
-	
+	public static void save() {
+
 		System.out.println("Sauvegarde du jeu en cours...");
-		try{
-			String fileContent = Player.getPseudo()+"/"+Player.getbitcoin()+"/"+Player.getbnetplayer()+"/"+Player.getInventaire();
-    		BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
-    		writer.write(fileContent);
-    		writer.close();
-		}catch(IOException ex){
-        	System.out.println (ex.toString());
-        	System.out.println("Erreur lors de la sauvegarde du jeu ! ");
-  		  }
-		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
+			if (reader.readLine() == null) {// si la ligne est vide ecrire dans le fichier
+				String fileContent = Player.getPseudo() + "/" + Player.getbitcoin() + "/" + Player.getbnetplayer() + "/"
+						+ Player.getInventaire();
+				BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
+				writer.write(fileContent);
+				writer.close();
+			} else {
+				System.out.println("Erreur ! Le fichier n'est pas vide !");
+			}
+		} catch (IOException ex) {
+			System.out.println(ex.toString());
+			System.out.println("Erreur lors de la sauvegarde du jeu ! ");
+		}
 	}
 
 	/*
