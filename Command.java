@@ -72,8 +72,13 @@ public class Command {
 		System.out.println("steal: vole les bitcoins du serveur courant (risque de se faire prendre par les autorites)");
 		System.out.println("shop : permet d'acheter des ameliorations");
 		System.out.println("save : sauvegarde le jeu");
+		System.out.println("load : charge la partie sauvegardee");
 		System.out.println("mine : permet de miner des bitcoins (Plus le serveur est puissant, plus il vous rapporte)");
 		System.out.println("quit: ferme la session Hackatron");
+	}
+	
+	public static void load(){
+		System.out.println("Chargement de la partie en sauvegarde");
 	}
 	
 	public static void save(){
