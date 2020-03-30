@@ -9,7 +9,7 @@ public class Player {
 	*@param pseudo String le pseudo du joueur
 	*@param currentServ Server le serveur sur lequel le joueur est actuellement
 	*@param botnet niveau du joueur
-	*@param bitcoin nombre de bitcoin que le joueur possède
+	*@param bitcoin nombre de bitcoin que le joueur possede
 	*@param Inventory inventaire du Joueur
 	*@param life nombre de fois que le joueur peut se permettre de se faire prendre
 	*@param lastServer Server le serveur sur lequel le joueur etait avant
@@ -107,6 +107,10 @@ public class Player {
 	public static double getbitcoin()
 	{
 		return bitcoin;
+	}
+	
+	public static void setBitcoin(double n) {
+		bitcoin = n;
 	}
 
 	public static void deletebitcoin()
