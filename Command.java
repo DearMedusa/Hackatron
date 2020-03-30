@@ -88,7 +88,7 @@ public class Command {
 		System.out.println("Chargement de la partie en sauvegarde");
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
-    		Player.setPseudo();
+    		Player.setPseudo(reader.readLine());
 		}catch(IOException ex) {
 			System.out.println (ex.toString());
 		}
