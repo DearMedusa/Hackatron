@@ -87,7 +87,7 @@ public class Player {
 	public static void increaselvl()
 	{
 		if (botnet == 10) {
-			System.out.println("Vous avez atteint le niveau maximal (10)");
+			System.out.println("Votre botnet a atteint le niveau maximal (10)");
 		}
 		else {
 			botnet += 1;
