@@ -81,13 +81,14 @@ public class Command {
 		System.out.println("Sauvegarde du jeu en cours...");
 		System.out.println("COMMANDE PAS ENCORE IMPLEMANTEE"):
 		try(){
-			String fileContent = "Hello Learner !! Welcome to howtodoinjava.com.";
+			String fileContent = "String a sauvegarder";
     			BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
     			writer.write(fileContent);
     			writer.close();
-		}catch(){
-			System.out.println("Erreur lors de la sauvegarde du jeu !");
-		}
+		catch(IOException ex){
+        		System.out.println (ex.toString());
+        		System.out.println("Could not find file " + sFileName);
+  		  }
 		
 	}
 
