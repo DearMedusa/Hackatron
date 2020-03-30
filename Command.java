@@ -85,7 +85,7 @@ public class Command {
 	
 		System.out.println("Sauvegarde du jeu en cours...");
 		System.out.println("COMMANDE PAS ENCORE IMPLEMANTEE"):
-		try(){
+		try{
 			String fileContent = "String a sauvegarder";
     			BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
     			writer.write(fileContent);
