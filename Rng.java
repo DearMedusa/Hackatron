@@ -27,7 +27,7 @@ public class Rng {
 
   /*Setter*/
   public static void SetDifficulty(int difficulty){
-    switch (difficulty) { // ATTENTION : VALEURS ARBITRAIRES, a modifier si besoin (gameplay)
+    switch (difficulty) {
       case 1: //1 chance sur 30
         min = 0;
         max = 30;
