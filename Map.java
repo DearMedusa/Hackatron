@@ -16,42 +16,42 @@ public class Map extends JPanel {
 		int w = getWidth() - 70;
 
 		// créer un cercle par serveur et affiche son nom
-		for (int i = 0; i < GenerationServeurs.getTabServer().length; i++) {
-			
+		for (int i = 0; i < GenerationServeurs.getTabServer().size(); i++) {
+
 			int coordXCercle = random.nextInt(w);//coordonnees aleatoires
 			int coordYCercle = random.nextInt(h);
 			int lastServX,currentServX = 0;
 			int lastServY,currentServY = 0;
-			
-			if (GenerationServeurs.getTabServer()[i].hasAntivirus()) {//si le serveur a un antivirus
+
+			if (GenerationServeurs.getTabServer().get(i).hasAntivirus()) {//si le serveur a un antivirus
 				g.setColor(Color.red);//l'afficher en rouge
-				
-			} else if (GenerationServeurs.getTabServer()[i] == Player.getCurrentServ()) {
+
+			} else if (GenerationServeurs.getTabServer().get(i) == Player.getCurrentServ()) {
 				g.setColor(Color.blue);//s'il s'agit du serveur du joueur le mettre en bleu
 				currentServX = coordXCercle;
 				currentServY = coordYCercle;
-				
-			} else if (GenerationServeurs.getTabServer()[i] == Player.getLastServer()) {
+
+			} else if (GenerationServeurs.getTabServer().get(i) == Player.getLastServer()) {
 				 lastServX = coordXCercle;
 				 lastServY = coordYCercle;
 				 g.drawLine(currentServX, currentServY, lastServX, lastServY);
-				 
+
 			} else {
 				g.setColor(Color.green);
 			}
 			g.drawOval(coordXCercle, coordYCercle, 50, 50);
-			g.drawString(GenerationServeurs.getTabServer()[i].getName(), coordXCercle, coordYCercle);
-			
-			
-		
-			
-			
-			
-			
-			
-	
-			
-			
+			g.drawString(GenerationServeurs.getTabServer().get(i).getName(), coordXCercle, coordYCercle);
+
+
+
+
+
+
+
+
+
+
+
 		}
 
 	}

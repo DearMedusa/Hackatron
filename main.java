@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class main {
 
@@ -60,10 +60,10 @@ public class main {
 		//CREATION DES SERVEURS EN FONCTION DE LA DIFFICULTE
 		GenerationServeurs.getInstance();
 		GenerationServeurs.Create(difficulty);
-		Server[] TabServeurs = GenerationServeurs.getTabServer();
+		List<Server> TabServeurs = GenerationServeurs.getTabServer();
 
 		//DEFINITION DU SERVEUR DE DEPART
-		Player.setCurrentServ(TabServeurs[0]);
+		Player.setCurrentServ(TabServeurs.get(0));
 
 		//GAME LOOP
 
