@@ -14,9 +14,9 @@ public class Command {
 
 	/*
 	 * Attributs
-	 * 
+	 *
 	 * @param word1 String, le premier mot de la commande
-	 * 
+	 *
 	 * @param word2 String, le deuxiÃ¨me mot de la commande
 	 */
 	private String word1;
@@ -90,14 +90,14 @@ public class Command {
 			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
 
 			String content = reader.readLine();
-			
+
 		      String[] temp;
 		      String delimeter = "/";
 		      temp = content.split(delimeter);
 		      System.out.println("argument 1 : " + temp[0]);
 		      Player.setPseudo(temp[0]);
 		      Player.setBitcoin(Double.parseDouble(temp[1]));
-			
+
 
 		} catch (IOException ex) {
 			System.out.println(ex.toString());
@@ -165,7 +165,7 @@ public class Command {
 	 */
 	public static void ifconfig() {
 		System.out.println("***********************************************************************");
-		System.out.println("Actuellement connecte Ã  :" + Player.getCurrentServ().getName());
+		System.out.println("Actuellement connecte a  :" + Player.getCurrentServ().getName());
 		System.out.println("IP adress: " + Player.getCurrentServ().getIp()); // Placeholder, Ã  changer
 		System.out.println("Serveurs Connectes: ");
 		Server[] voisins = Player.getCurrentServ().getVoisins();// affiche la liste des serveurs connectÃ©s au serveur
@@ -187,7 +187,7 @@ public class Command {
 
 	/*
 	 * Recupere le serveur actuel du Joueur
-	 * 
+	 *
 	 * @param word2 de la Commande change l'attribut currentServ du joueur comme
 	 * etant le serveur word2
 	 */
