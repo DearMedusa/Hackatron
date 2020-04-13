@@ -31,9 +31,10 @@ public class Command {
 	}
 
 	/*
-	 * Methode Input Affiche le pseudo du joueur RÃ©cupÃ¨re l'input de l'utilisateur
-	 * le stock dans un tableau "mots" Definit mots[0] comme Ã©tant l'attribut word1
-	 * Definit mots[1] comme Ã©tant l'attribut word2 si l'input contient un espace
+	 * Methode Input Affiche le pseudo du joueur RÃ©cupÃ¨re l'input de
+	 * l'utilisateur le stock dans un tableau "mots" Definit mots[0] comme Ã©tant
+	 * l'attribut word1 Definit mots[1] comme Ã©tant l'attribut word2 si l'input
+	 * contient un espace
 	 */
 	public void input(Scanner sc) {
 		System.out.print(Player.getPseudo() + "@ :");
@@ -91,13 +92,12 @@ public class Command {
 
 			String content = reader.readLine();
 
-		      String[] temp;
-		      String delimeter = "/";
-		      temp = content.split(delimeter);
-		      System.out.println("argument 1 : " + temp[0]);
-		      Player.setPseudo(temp[0]);
-		      Player.setBitcoin(Double.parseDouble(temp[1]));
-
+			String[] temp;
+			String delimeter = "/";
+			temp = content.split(delimeter);
+			System.out.println("argument 1 : " + temp[0]);
+			Player.setPseudo(temp[0]);
+			Player.setBitcoin(Double.parseDouble(temp[1]));
 
 		} catch (IOException ex) {
 			System.out.println(ex.toString());
@@ -110,15 +110,10 @@ public class Command {
 		System.out.println("Sauvegarde du jeu en cours...");
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
-			if (reader.readLine() == null) {// si la ligne est vide ecrire dans le fichier
-				String fileContent = Player.getPseudo() + "/" + Player.getbitcoin() + "/" + Player.getbnetplayer() + "/"
-						+ Player.getInventaire();
-				BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
-				writer.write(fileContent);
-				writer.close();
-			} else {
-				System.out.println("Erreur ! Le fichier n'est pas vide !");
-			}
+			String fileContent = Player.getPseudo() + "/" + Player.getbitcoin() + "/" + Player.getbnetplayer();
+			BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
+			writer.write(fileContent);
+			writer.close();
 		} catch (IOException ex) {
 			System.out.println(ex.toString());
 			System.out.println("Erreur lors de la sauvegarde du jeu ! ");
