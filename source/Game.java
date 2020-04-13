@@ -8,7 +8,8 @@ public class Game {
 		boolean running = true;
 		Scanner sc = new Scanner(System.in);
 		Player.getInstance();
-		Command c = new Command();
+		CommandeBasique cb = new CommandeBasique();
+		CommandeShop cs = new CommandeShop();
 		GenerationAffichage I = new GenerationAffichage();
 		Rng.getInstance();
 
