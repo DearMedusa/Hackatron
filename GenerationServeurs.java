@@ -145,4 +145,9 @@ public class GenerationServeurs {
   {
     return tab;
   }
+  
+  public static void resetTabServer()
+  {
+	  tab = null;
+  }
 }
