@@ -1,8 +1,9 @@
-import java.util.*;
+import java.util.List;
+import java.util.Scanner;
 
-public class main {
+public class Game {
 
-	public static void main(String[] args) {
+	public Game() {
 		boolean running = true;
 		Scanner sc = new Scanner(System.in);
 		Player.getInstance();
@@ -18,7 +19,7 @@ public class main {
 		Player.setPseudo(sc.nextLine());
 
 		I.NomUser();
-
+		
 		//DEFINITION DE LA DIFFICULTE
 		I.SetDifficulte();
 		String choice = sc.nextLine();
@@ -131,5 +132,7 @@ public class main {
 			}
 		}
 		I.QuitGame();
+
 	}
+	
 }
