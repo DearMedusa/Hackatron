@@ -1,6 +1,6 @@
 package source;
 
-public class Server {
+public class Server extends ClasseAbstraite {
 
 	/**
 	* Classe contenant le contenu et les methodes relatives aux serveurs du jeu

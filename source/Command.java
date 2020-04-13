@@ -216,7 +216,7 @@ public class Command {
 					GenerationAffichage.tempsdechargement();
 					System.out.println("ERROR : Vous ne pouvez pas vous connecter : ");
 					System.out.println(word2 + "est protege par un antivirus "
-							+ voisins[numServeur].getAntivirus().getname() + ": desactivez le pour vous connecter");
+							+ voisins[numServeur].getAntivirus().getName() + ": desactivez le pour vous connecter");
 				} else {// si l'antivirus est disable, on positionne le joueur au serveur demande
 					Player.setLastServer(Player.getCurrentServ());// sauvegarde du dernier serveur que le joueur a
 																	// visite

@@ -1,5 +1,5 @@
 package source;
-public class Antivirus {
+public class Antivirus extends ClasseAbstraite{
 
   /*
   * Certains serveurs ont un antivirus, cette classe gere leur fonctionnement
@@ -39,7 +39,7 @@ public class Antivirus {
   *Getters & Setters
   */
 
-  public String getname()
+  public String getName()
   {
     return this.name;
   }
