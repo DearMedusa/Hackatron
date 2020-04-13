@@ -16,7 +16,7 @@ public class Map extends JPanel {
 		int h = getHeight() - 0;
 		int w = getWidth() - 0;
 
-		// crÃ©er un cercle par serveur et affiche son nom
+		// créer un cercle par serveur et affiche son nom
 		for (int i = 0; i < GenerationServeurs.getTabServer().size(); i++) {
 
 			int coordXCercle = random.nextInt(15);//coordonnees aleatoires
