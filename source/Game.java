@@ -1,3 +1,4 @@
+package source;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,16 +13,16 @@ public class Game {
 		Rng.getInstance();
 
 		// INTRO
-		I.Logo();
-		I.Introduction();
+		GenerationAffichage.Logo();
+		GenerationAffichage.Introduction();
 
 		//DEFINITION DU PSEUDO
 		Player.setPseudo(sc.nextLine());
 
-		I.NomUser();
+		GenerationAffichage.NomUser();
 		
 		//DEFINITION DE LA DIFFICULTE
-		I.SetDifficulte();
+		GenerationAffichage.SetDifficulte();
 		String choice = sc.nextLine();
 		int difficulty;
 		switch (choice) {

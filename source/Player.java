@@ -1,3 +1,4 @@
+package source;
 public class Player {
 
 /*
@@ -92,6 +93,11 @@ public class Player {
 		else {
 			botnet += 1;
 		}
+	}
+	
+	public static void defaultlvl()
+	{
+		botnet = 1;
 	}
 
 	public static void increasebitcoin(double nbr)

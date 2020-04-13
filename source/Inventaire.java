@@ -1,3 +1,4 @@
+package source;
 public class Inventaire {
 
   /**
@@ -70,8 +71,16 @@ public class Inventaire {
     bruteforce = true;
   }
 
-  public static boolean getbruteforce(){
+  public static boolean getbruteforce()
+  {
     return bruteforce;
+  }
+  
+  public static void resetInventory() {
+	  backtrack = false;
+	  kill = false;
+	  steal = false;
+	  bruteforce = false;
   }
 
 

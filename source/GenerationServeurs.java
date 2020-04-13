@@ -1,3 +1,4 @@
+package source;
 import java.util.*;
 
 public class GenerationServeurs {
@@ -144,5 +145,10 @@ public class GenerationServeurs {
   public static List<Server> getTabServer()
   {
     return tab;
+  }
+  
+  public static void resetTabServer()
+  {
+	  tab = null;
   }
 }
