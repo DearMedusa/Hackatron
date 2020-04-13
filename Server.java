@@ -145,9 +145,9 @@ public class Server {
 		this.bitcoin += bitcoin;
 	}
 
-	public void decreasebitcoin(double nbr)
+	public void deletebitcoin()
 	{
-		this.bitcoin -= nbr;
+		this.bitcoin =0;
 	}
 
 	public boolean getstatutmine()

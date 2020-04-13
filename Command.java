@@ -345,7 +345,7 @@ public class Command {
 					double nombredebitcoin = Player.getCurrentServ().getbitcoin(); // recupere le nbr de bitcoin que le
 																					// serveur possede
 					Player.increasebitcoin(nombredebitcoin); // augmente l'attribut bitcoin de player
-					Player.getCurrentServ().decreasebitcoin(nombredebitcoin); // diminue l'attribut bitcoin de serveur
+					Player.getCurrentServ().deletebitcoin(); // diminue l'attribut bitcoin de serveur
 					GenerationAffichage.tempsdechargement();
 					System.out.println("Vous avez recupere " + nombredebitcoin + " bitcoins");
 					System.out.println("Vous possedez maintenant " + Player.getbitcoin() + " bitcoins");
