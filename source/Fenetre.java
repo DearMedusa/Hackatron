@@ -19,7 +19,7 @@ public class Fenetre{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Map map = new Map();
-		map.setPreferredSize(new Dimension(600,480));
+		map.setPreferredSize(new Dimension(825,605));
 		map.setBackground(Color.black);
 		frame.setResizable(false);
 		frame.setContentPane(map);;
