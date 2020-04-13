@@ -8,6 +8,6 @@ Minez des Bitcoins !
 Détruisez des Antivirus !
 Piratez des serveurs et volez leur contenu !
 Crackez des mots de passe !
-Et plein d'autres fonctionnalités
+Et plein d'autres fonctionnalités (3 slots de sauvegarde, ...)
 
 Créé à l'occasion d'un projet à l'IUT Nancy-Charlemagne en 2020
