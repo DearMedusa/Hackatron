@@ -1,3 +1,4 @@
+package tests;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -5,6 +6,9 @@ import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
+
+import source.GenerationServeurs;
+import source.Server;
 
 /**
  * 

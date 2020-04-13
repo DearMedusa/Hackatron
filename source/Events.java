@@ -1,3 +1,4 @@
+package source;
 public class Events {
   /**
   * Cette classe servira a creer des evenements aleatoires au cours du jeu

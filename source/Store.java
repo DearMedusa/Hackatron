@@ -1,3 +1,4 @@
+package source;
 public class Store {
   /*
   *Store represente le shop du Jeu

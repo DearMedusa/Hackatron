@@ -1,7 +1,10 @@
+package tests;
 import static org.junit.Assert.*;
 
 import org.junit.AfterClass;
 import org.junit.Test;
+
+import source.Inventaire;
 
 /**
  * 

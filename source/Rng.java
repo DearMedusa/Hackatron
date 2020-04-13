@@ -1,3 +1,4 @@
+package source;
 public class Rng {
   /*
   * Definit tous les elements aleatoires du Jeu en

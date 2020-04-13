@@ -1,7 +1,12 @@
+package tests;
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Test;
+
+import source.Inventaire;
+import source.Player;
+import source.Store;
 
 /**
  * teste le store, sa methode d'achat, et les methodes de reset de player et inventaire
