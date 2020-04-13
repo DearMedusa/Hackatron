@@ -160,8 +160,8 @@ public class Command {
 	 */
 	public static void ifconfig() {
 		System.out.println("***********************************************************************");
-		System.out.println("Actuellement connecte a  :" + Player.getCurrentServ().getName());
-		System.out.println("IP adress: " + Player.getCurrentServ().getIp()); // Placeholder, Ã  changer
+		System.out.println("Actuellement connecte a� :" + Player.getCurrentServ().getName());
+		System.out.println("IP adress: " + Player.getCurrentServ().getIp());
 		System.out.println("Serveurs Connectes: ");
 		Server[] voisins = Player.getCurrentServ().getVoisins();// affiche la liste des serveurs connectÃ©s au serveur
 																// courant
