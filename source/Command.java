@@ -102,7 +102,7 @@ public class Command {
 
 		} catch (IOException ex) {
 			System.out.println(ex.toString());
-			System.out.println("Le fichier de sauvegarde : 'save.txt'  n'as pas ete trouve");
+			System.out.println("Le fichier de sauvegarde : save_"+ number +".txt  n'as pas ete trouve");
 		}
 	}
 
