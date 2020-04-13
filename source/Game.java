@@ -113,10 +113,10 @@ public class Game {
 				Command.mine();
 				break;
 			case "save":
-				Command.save();
+				Command.save(Integer.parseInt(c.getWord2()));
 				break;
 			case "load":
-				Command.load();
+				Command.load(Integer.parseInt(c.getWord2()));
 				break;
 			default:
 				System.out.println("ERREUR : commande inconnue");

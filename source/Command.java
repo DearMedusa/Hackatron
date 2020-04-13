@@ -80,16 +80,16 @@ public class Command {
 		System.out
 				.println("steal: vole les bitcoins du serveur courant (risque de se faire prendre par les autorites)");
 		System.out.println("shop : permet d'acheter des ameliorations");
-		System.out.println("save : sauvegarde le jeu");
-		System.out.println("load : charge la partie sauvegardee");
+		System.out.println("save : sauvegarde le jeu dans l'un des 3 emplacements");
+		System.out.println("load : charge la partie sauvegardee dans l'un des 3 emplacements");
 		System.out.println("mine : permet de miner des bitcoins (Plus le serveur est puissant, plus il vous rapporte)");
 		System.out.println("quit: ferme la session Hackatron");
 	}
 
-	public static void load() {
+	public static void load(int number) {
 		System.out.println("Chargement de la partie en sauvegarde");
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("save_" + number + ".txt"));
 
 			String content = reader.readLine();
 
@@ -106,13 +106,13 @@ public class Command {
 		}
 	}
 
-	public static void save() {
+	public static void save(int number) {
 
 		System.out.println("Sauvegarde du jeu en cours...");
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("save.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("save_"+ number +".txt"));
 			String fileContent = Player.getPseudo() + "/" + Player.getbitcoin() + "/" + Player.getbnetplayer();
-			BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("save_"+ number +".txt"));
 			writer.write(fileContent);
 			writer.close();
 		} catch (IOException ex) {
