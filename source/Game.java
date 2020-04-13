@@ -78,46 +78,46 @@ public class Game {
 				running = false;
 				break;
 			case "ls":
-				CommandeBasique.ls();
+				Command.ls();
 				break;
 			case "help":
-				CommandeBasique.help();
+				Command.help();
 				break;
 			case "backtrack":
-				CommandeShop.backtrack();
+				Command.backtrack();
 				break;
 			case "ifconfig":
-				CommandeBasique.ifconfig();
+				Command.ifconfig();
 				break;
 			case "connect":
-				CommandeBasique.connect(c.getWord2());
+				Command.connect(c.getWord2());
 				break;
 			case "map":
-				CommandeBasique.map();
+				Command.map();
 				break;
 			case "bruteforce":
-				CommandeShop.bruteforce();
+				Command.bruteforce();
 				break;
 			case "download":
-				CommandeBasique.download();
+				Command.download();
 				break;
 			case "kill":
-				CommandeShop.kill(c.getWord2());
+				Command.kill(c.getWord2());
 				break;
 			case "steal":
-				CommandeShop.steal();
+				Command.steal();
 				break;
 			case "shop":
-				CommandeBasique.shop();
+				Command.shop();
 				break;
 			case "mine":
-				CommandeBasique.mine();
+				Command.mine();
 				break;
 			case "save":
-				CommandeBasique.save(Integer.parseInt(c.getWord2()));
+				Command.save(Integer.parseInt(c.getWord2()));
 				break;
 			case "load":
-				CommandeBasique.load(Integer.parseInt(c.getWord2()));
+				Command.load(Integer.parseInt(c.getWord2()));
 				break;
 			default:
 				System.out.println("ERREUR : commande inconnue");
