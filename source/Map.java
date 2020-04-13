@@ -13,14 +13,14 @@ public class Map extends JPanel {
 	public void paintComponent(Graphics g) {
 		Random random = new Random();
 		super.paintComponent(g);
-		int h = getHeight() - 70;
-		int w = getWidth() - 70;
+		int h = getHeight() - 0;
+		int w = getWidth() - 0;
 
-		// créer un cercle par serveur et affiche son nom
+		// crÃ©er un cercle par serveur et affiche son nom
 		for (int i = 0; i < GenerationServeurs.getTabServer().size(); i++) {
 
-			int coordXCercle = random.nextInt(w);//coordonnees aleatoires
-			int coordYCercle = random.nextInt(h);
+			int coordXCercle = random.nextInt(15);//coordonnees aleatoires
+			int coordYCercle = random.nextInt(11);//h-50 w-50
 			int lastServX,currentServX = 0;
 			int lastServY,currentServY = 0;
 
@@ -40,17 +40,10 @@ public class Map extends JPanel {
 			} else {
 				g.setColor(Color.green);
 			}
-			g.drawOval(coordXCercle, coordYCercle, 50, 50);
+			coordXCercle = coordXCercle*55;
+			coordYCercle = coordYCercle*55;//ajoute 5 pixels de padding
+			g.drawOval(coordXCercle, coordYCercle, 50, 50);//affiche un cercle par serveur
 			g.drawString(GenerationServeurs.getTabServer().get(i).getName(), coordXCercle, coordYCercle);
-
-
-
-
-
-
-
-
-
 
 
 		}
