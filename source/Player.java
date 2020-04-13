@@ -28,12 +28,12 @@ public class Player {
 	*determine tous les attributs
 	*/
 	private Player() {
-		this.pseudo = null;
-		this.currentServ = null;
-		this.botnet = 1;
-		this.bitcoin = 0;
-		this.Inventory = Inventaire.getInstance();
-		this.lastServer = null;
+		Player.pseudo = null;
+		Player.currentServ = null;
+		Player.botnet = 1;
+		Player.bitcoin = 0;
+		Player.Inventory = Inventaire.getInstance();
+		Player.lastServer = null;
 	}
 
 	/**Singleton*/

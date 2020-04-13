@@ -1,5 +1,4 @@
 package source;
-import java.lang.*;
 import java.math.*;
 
 public class GenerationArguments {

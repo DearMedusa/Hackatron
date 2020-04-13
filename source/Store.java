@@ -126,12 +126,12 @@ public class Store {
           }
           break;
   			case "backtrack" : //si le joueur veut acheter backtrack
-  				if (Player.getInventaire().getbacktrack()){ //cas ou il le possede deja
+  				if (Inventaire.getbacktrack()){ //cas ou il le possede deja
   					System.out.println("ERROR : Vous possedez deja ce programme");
   				}
   				else {//cas ou il ne le possede pas encore
   					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
-  						Player.getInventaire().setbacktrack();
+  						Inventaire.setbacktrack();
   						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
   						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande backtrack.");
   					}
@@ -139,12 +139,12 @@ public class Store {
   				}
   				break;
   			case "kill" : //si le joueur veut acheter kill
-  				if (Player.getInventaire().getkill()){ //cas ou il le possede deja
+  				if (Inventaire.getkill()){ //cas ou il le possede deja
   					System.out.println("ERROR : Vous possedez deja ce programme");
   				}
   				else {//cas ou il ne le possede pas encore
   					if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
-  						Player.getInventaire().setkill();
+  						Inventaire.setkill();
   						Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
   						System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande kill.");
   					}
@@ -152,12 +152,12 @@ public class Store {
   				}
   				break;
   				case "steal" : //si le joueur veut acheter kill
-  					if (Player.getInventaire().getsteal()){ //cas ou il le possede deja
+  					if (Inventaire.getsteal()){ //cas ou il le possede deja
   						System.out.println("ERROR : Vous possedez deja ce programme");
   					}
   					else {//cas ou il ne le possede pas encore
   						if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
-  							Player.getInventaire().setsteal();
+  							Inventaire.setsteal();
   							Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoins
   							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande steal.");
   						}
@@ -165,12 +165,12 @@ public class Store {
   					}
   					break;
   				case "bruteforce" : //si le joueur veut acheter kill
-  					if (Player.getInventaire().getbruteforce()){ //cas ou il le possede deja
+  					if (Inventaire.getbruteforce()){ //cas ou il le possede deja
   						System.out.println("ERROR : Vous possedez deja ce programme");
   					}
   					else {//cas ou il ne le possede pas encore
   						if (Player.getbitcoin() >= price){ //s'il possede suffisamment de bitcoins, il peut acheter
-  							Player.getInventaire().setbruteforce();
+  							Inventaire.setbruteforce();
   							Player.decreasebitcoin(price); //on deduit son achat de son portefeuille de bitcoin
   							System.out.println("SUCCES : Vous pouvez maintenant vous servir de la commande bruteforce.");
   						}

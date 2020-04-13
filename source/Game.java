@@ -9,7 +9,6 @@ public class Game {
 		Scanner sc = new Scanner(System.in);
 		Player.getInstance();
 		Command c = new Command();
-		GenerationAffichage I = new GenerationAffichage();
 		Rng.getInstance();
 
 		// INTRO
@@ -50,8 +49,7 @@ public class Game {
 
 		System.out.println("Tapez HELP pour obtenir des informations sur les commandes disponibles");
 
-		//CREATION DU SHOP EN FONCTION DU NIVEAU DE DIFFICULTE CHOISIE
-		Store store = new Store(difficulty);
+		new Store(difficulty);
 
 		//GENERATION DE LA BARRE DE VIE DU JOUEUR EN FONCTION DE LA DIFFICULTE
 		Player.setlife(difficulty);
@@ -132,8 +130,8 @@ public class Game {
 				running = false;
 			}
 		}
-		I.QuitGame();
-
+		GenerationAffichage.QuitGame();
+		sc.close();
 	}
 	
 }

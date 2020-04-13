@@ -13,7 +13,7 @@ public class Antivirus extends ClasseAbstraite{
 
   private String name;
   private int niveau;
-  private static boolean Active;
+  private boolean Active;
 
   /*
   *Constructeur d'un antivirus
@@ -24,7 +24,7 @@ public class Antivirus extends ClasseAbstraite{
   public Antivirus(String S, int lvl){
     this.name = S;
     this.niveau = lvl;
-    Active = true;
+    this.Active = true;
   }
   /*
   *Setter qui désactive l'attribut Active

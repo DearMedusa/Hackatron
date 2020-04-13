@@ -126,7 +126,7 @@ public class Command {
 	 * etant vrai
 	 */
 	public static void backtrack() {
-		if (Player.getInventaire().getbacktrack()) {
+		if (Inventaire.getbacktrack()) {
 			GenerationAffichage.tempsdechargement();
 			Player.setCurrentServ(Player.getLastServer());
 			System.out.println("Vous revenez au dernier serveur visite");
@@ -140,7 +140,7 @@ public class Command {
 	 * pouvoir telecharger les fichiers presents sur celui ci)
 	 */
 	public static void bruteforce() {
-		if (Player.getInventaire().getbruteforce()) { // verifie si le joueur a bruteforce sur true dans on inventaire
+		if (Inventaire.getbruteforce()) { // verifie si le joueur a bruteforce sur true dans on inventaire
 			if (Player.getCurrentServ().hasmdp()) { // verifie si le serveur a un mot de passe
 				GenerationAffichage.tempsdechargement();
 				System.out.println("Le mot de passe est : " + Player.getCurrentServ().getmdp()); // affiche le mot de
@@ -174,10 +174,10 @@ public class Command {
 		System.out.println("Competences : ");
 		// System.out.println("(true = vous pouvez vous servir de cette commande / false
 		// : achetez le materiel necessaire (commande : shop) pour la debloquer)");
-		System.out.println("backtrack : " + Player.getInventaire().getbacktrack());
-		System.out.println("kill : " + Player.getInventaire().getkill());
-		System.out.println("steal : " + Player.getInventaire().getsteal());// changer le nom de cette commande
-		System.out.println("bruteforce : " + Player.getInventaire().getbruteforce());
+		System.out.println("backtrack : " + Inventaire.getbacktrack());
+		System.out.println("kill : " + Inventaire.getkill());
+		System.out.println("steal : " + Inventaire.getsteal());// changer le nom de cette commande
+		System.out.println("bruteforce : " + Inventaire.getbruteforce());
 		System.out.println("***********************************************************************");
 	}
 
@@ -243,7 +243,7 @@ public class Command {
 	public static void map() {
 		GenerationAffichage.tempsdechargement();
 		System.out.println("Ouverture de la fenetre du reseau...");
-		Fenetre n = new Fenetre();
+		new Fenetre();
 	}
 
 	/*
@@ -278,7 +278,7 @@ public class Command {
 	 * parametre @param word2
 	 */
 	public static void kill(String word2) {
-		if (Player.getInventaire().getkill()) { // VERIFICATION si le joueur a bien la competence requise pour effectuer
+		if (Inventaire.getkill()) { // VERIFICATION si le joueur a bien la competence requise pour effectuer
 												// cette action
 			Server[] voisins = Player.getCurrentServ().getVoisins();
 			// **************************************************************************
@@ -339,7 +339,7 @@ public class Command {
 		if (Player.getCurrentServ().getbitcoin() == 0) {
 			System.out.println("ERROR : ce serveur ne possede pas de bitcoins");
 		} else {
-			if (Player.getInventaire().getsteal()) {
+			if (Inventaire.getsteal()) {
 				if (Rng.getRng()) { // si le joueur est repere
 					GenerationAffichage.msgRepere();
 				} else {

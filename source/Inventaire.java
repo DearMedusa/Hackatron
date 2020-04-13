@@ -15,10 +15,10 @@ public class Inventaire {
 * Constructeur
 */
   private Inventaire() {
-    this.backtrack = false;
-    this.kill = false;
-    this.steal = false;
-    this.bruteforce = false;
+    Inventaire.backtrack = false;
+    Inventaire.kill = false;
+    Inventaire.steal = false;
+    Inventaire.bruteforce = false;
   }
 
   /** Singleton */
