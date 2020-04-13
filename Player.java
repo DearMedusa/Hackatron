@@ -93,6 +93,11 @@ public class Player {
 			botnet += 1;
 		}
 	}
+	
+	public static void defaultlvl()
+	{
+		botnet = 1;
+	}
 
 	public static void increasebitcoin(double nbr)
 	{
