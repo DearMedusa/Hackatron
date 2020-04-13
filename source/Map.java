@@ -41,7 +41,7 @@ public class Map extends JPanel {
 				g.setColor(Color.green);
 			}
 			coordXCercle = coordXCercle*55;
-			coordYCercle = coordYCercle*55;
+			coordYCercle = coordYCercle*55;//ajoute 5 pixels de padding
 			g.drawOval(coordXCercle, coordYCercle, 50, 50);
 			g.drawString(GenerationServeurs.getTabServer().get(i).getName(), coordXCercle, coordYCercle);
 
