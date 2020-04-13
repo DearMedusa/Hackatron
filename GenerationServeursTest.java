@@ -10,10 +10,6 @@ import org.junit.Test;
  * 
  */
 
-/**
- * @author louma
- *
- */
 public class GenerationServeursTest {
 
 	/**

@@ -1,17 +1,19 @@
 import static org.junit.Assert.*;
 
+import org.junit.AfterClass;
 import org.junit.Test;
 
 /**
  * 
  */
 
-/**
- * @author louma
- *
- */
 public class InventaireTest {
 
+	@AfterClass
+	public void tearDownAfterClass() throws Exception {
+		Inventaire.resetInventory(); //reset l'inventaire
+	}
+	
 	@Test
 	public void test_backtrack() {
 		assertEquals("doit etre false", Inventaire.getbacktrack(), false);

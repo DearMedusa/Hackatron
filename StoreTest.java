@@ -7,10 +7,6 @@ import org.junit.Test;
  * teste le store, sa methode d'achat, et les methodes de reset de player et inventaire
  */
 
-/**
- * @author louma
- *
- */
 public class StoreTest {
 	
 	@After

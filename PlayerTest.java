@@ -6,10 +6,6 @@ import org.junit.Test;
  * 
  */
 
-/**
- * @author louma
- *
- */
 public class PlayerTest {
 	
 	@Test
