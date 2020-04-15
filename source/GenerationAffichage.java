@@ -65,7 +65,7 @@ public class GenerationAffichage {
   public static void download()
   {
     Scanner sc = new Scanner(System.in);
-    System.out.println("---------------Telechargements:---------------");  
+    System.out.println("---------------Telechargements:---------------");
     System.out.println("Quel fichier voulez vous telecharger ?");
     String[] contenu = Player.getCurrentServ().getContent();
     for (int i = 0 ; i < contenu.length ; i++ ) { //parcours le tableau et affiche son contenu
@@ -75,7 +75,7 @@ public class GenerationAffichage {
 
     int choix = sc.nextInt(); //recupere le choix de l'utilisateur
 
-    if (choix >= 0 && choix <= contenu.length) { //l'int doit être compris dans l'intervalle donne [0;contenu.length], sinon
+    if (choix > 0 && choix <= contenu.length) { //l'int doit être compris dans l'intervalle donne [0;contenu.length], sinon
       System.out.println("Telechargement de :" + contenu[choix-1]);
 
       if(contenu[choix-1].equals("Sudoku.java")){ //condition de victoire

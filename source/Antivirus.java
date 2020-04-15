@@ -1,11 +1,11 @@
 package source;
 public class Antivirus extends ClasseAbstraite{
 
-  /*
+  /**
   * Certains serveurs ont un antivirus, cette classe gere leur fonctionnement
   */
 
-  /*
+  /**
   *@param name String, le nom de l'objet
   *@param niveau int, le niveau de l'objet
   *@param Active boolean, si l'objet est actif ou non
@@ -15,7 +15,7 @@ public class Antivirus extends ClasseAbstraite{
   private int niveau;
   private boolean Active;
 
-  /*
+  /**
   *Constructeur d'un antivirus
   *@param S String, le nom de l'instance
   *@param lvl int le niveau de l'instance
@@ -26,7 +26,7 @@ public class Antivirus extends ClasseAbstraite{
     this.niveau = lvl;
     this.Active = true;
   }
-  /*
+  /**
   *Setter qui désactive l'attribut Active
   */
 
@@ -35,7 +35,7 @@ public class Antivirus extends ClasseAbstraite{
     this.Active = false;
   }
 
-  /*
+  /**
   *Getters & Setters
   */
 
