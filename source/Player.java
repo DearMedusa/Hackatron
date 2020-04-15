@@ -94,7 +94,7 @@ public class Player {
 			botnet += 1;
 		}
 	}
-	
+
 	public static void defaultlvl()
 	{
 		botnet = 1;
@@ -107,14 +107,14 @@ public class Player {
 
 	public static void decreasebitcoin(double nbr)
 	{
-		bitcoin += nbr;
+		bitcoin -= nbr;
 	}
 
 	public static double getbitcoin()
 	{
 		return bitcoin;
 	}
-	
+
 	public static void setBitcoin(double n) {
 		bitcoin = n;
 	}
