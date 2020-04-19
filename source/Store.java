@@ -58,7 +58,7 @@ public class Store {
    */
   public static void ChangePrice()
   {
-	  double price = Rng.getRandom() * 2;
+	  double price = GenerationArguments.Bitcoin();
 	  if (Player.getbnetplayer() >= lastlvlbotnet ) {
 		  botnetprice += price;
 	  }
