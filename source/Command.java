@@ -267,6 +267,11 @@ public class Command {
 			} else {
 				System.out.println("ERROR : mot de passe incorrect, veuillez reessayer");
 			}
+
+			if (Rng.getRng()) {
+				System.out.println("Cette action vous fait gagner un niveau de botnet");
+				Player.increaselvl();
+			}
 		} else { // si le serveur n'est pas protege par un mot de passe
 			GenerationAffichage.download();
 		}
