@@ -1,5 +1,8 @@
 package source;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Server extends ClasseAbstraite {
 
 	/**
@@ -24,7 +27,7 @@ public class Server extends ClasseAbstraite {
 	private String name;
 	private String nameuser;
 	private String[] content;
-	private Server[] serveursVoisins;
+	private Set<Server> serveursVoisins = new HashSet();
 	private String IpAdress;
 	private Antivirus Avast;
 	private boolean hasAvast;
@@ -66,12 +69,14 @@ public class Server extends ClasseAbstraite {
 	/*
 	* Getters & Setters
 	*/
-	public void setVoisins(Server[] voisins) {
-		this.serveursVoisins = voisins;
+	public void setVoisins(Server voisins) {
+		this.serveursVoisins.add(voisins);
 	}
 
 	public Server[] getVoisins() {
-		return this.serveursVoisins;
+		Server[] tmp = new Server[this.serveursVoisins.size()];
+		this.serveursVoisins.toArray(tmp);
+		return tmp;
 	}
 
 	public String[] getContent() {

@@ -100,27 +100,23 @@ public class GenerationServeurs {
     //**************************************************************************
     //cree les connexions entre les Serveurs
     for (int i = 1 ; i < tab.size() ; i++ ) {
-      int nbr = Rng.getRandomInt(3, 10); //genere un nombre au hasard dans un intervalle donne (a definir)
+      int nbr = Rng.getRandomInt(3, 15); //genere un nombre au hasard dans un intervalle donne (a definir)
       //ce nombre sert a determiner le nombre de serveurs connectes au serveur i de la premiere boucle
-
-      Server tmp[] = new Server[nbr]; //tableau de serveurs qui seront connectes au premier serveur i selectionne
 
       for ( int j = 0 ; j < nbr ; j++ ) {
         int serv = Rng.getRandomInt(0, tab.size());//selectionne un serveur au hasard
-        tmp[j] = tab.get(serv); //l'ajoute dans le tableau
+        tab.get(i).setVoisins(tab.get(serv)); //l'ajoute dans le tableau
       }
-      tab.get(i).setVoisins(tmp); //cree une connexion entre le premier serveur selectionne et le tableau de serveurs cree
     }
 
     //cas particulier pour serveur0 :
     //il est imperatif qu'il aie au moins 5 connexions (en esperant qu'aucun des 1ers serv n'a d'antivirus sinon impossible de jouer) mais pas trop non plus sinon c'est trop facile
-    int nombredeconnexions = Rng.getRandomInt(5, 10); //l'intervalle [5;9] me semble un bon compromis, independamment de la difficulte
-    Server tmp2[] = new Server[nombredeconnexions + 1];//tableau de serveurs qui sera connecte au serveur0
+    int nombredeconnexions = Rng.getRandomInt(5, 15); //l'intervalle [5;9] me semble un bon compromis, independamment de la difficulte
+    
     for (int i = 0 ; i <= nombredeconnexions ; i++ ) {
       int serv = Rng.getRandomInt(0, tab.size());//selectionne un serveur au hasard
-      tmp2[i] = tab.get(serv); //l'ajoute dans le tableau
+      tab.get(0).setVoisins(tab.get(serv)); //l'ajoute dans le tableau
     }
-    tab.get(0).setVoisins(tmp2); //cree une connexion entre serveur0 et le tableau de serveurs cree
 
     //**************************************************************************
     //cree des serveurs avec mots de passes
