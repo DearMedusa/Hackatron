@@ -59,7 +59,7 @@ public class Store {
   public static void ChangePrice()
   {
 	  double price = GenerationArguments.Bitcoin();
-	  if (Player.getbnetplayer() >= lastlvlbotnet ) {
+	  if (Player.getbnetplayer() > lastlvlbotnet ) {
 		  botnetprice += price;
 	  }
   }
