@@ -114,7 +114,7 @@ public class GenerationServeurs {
     int nombredeconnexions = Rng.getRandomInt(5, 15); //l'intervalle [5;9] me semble un bon compromis, independamment de la difficulte
     
     for (int i = 0 ; i <= nombredeconnexions ; i++ ) {
-      int serv = Rng.getRandomInt(0, tab.size());//selectionne un serveur au hasard
+      int serv = Rng.getRandomInt(1, tab.size());//selectionne un serveur au hasard
       tab.get(0).setVoisins(tab.get(serv)); //l'ajoute dans le tableau
     }
 
