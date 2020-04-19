@@ -122,7 +122,7 @@ public class GenerationArguments {
   
   /**TODO rajouter les phrases iconiques de notre H4CKER pref*/
   private static String MsgdeMamanFleur[] = {
-		  "~0~", "il t arrive quoi ?"
+		  "~0~", "il t arrive quoi ?", "su-per"
   };
 
 

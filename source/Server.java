@@ -27,7 +27,7 @@ public class Server extends ClasseAbstraite {
 	private String name;
 	private String nameuser;
 	private String[] content;
-	private Set<Server> serveursVoisins = new HashSet();
+	private Set<Server> serveursVoisins = new HashSet<Server>();
 	private String IpAdress;
 	private Antivirus Avast;
 	private boolean hasAvast;
