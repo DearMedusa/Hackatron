@@ -59,7 +59,7 @@ public class Store {
   public static void ChangePrice()
   {
 	  double price = Rng.getRandom() * 5;
-	  if (Player.getbnetplayer() > lastlvlbotnet ) {
+	  if (Player.getbnetplayer() >= lastlvlbotnet ) {
 		  botnetprice += price;
 	  }
   }
