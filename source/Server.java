@@ -36,6 +36,7 @@ public class Server extends ClasseAbstraite {
 	private double bitcoin;
 	private int puissance;
 	private boolean hasbeenmined;
+	private int download = 0;
 
 	/**
 	* Constructeur de serveur (sans antivirus)
@@ -170,6 +171,16 @@ public class Server extends ClasseAbstraite {
 	public int getpuissance()
 	{
 		return this.puissance;
+	}
+	
+	public void increasedownload()
+	{
+		this.download += 1;
+	}
+	
+	public int getdownload()
+	{
+		return download;
 	}
 
 }

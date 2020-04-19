@@ -73,7 +73,7 @@ public class Command {
 		System.out.println("ifconfig: affiche des informations sur l'etat actuel du joueur");
 		System.out.println("ls: affiche la liste des fichiers presents sur le serveur courant");
 		System.out.println("backtrack: permet de retourner au dernier serveur visite");
-		System.out.println("download: liste les fichiers disponibles");
+		System.out.println("download: liste les fichiers disponibles (ne peut etre utilise que 3 fois par serveur)");
 		System.out.println("connect X: se connecte au serveur voisin X");
 		System.out.println("bruteforce: affiche le mot de passe d'un serveur s'il en possede un");
 		System.out.println("kill: desactive l'antivirus si le niveau de botnet est suffisant");
@@ -254,28 +254,32 @@ public class Command {
 	 * de codes necessaire a l'execution
 	 */
 	public static void download() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Bonjour " + Player.getCurrentServ().getUsername() + " !");// affichage du nom de l'user du
-																						// serveur
-		if (Player.getCurrentServ().hasmdp()) { // si le serveur a un mdp, le joueur doit le taper pour pouvoir
-												// telecharger les fichiers
-			System.out.println("Mot de passe ?");
-			String mdp = sc.nextLine();
+		Player.getCurrentServ().increasedownload();
+		if (Player.getCurrentServ().getdownload() > 3) {
+			System.out.println("ERROR : vous ne pouvez plus telecharger de fichiers sur ce serveur");
+		} else {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Bonjour " + Player.getCurrentServ().getUsername() + " !");// affichage du nom de l'user du
+																							// serveur
+			if (Player.getCurrentServ().hasmdp()) { // si le serveur a un mdp, le joueur doit le taper pour pouvoir
+													// telecharger les fichiers
+				System.out.println("Mot de passe ?");
+				String mdp = sc.nextLine();
 
-			if (Player.getCurrentServ().getmdp().equals(mdp)) { // si le joueur a entre le bon mot de passe
+				if (Player.getCurrentServ().getmdp().equals(mdp)) { // si le joueur a entre le bon mot de passe
+					GenerationAffichage.download();
+				} else {
+					System.out.println("ERROR : mot de passe incorrect, veuillez reessayer");
+				}
+
+				if (Rng.getRng()) {
+					System.out.println("Cette action vous fait gagner un niveau de botnet");
+					Player.increaselvl();
+				}
+			} else { // si le serveur n'est pas protege par un mot de passe
 				GenerationAffichage.download();
-			} else {
-				System.out.println("ERROR : mot de passe incorrect, veuillez reessayer");
 			}
-
-			if (Rng.getRng()) {
-				System.out.println("Cette action vous fait gagner un niveau de botnet");
-				Player.increaselvl();
-			}
-		} else { // si le serveur n'est pas protege par un mot de passe
-			GenerationAffichage.download();
 		}
-
 	}
 
 	/**
