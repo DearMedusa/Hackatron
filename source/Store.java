@@ -19,7 +19,7 @@ public class Store {
   private static double bruteforceprice;
   private static double botnetprice;
   
-  private static int lastlvlbotnet = 0;
+  private static int lastlvlbotnet = 1;
 
   /**
   *Constructeur du Store
