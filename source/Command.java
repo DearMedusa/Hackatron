@@ -413,6 +413,8 @@ public class Command {
 		Scanner sc = new Scanner(System.in);
 		String choix;
 		boolean running = true;
+		
+		Store.ChangePrice();
 
 		while (running) {
 			Store.menu();

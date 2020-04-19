@@ -106,6 +106,7 @@ public class Game {
 				break;
 			case "shop":
 				Command.shop();
+				Store.setlastlevelbotnet();
 				break;
 			case "mine":
 				Command.mine();

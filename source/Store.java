@@ -18,6 +18,8 @@ public class Store {
   private static double stealprice;
   private static double bruteforceprice;
   private static double botnetprice;
+  
+  private static int lastlvlbotnet = 0;
 
   /**
   *Constructeur du Store
@@ -48,6 +50,23 @@ public class Store {
         botnetprice = 25.4892;
         break;
     }
+  }
+  
+  /**
+   * Methode publique appelle a chaque fois que le joueur lance la commande shop, modifie les prix du store
+   * augmente le prix du botnet 
+   */
+  public static void ChangePrice()
+  {
+	  double price = Rng.getRandom() * 5;
+	  if (Player.getbnetplayer() > lastlvlbotnet ) {
+		  botnetprice += price;
+	  }
+  }
+  /** recupere le dernier lvl de botnet du joueur (juste apres qu'il aie quitte le shop)*/
+  public static void setlastlevelbotnet()
+  {
+	  lastlvlbotnet = Player.getbnetplayer();
   }
 
 
