@@ -11,21 +11,38 @@ public class Events {
   //Appelle un evenement aleatoire de la classe event
   public static void EventAleatoire()
   {
-    int rng = Rng.getRandomInt(0, 50); // X (= nbr d'events) chances sur 50 qu'il y ai un event aleatoire
-    switch (rng) {
-      case 1:
-        VolDeBitcoins();
-        break;
-      case 2:
-        GainBitcoin();
-        break;
-      case 3:
-        PerteBitcoin();
-        break;
-      case 4:
-        GainBotnet();
-        break;
-    }
+	int CHOICE = Rng.getRandomInt(0, 2); //Choisi quelle serie d'events va se produire
+	
+	if (CHOICE == 0)
+	{
+		int rng1 = Rng.getRandomInt(0, 50); // X (= nbr d'events) chances sur 50 qu'il y ai un event aleatoire
+		switch (rng1) {
+	      case 1:
+	    	  VolDeBitcoins();
+	    	  break;
+	      case 2:
+	    	  GainBitcoin();
+	    	  break;
+	      case 3:
+	    	  PerteBitcoin();
+	    	  break;
+	      case 4:
+	    	  GainBotnet();
+	    	  break;
+	    }
+	}
+	else 
+	{
+		int rng2 = Rng.getRandomInt(0, 100); // X (= nbr d'events) chances sur 50 qu'il y ai un event aleatoire
+		switch (rng2) {
+			case 1 :
+				HackedByMamanFleur();
+				  break;
+			case 2 :
+				GiftFromMamanFleur();
+				break;
+		}
+	}
   }
 
 
@@ -73,6 +90,23 @@ public class Events {
     System.out.println("En allant sur YuToube, vous tombez sur une video explicative.");
     System.out.println("Grace a elle, vous renforcez votre botnet");
     Player.increaselvl();
+  }
+  
+  /**HACKED BY MAMANFLEUR*/
+  private static void HackedByMamanFleur()
+  {
+	  System.out.println("H4CKED BY MAMANFLEUR");
+	  System.out.println(GenerationArguments.Mamanfleur());
+	  VolDeBitcoins();
+  }
+  
+  /**GIFT MAMANFLEUR*/
+  private static void GiftFromMamanFleur()
+  {
+	  System.out.println("MESSAGE FROM MAMANFLEUR");
+	  System.out.println("Petit cadeau pas pique des hannetons pour toi jeune apprenti ~0~");
+	  Inventaire.setkill();
+	  System.out.println("Vous pouvez maintenant desactiver des antivirus.");
   }
 
 

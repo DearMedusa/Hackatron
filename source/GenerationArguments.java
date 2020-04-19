@@ -119,12 +119,23 @@ public class GenerationArguments {
     "LaKheyRepression", "Menchov-Giro", "UnBriquetRouge", "MegaSupraBoY",
     "CutieBoy", "Zerudo", "Bulbizarre", "Sombre_Sasuke", "JaJaJaJaJa"
   };
+  
+  /**TODO rajouter les phrases iconiques de notre H4CKER pref*/
+  private static String MsgdeMamanFleur[] = {
+		  "~0~", "il t arrive quoi ?"
+  };
 
 
 /**
 * Méthodes
 */
 
+  /** retourne un msg de maman fleur */
+  public static String Mamanfleur()
+  {
+	  return MsgdeMamanFleur[Rng.getRandomInt(0, MsgdeMamanFleur.length)];
+  }
+  
 /** Retourne un mot de passe de la liste de manière aléatoire */
   public static String mdp()
   {
